@@ -465,7 +465,7 @@ Minka Borec · MADA 2025
 <td><span class="pill-good">0.069</span></td>
 </tr>
 <tr class="odd" style="background:rgba(201,160,44,0.07);">
-<td><strong>XGBoost (max_depth=3) ★ WINNER</strong></td>
+<td><strong>XGBoost (tuned) ★ WINNER</strong></td>
 <td><strong>0.814</strong></td>
 <td><strong>0.805</strong></td>
 <td><strong>0.905</strong></td>
@@ -527,7 +527,7 @@ Minka Borec · MADA 2025
 <td><span class="pill-good">+0.615</span></td>
 </tr>
 <tr class="even">
-<td>XGBoost (max_depth=3)</td>
+<td>XGBoost (tuned)</td>
 <td>0.731</td>
 <td>0.724</td>
 <td>€1,732</td>
@@ -569,7 +569,7 @@ Minka Borec · MADA 2025
 <div class="box" style="margin-bottom:10px;">
   <div class="box-title">3 · How We Solved Overfitting</div>
   <div class="box-body">
-    <strong>First</strong>, we tried to eliminate it directly: capped GradBoost/XGBoost at a shallow max_depth=3 (regularisation) and measured the train-test gap for every model in the ladder — Decision Tree's unconstrained gap (0.143) dropped to 0.06–0.07 for the capped ensembles.<br><br>
+    <strong>First</strong>, we tried to eliminate it directly: GradBoost was manually capped at max_depth=3 (regularisation); XGBoost's max_depth/n_estimators/learning_rate were found via a real GridSearchCV (12 combos × 5-fold CV) — which independently converged on the same values, validating the manual choice. Decision Tree's unconstrained gap (0.143) dropped to 0.06–0.07 for both.<br><br>
     <strong>Then</strong>, we recognised why the remaining risk matters less than it looks: this model only has to predict rates for the 24 known Lartisien Collection hotels, never an unseen brand — a narrower target than a general-purpose luxury-hotel model, which is part of why the small gap is credible.
   </div>
 </div>

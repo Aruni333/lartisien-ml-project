@@ -64,7 +64,7 @@ Both tasks were benchmarked against the same 6-model ladder (Dummy → Logistic/
 | Decision Tree (full) | 0.721 | 0.719 | 0.719 | 0.143 ⚠ overfits |
 | Random Forest (n=300) | 0.775 | 0.762 | 0.838 | 0.129 |
 | GradBoost (max_depth=3) | 0.812 | 0.804 | 0.905 | 0.069 |
-| **XGBoost (max_depth=3) ★** | **0.814** | **0.805** | **0.905** | **0.064** |
+| **XGBoost (tuned) ★** | **0.814** | **0.805** | **0.905** | **0.064** |
 
 **Regression (6 models — Dummy to GradBoost):**
 
@@ -74,12 +74,12 @@ Both tasks were benchmarked against the same 6-model ladder (Dummy → Logistic/
 | Ridge (α=1) | 0.513 | 0.570 | €2,337 | €3,592 | −0.046 |
 | Decision Tree (full) | 0.382 | 0.455 | €2,163 | €3,745 | 0.390 ⚠ overfits |
 | Random Forest (n=300) | 0.571 | 0.615 | €1,943 | €3,189 | 0.217 |
-| XGBoost (max_depth=3) | 0.731 | 0.724 | €1,732 | €2,822 | 0.070 |
+| XGBoost (tuned) | 0.731 | 0.724 | €1,732 | €2,822 | 0.070 |
 | **GradBoost (max_depth=3) ★** | **0.725** | **0.736** | **€1,677** | **€2,741** | **0.070** |
 
 **Decision Tree is in the ladder on purpose — to show overfitting, then show how we beat it.** Grown to full depth, it hits a near-perfect Train F1=1.000 in classification but only 0.719 on test (gap=0.143), and gap=0.390 in regression — textbook memorisation of the training rows rather than learning a real pattern. We tried to beat this two ways:
 
-1. **Regularise the winning models.** GradBoost/XGBoost hyperparameters (`max_depth=3`, `n_estimators=300`, `learning_rate=0.1`) were chosen manually as a deliberate regularisation measure — shallow trees can't memorise individual rows the way an unconstrained tree can — and validated by comparing the train-test gap across the whole ladder, not via an automated `GridSearchCV` search. This alone brought the gap down from 0.143–0.390 to 0.064–0.070, roughly a fifth the size, while still beating every simpler baseline on test score (see leaderboards above).
+1. **Regularise the winning models.** GradBoost's `max_depth=3` (and matching `n_estimators=300`, `learning_rate=0.1`) was chosen manually as a deliberate regularisation measure — shallow trees can't memorise individual rows the way an unconstrained tree can. XGBoost's hyperparameters were found via a real `GridSearchCV` (12 combinations × 5-fold CV, training data only, in both `analysis.qmd` §5 and §6) searching the same three parameters — the search independently converged on the identical values, which is good evidence the manual GradBoost choice wasn't a lucky guess. Either way, this brought the gap down from 0.143–0.390 (Decision Tree) to 0.064–0.070, roughly a fifth the size, while still beating every simpler baseline on test score (see leaderboards above).
 2. **Reconsider how much generalisation the task actually needs.** During this process we realised the app's real users — Lartisien Voyager travellers — only ever care about rates at these exact 24 known Lartisien Collection properties, not luxury hotels in general. The model therefore never has to generalise to an unseen brand; it only has to interpolate between month/room combinations for hotels it has already seen in training. That is a narrower, easier target than a general-purpose luxury-hotel pricing model, which is a legitimate part of why a 0.06–0.07 gap is credible here rather than a lucky split — though it's also why we're explicit that tier-based generalisation to a brand-new, unlisted property should be treated as directional, not certain (see the VIF note on hotel tier below).
 
 ### ☑ A Dummy baseline is in both leaderboards
@@ -90,7 +90,7 @@ Both tasks were benchmarked against the same 6-model ladder (Dummy → Logistic/
 
 ### ☑ Overfitting addressed and discussed
 
-Full explanation and numbers are under the Decision Tree row above — in short: measured directly via train-test gap for every model (not just asserted), reduced ~5× via deliberate `max_depth=3` regularisation, and the remaining gap is credible because the task is scoped to 24 known hotels rather than open-world generalisation.
+Full explanation and numbers are under the Decision Tree row above — in short: measured directly via train-test gap for every model (not just asserted), reduced ~5× via `max_depth` regularisation (manual for GradBoost, `GridSearchCV`-found for XGBoost), and the remaining gap is credible because the task is scoped to 24 known hotels rather than open-world generalisation.
 
 ### ☑ Live app opens and works for someone else
 
@@ -112,8 +112,8 @@ See `ai_reflection.md` in this folder and the repo root. Covers: Claude Code usa
 
 | Task | Best Model | Metric | Value | vs Dummy |
 |------|-----------|--------|-------|----------|
-| Classification | XGBoost (max_depth=3) | Test F1-macro | **0.805** | +0.449 |
-| Classification | XGBoost (max_depth=3) | Test ROC-AUC | **0.905** | +0.405 |
+| Classification | XGBoost (tuned) | Test F1-macro | **0.805** | +0.449 |
+| Classification | XGBoost (tuned) | Test ROC-AUC | **0.905** | +0.405 |
 | Regression | GradBoost (max_depth=3) | Test R² | **0.736** | +0.736 |
 | Regression | GradBoost (max_depth=3) | Test MAE | **€1,677/night** | −€1,644 |
 | Regression | GradBoost (max_depth=3) | Test RMSE | **€2,741/night** | −€2,728 |

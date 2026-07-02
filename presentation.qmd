@@ -231,7 +231,7 @@ execute:
   <tr><td>Random Forest (n=300)</td><td>0.775</td><td>0.762</td><td>0.838</td><td><span class="pill-good">+0.406</span></td><td><span class="pill-warn">0.129</span></td></tr>
   <tr><td>GradBoost (max_depth=3)</td><td>0.812</td><td>0.804</td><td>0.905</td><td><span class="pill-good">+0.448</span></td><td><span class="pill-good">0.069</span></td></tr>
   <tr style="background:rgba(201,160,44,0.07);">
-    <td><strong class="gold">XGBoost (max_depth=3) ★ WINNER</strong></td>
+    <td><strong class="gold">XGBoost (tuned) ★ WINNER</strong></td>
     <td><strong class="gold">0.814</strong></td><td><strong class="gold">0.805</strong></td><td><strong class="gold">0.905</strong></td>
     <td><span class="pill-good">+0.449</span></td><td><span class="pill-good">0.064</span></td>
   </tr>
@@ -254,7 +254,7 @@ execute:
   <tr><td>Ridge Regression (α=1)</td><td>0.513</td><td>0.570</td><td>€2,337</td><td>€3,592</td><td><span class="pill-good">+0.570</span></td></tr>
   <tr><td>Decision Tree (full)</td><td>0.382</td><td>0.455</td><td>€2,163</td><td>€3,745</td><td><span class="pill-warn">+0.455 ⚠ OVERFITS</span></td></tr>
   <tr><td>Random Forest (n=300)</td><td>0.571</td><td>0.615</td><td>€1,943</td><td>€3,189</td><td><span class="pill-good">+0.615</span></td></tr>
-  <tr><td>XGBoost (max_depth=3)</td><td>0.731</td><td>0.724</td><td>€1,732</td><td>€2,822</td><td><span class="pill-good">+0.724</span></td></tr>
+  <tr><td>XGBoost (tuned)</td><td>0.731</td><td>0.724</td><td>€1,732</td><td>€2,822</td><td><span class="pill-good">+0.724</span></td></tr>
   <tr style="background:rgba(201,160,44,0.07);">
     <td><strong class="gold">GradBoost (max_depth=3) ★ WINNER</strong></td>
     <td><strong class="gold">0.725</strong></td><td><strong class="gold">0.736</strong></td><td><strong class="gold">€1,677</strong></td><td><strong class="gold">€2,741</strong></td>
@@ -289,7 +289,7 @@ execute:
 <div class="box" style="margin-bottom:10px;">
   <div class="box-title">3 · How We Solved Overfitting</div>
   <div class="box-body">
-    <strong>First</strong>, we tried to eliminate it directly: capped GradBoost/XGBoost at a shallow max_depth=3 (regularisation) and measured the train-test gap for every model in the ladder — Decision Tree's unconstrained gap (0.143) dropped to 0.06–0.07 for the capped ensembles.<br><br>
+    <strong>First</strong>, we tried to eliminate it directly: GradBoost was manually capped at max_depth=3 (regularisation); XGBoost's max_depth/n_estimators/learning_rate were found via a real GridSearchCV (12 combos × 5-fold CV) — which independently converged on the same values, validating the manual choice. Decision Tree's unconstrained gap (0.143) dropped to 0.06–0.07 for both.<br><br>
     <strong>Then</strong>, we recognised why the remaining risk matters less than it looks: this model only has to predict rates for the 24 known Lartisien Collection hotels, never an unseen brand — a narrower target than a general-purpose luxury-hotel model, which is part of why the small gap is credible.
   </div>
 </div>

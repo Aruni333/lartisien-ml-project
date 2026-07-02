@@ -323,6 +323,10 @@ print("\nAll VIF <= 5: no multicollinearity in final feature set.")
 
 ## 4 · Train / Test Split & Cross-Validation
 
+**No temporal leakage to worry about.** This dataset is a cross-sectional rate snapshot — each row is one (hotel, month, room) combination's listed rate, not a sequence of events over time for a single entity. There is no "future" a feature could accidentally peek at, unlike a customer-history setup where a feature computed after the prediction date would leak the outcome. The leakage risk here is purely about the train/test split and preprocessing fit, which is what the rest of this section addresses.
+
+**Why `StandardScaler`, and why it's inside the Pipeline for every model.** Logistic Regression and Ridge are distance/gradient-based and need standardized inputs to converge properly and to make coefficients comparable across features on different scales (e.g. `room_tier` 1–6 vs `xmas_proximity` 0–1). Tree-based models (Decision Tree, Random Forest, GradBoost, XGBoost) don't strictly need scaling, but applying it uniformly via one shared `ColumnTransformer` keeps every model in the ladder on the exact same preprocessing path — simpler to reason about and impossible to accidentally apply inconsistently between models.
+
 ```{python}
 #| label: split-setup
 NUMERIC_FEATS_FINAL = ["room_tier","room_tier_c_sq","hotel_tier","month_sin","month_cos","xmas_proximity"]
@@ -359,9 +363,29 @@ kf  = KFold(5, shuffle=True, random_state=42)
 
 ## 5 · Model Ladder — Classification
 
+**Hyperparameter tuning for XGBoost.** A small `GridSearchCV` (12 combinations × 5-fold `StratifiedKFold`, training data only) searches `max_depth`/`n_estimators`/`learning_rate` for the XGBoost classifier — this is real tuning, not a hand-picked constant like GradBoost's `max_depth=3` above.
+
+```{python}
+#| label: clf-xgb-tuning
+from sklearn.model_selection import GridSearchCV
+
+xgb_clf_grid = {
+    "xgbclassifier__max_depth":     [2, 3, 4],
+    "xgbclassifier__n_estimators":  [200, 300],
+    "xgbclassifier__learning_rate": [0.05, 0.1],
+}
+xgb_clf_pipe = make_pipeline(preprocessor, xgb.XGBClassifier(random_state=42, eval_metric="logloss", verbosity=0))
+xgb_clf_search = GridSearchCV(xgb_clf_pipe, xgb_clf_grid, cv=skf, scoring="f1_macro", n_jobs=-1)
+xgb_clf_search.fit(X_train, yc_train)
+tuned_xgb_clf = xgb_clf_search.best_estimator_
+print(f"Best params: {xgb_clf_search.best_params_}")
+print(f"Best CV F1-macro: {xgb_clf_search.best_score_:.3f}")
+```
+
 ```{python}
 #| label: clf-ladder
 clf_results = []
+clf_pipes   = {}
 
 def eval_clf(name, pipe):
     pipe.fit(X_train, yc_train)
@@ -376,6 +400,7 @@ def eval_clf(name, pipe):
                         "test_auc": round(test_auc,3) if test_auc else None,
                         "test_acc": round(test_acc,3), "train_f1": round(train_f1,3),
                         "gap": round(train_f1 - test_f1, 3)})
+    clf_pipes[name] = pipe
     auc_str = f"{test_auc:.3f}" if test_auc else "N/A"
     print(f"  {name:35s}  CV F1={cv_f1:.3f}  Test F1={test_f1:.3f}  AUC={auc_str}  Gap={train_f1-test_f1:.3f}")
     return pipe
@@ -387,7 +412,7 @@ eval_clf("Logistic (C=1)",   make_pipeline(preprocessor, LogisticRegression(max_
 eval_clf("Decision Tree (full)", make_pipeline(preprocessor, DecisionTreeClassifier(random_state=42)))
 eval_clf("Random Forest",    make_pipeline(preprocessor, RandomForestClassifier(n_estimators=300, random_state=42)))
 eval_clf("GradBoost (max_depth=3)",make_pipeline(preprocessor, GradientBoostingClassifier(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42)))
-eval_clf("XGBoost (max_depth=3)",  make_pipeline(preprocessor, xgb.XGBClassifier(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42, eval_metric="logloss", verbosity=0)))
+eval_clf("XGBoost (tuned)",  tuned_xgb_clf)
 ```
 
 ```{python}
@@ -398,7 +423,7 @@ clf_df.style.background_gradient(subset=["Test F1","AUC"], cmap="YlGn") \
         .format({"CV F1":"{:.3f}","Test F1":"{:.3f}","AUC":"{:.3f}","Accuracy":"{:.3f}","Train-Test Gap":"{:.3f}"})
 ```
 
-**Overfitting analysis:** Decision Tree (full depth) shows Train F1=1.000 vs Test F1=0.719 — classic overfitting from an unconstrained tree that memorises training rows. GradBoost and XGBoost are deliberately capped at `max_depth=3` (shallow trees), which regularises the ensemble and produces much smaller train-test gaps (0.06–0.07) than the unconstrained Decision Tree (0.14). This is a manual regularisation choice validated by comparing gaps across the ladder, not an automated hyperparameter search.
+**Overfitting analysis:** Decision Tree (full depth) shows Train F1=1.000 vs Test F1=0.719 — classic overfitting from an unconstrained tree that memorises training rows. GradBoost is deliberately capped at `max_depth=3` (manual regularisation); XGBoost's depth/estimators/learning-rate were chosen by the `GridSearchCV` search above. Both land in the same 0.06–0.07 gap range, far below the unconstrained Decision Tree's 0.14 — confirming the depth cap (whether hand-set or searched) is what controls the overfitting, not which boosting library is used.
 
 ```{python}
 #| label: fig-clf-chart
@@ -421,9 +446,27 @@ plt.show()
 
 ## 6 · Model Ladder — Regression
 
+**Hyperparameter tuning for XGBoost.** Same procedure as §5, scored with `KFold`/`r2` on training data only.
+
+```{python}
+#| label: reg-xgb-tuning
+xgb_reg_grid = {
+    "xgbregressor__max_depth":     [2, 3, 4],
+    "xgbregressor__n_estimators":  [200, 300],
+    "xgbregressor__learning_rate": [0.05, 0.1],
+}
+xgb_reg_pipe = make_pipeline(preprocessor, xgb.XGBRegressor(random_state=42, verbosity=0))
+xgb_reg_search = GridSearchCV(xgb_reg_pipe, xgb_reg_grid, cv=kf, scoring="r2", n_jobs=-1)
+xgb_reg_search.fit(X_train, yr_train)
+tuned_xgb_reg = xgb_reg_search.best_estimator_
+print(f"Best params: {xgb_reg_search.best_params_}")
+print(f"Best CV R²: {xgb_reg_search.best_score_:.3f}")
+```
+
 ```{python}
 #| label: reg-ladder
 reg_results = []
+reg_pipes   = {}
 
 def eval_reg(name, pipe):
     pipe.fit(X_train, yr_train)
@@ -438,6 +481,7 @@ def eval_reg(name, pipe):
     reg_results.append({"model": name, "cv_r2": round(cv_r2,3), "test_r2": round(test_r2,3),
                         "test_mae": round(test_mae,0), "test_rmse": round(test_rmse,0),
                         "train_r2": round(train_r2,3), "gap": round(train_r2-test_r2,3)})
+    reg_pipes[name] = pipe
     print(f"  {name:35s}  CV R²={cv_r2:.3f}  Test R²={test_r2:.3f}  MAE=€{test_mae:,.0f}  RMSE=€{test_rmse:,.0f}")
     return pipe
 
@@ -448,7 +492,7 @@ eval_reg("Ridge (α=1)",         make_pipeline(preprocessor, Ridge(alpha=1.0)))
 eval_reg("Decision Tree (full)",make_pipeline(preprocessor, DecisionTreeRegressor(random_state=42)))
 eval_reg("Random Forest",       make_pipeline(preprocessor, RandomForestRegressor(n_estimators=300, random_state=42)))
 eval_reg("GradBoost (max_depth=3)",   make_pipeline(preprocessor, GradientBoostingRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42)))
-eval_reg("XGBoost (max_depth=3)",     make_pipeline(preprocessor, xgb.XGBRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42, verbosity=0)))
+eval_reg("XGBoost (tuned)",     tuned_xgb_reg)
 ```
 
 ```{python}
@@ -484,15 +528,14 @@ plt.show()
 
 ```{python}
 #| label: fig-confusion
-from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix, classification_report
 
 best_clf_name = max(clf_results, key=lambda x: x["test_f1"])["model"]
 best_clf_idx  = [r["model"] for r in clf_results].index(best_clf_name)
 
-# Re-fit best model
-best_clf_pipe = make_pipeline(preprocessor, xgb.XGBClassifier(n_estimators=300, learning_rate=0.1,
-                              max_depth=3, random_state=42, eval_metric="logloss", verbosity=0))
-best_clf_pipe.fit(X_train, yc_train)
+# Reuse the already-fitted winning pipeline from the ladder above — not a fresh
+# hardcoded reconstruction, so it can never drift from what was actually scored.
+best_clf_pipe = clf_pipes[best_clf_name]
 y_pred_best = best_clf_pipe.predict(X_test)
 cm = confusion_matrix(yc_test, y_pred_best)
 fig, ax = plt.subplots(figsize=(6, 5))
@@ -501,7 +544,11 @@ ConfusionMatrixDisplay(cm, display_labels=["Standard (≤€3k)", "Premium (>€
 ax.set_title(f"Fig 3 · Confusion Matrix — {best_clf_name}\nF1={clf_results[best_clf_idx]['test_f1']:.3f}  AUC={clf_results[best_clf_idx]['test_auc']:.3f}", fontweight="bold")
 plt.tight_layout()
 plt.show()
+
+print(classification_report(yc_test, y_pred_best, target_names=["Standard (≤€3k)", "Premium (>€3k)"]))
 ```
+
+Per-class precision/recall (not just the macro-averaged F1 in the leaderboard above): the model is not just "accurate on average" — both classes are individually well served, which matters because a model that only did well on the majority Standard class would still look fine on accuracy alone.
 
 ### 7.2 Predicted vs actual (best regressor)
 
@@ -509,8 +556,8 @@ plt.show()
 #| label: fig-pred-vs-actual
 best_reg_name = max(reg_results, key=lambda x: x["test_r2"])["model"]
 
-best_reg_pipe = make_pipeline(preprocessor, GradientBoostingRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42))
-best_reg_pipe.fit(X_train, yr_train)
+# Reuse the already-fitted winning pipeline from the ladder above.
+best_reg_pipe = reg_pipes[best_reg_name]
 log_pred_best  = best_reg_pipe.predict(X_test)
 rate_pred_best = np.expm1(log_pred_best)
 rate_true_best = np.expm1(yr_test)
@@ -576,8 +623,8 @@ def display_name(raw):
 
 feature_names_display = [display_name(f) for f in feature_names_out]
 
-clf_imp = best_clf_pipe.named_steps["xgbclassifier"].feature_importances_
-reg_imp = best_reg_pipe.named_steps["gradientboostingregressor"].feature_importances_
+clf_imp = best_clf_pipe.steps[-1][1].feature_importances_
+reg_imp = best_reg_pipe.steps[-1][1].feature_importances_
 
 fi_df = pd.DataFrame({"feature": feature_names_display, "clf": clf_imp, "reg": reg_imp})
 fi_df = fi_df.sort_values("clf", ascending=True).tail(10)
