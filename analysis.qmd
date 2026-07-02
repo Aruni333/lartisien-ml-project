@@ -63,6 +63,7 @@ This report documents the complete, reproducible ML pipeline built on **Lartisie
 **Dataset v2:** 1,440 rows · 24 Lartisien-verified hotels · 6 room categories · 10 sample dates per room/hotel.
 **Random seed:** `random_state=42` everywhere; `np.random.seed(42)` above.
 **Leakage:** All preprocessing inside `sklearn.Pipeline`, fitted on X_train only.
+**From proposal to v2:** the approved Phase 1 proposal (10 hotels, 600 rows) already flagged the two biggest methodological issues this project ended up solving — that `hotel_id` would be collinear with hotel attributes and dominate feature importance (solved here via `hotel_tier`, §3), and that the €3,000 threshold might be imbalanced enough to need F1/ROC-AUC over accuracy (exactly the metric choice justified in §10.1).
 
 ### Tech stack
 
