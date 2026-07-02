@@ -14,8 +14,8 @@ build/
 frontend/node_modules/
 frontend/dist/
 node_modules/
-package.json
-package-lock.json
+/package.json
+/package-lock.json
 
 # Personal working files (not a deliverable)
 MADA final project/
