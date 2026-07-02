@@ -81,8 +81,11 @@ This report documents the complete, reproducible ML pipeline built on **Lartisie
 df_full = pd.read_csv(BASE / "hotels_rates.csv")
 print(f"Full dataset (incl. outliers): {df_full.shape}")
 print(f"Hotels: {df_full['hotel_id'].nunique()}")
+print(f"Missing values per column:\n{df_full.isna().sum()[df_full.isna().sum() > 0]}")
 df_full.head(3)
 ```
+
+**Missing-value handling:** the only column with missing values is `hotel_size_rooms` (room count), and it is not used as a model feature (dropped in §3.2 for redundancy with `log_hotel_size`), so no imputation strategy affects the model. Where it is referenced at all (§3), gaps are filled with the per-hotel median room count — a hotel-specific statistic, not the target, so it introduces no leakage.
 
 ### 2.1 Rate distribution — log transform justified
 
@@ -255,7 +258,9 @@ feature_dict.style.set_properties(**{"text-align": "left"}) \
             .set_table_styles([{"selector":"th","props":[("text-align","left")]}])
 ```
 
-### 3.2 Features dropped — VIF & correlation audit
+### 3.2 Feature selection — correlation filter + VIF audit
+
+**Feature-selection method used:** a correlation filter combined with a Variance Inflation Factor (VIF) audit. Every candidate feature is checked pairwise (correlation matrix, §2.4) and jointly (VIF, below) against the rest of the feature set; anything redundant, near-duplicate, or driven by a near-perfect linear relationship with another feature is dropped in favour of the clearer, lower-VIF alternative. This is a standard filter-based selection method (as opposed to a wrapper method like RFE or an embedded method like Lasso) and was chosen because the feature set here is small (7 engineered features) and each one has a specific, named business meaning — a filter method lets us keep that interpretability while still removing statistical redundancy, rather than letting an automated wrapper silently drop a feature we can't then explain.
 
 ```{python}
 #| label: vif-audit
