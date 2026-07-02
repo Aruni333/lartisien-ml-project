@@ -2409,6 +2409,7 @@ dtype: int64</code></pre>
 </div>
 </div>
 <p><strong>Missing-value handling:</strong> the only column with missing values is <code>hotel_size_rooms</code> (room count), and it is not used as a model feature (dropped in §3.2 for redundancy with <code>log_hotel_size</code>), so no imputation strategy affects the model. Where it is referenced at all (§3), gaps are filled with the per-hotel median room count — a hotel-specific statistic, not the target, so it introduces no leakage.</p>
+<p><strong>Why median, not mean, for this imputation:</strong> room-count values within a hotel group are a small sample (at most a handful of rows per hotel-room combination) and can include the occasional very large suite category that pulls a mean upward — median is robust to that kind of skew and outlier influence, whereas a mean would let one extreme value distort the fill value for every missing row in that group. Median also naturally returns a value that is realistic (room counts are effectively discrete), whereas a mean can produce a fractional room count that no real hotel would report. Since this column doesn’t feed the final model anyway, the choice is a belt-and-braces good practice rather than something that changes results — but it’s the correct default for a right-skewed, small-sample numeric column either way.</p>
 <section id="rate-distribution-log-transform-justified" class="level3">
 <h3 class="anchored" data-anchor-id="rate-distribution-log-transform-justified">2.1 Rate distribution — log transform justified</h3>
 <div id="fig-targets" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-execution_count="3">
@@ -2665,89 +2666,89 @@ Figure 4
 </details>
 <div id="feature-dict" class="cell-output cell-output-display" data-execution_count="11">
 <style type="text/css">
-#T_d06e1 th {
+#T_8418c th {
 text-align: left;
 }
-#T_d06e1_row0_col0, #T_d06e1_row0_col1, #T_d06e1_row0_col2, #T_d06e1_row0_col3, #T_d06e1_row0_col4, #T_d06e1_row1_col0, #T_d06e1_row1_col1, #T_d06e1_row1_col2, #T_d06e1_row1_col3, #T_d06e1_row1_col4, #T_d06e1_row2_col0, #T_d06e1_row2_col1, #T_d06e1_row2_col2, #T_d06e1_row2_col3, #T_d06e1_row2_col4, #T_d06e1_row3_col0, #T_d06e1_row3_col1, #T_d06e1_row3_col2, #T_d06e1_row3_col3, #T_d06e1_row3_col4, #T_d06e1_row4_col0, #T_d06e1_row4_col1, #T_d06e1_row4_col2, #T_d06e1_row4_col3, #T_d06e1_row4_col4, #T_d06e1_row5_col0, #T_d06e1_row5_col1, #T_d06e1_row5_col2, #T_d06e1_row5_col3, #T_d06e1_row5_col4, #T_d06e1_row6_col0, #T_d06e1_row6_col1, #T_d06e1_row6_col2, #T_d06e1_row6_col3, #T_d06e1_row6_col4, #T_d06e1_row7_col0, #T_d06e1_row7_col1, #T_d06e1_row7_col2, #T_d06e1_row7_col3, #T_d06e1_row7_col4 {
+#T_8418c_row0_col0, #T_8418c_row0_col1, #T_8418c_row0_col2, #T_8418c_row0_col3, #T_8418c_row0_col4, #T_8418c_row1_col0, #T_8418c_row1_col1, #T_8418c_row1_col2, #T_8418c_row1_col3, #T_8418c_row1_col4, #T_8418c_row2_col0, #T_8418c_row2_col1, #T_8418c_row2_col2, #T_8418c_row2_col3, #T_8418c_row2_col4, #T_8418c_row3_col0, #T_8418c_row3_col1, #T_8418c_row3_col2, #T_8418c_row3_col3, #T_8418c_row3_col4, #T_8418c_row4_col0, #T_8418c_row4_col1, #T_8418c_row4_col2, #T_8418c_row4_col3, #T_8418c_row4_col4, #T_8418c_row5_col0, #T_8418c_row5_col1, #T_8418c_row5_col2, #T_8418c_row5_col3, #T_8418c_row5_col4, #T_8418c_row6_col0, #T_8418c_row6_col1, #T_8418c_row6_col2, #T_8418c_row6_col3, #T_8418c_row6_col4, #T_8418c_row7_col0, #T_8418c_row7_col1, #T_8418c_row7_col2, #T_8418c_row7_col3, #T_8418c_row7_col4 {
 text-align: left;
 }
 </style>
 
-<table id="T_d06e1" class="caption-top table table-sm table-striped small">
+<table id="T_8418c" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th"> </th>
-<th id="T_d06e1_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Code name</th>
-<th id="T_d06e1_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Plain-English name</th>
-<th id="T_d06e1_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Type</th>
-<th id="T_d06e1_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Construction</th>
-<th id="T_d06e1_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Business meaning</th>
+<th id="T_8418c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Code name</th>
+<th id="T_8418c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Plain-English name</th>
+<th id="T_8418c_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Type</th>
+<th id="T_8418c_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Construction</th>
+<th id="T_8418c_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Business meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th id="T_d06e1_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
-<td id="T_d06e1_row0_col0" class="data row0 col0">room_tier</td>
-<td id="T_d06e1_row0_col1" class="data row0 col1">Type of Room (Deluxe → Presidential Suite)</td>
-<td id="T_d06e1_row0_col2" class="data row0 col2">Ordinal 1–6</td>
-<td id="T_d06e1_row0_col3" class="data row0 col3">Deluxe=1 → Presidential=6</td>
-<td id="T_d06e1_row0_col4" class="data row0 col4">Primary driver (~44% reg importance)</td>
+<th id="T_8418c_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
+<td id="T_8418c_row0_col0" class="data row0 col0">room_tier</td>
+<td id="T_8418c_row0_col1" class="data row0 col1">Type of Room (Deluxe → Presidential Suite)</td>
+<td id="T_8418c_row0_col2" class="data row0 col2">Ordinal 1–6</td>
+<td id="T_8418c_row0_col3" class="data row0 col3">Deluxe=1 → Presidential=6</td>
+<td id="T_8418c_row0_col4" class="data row0 col4">Primary driver (~44% reg importance)</td>
 </tr>
 <tr class="even">
-<th id="T_d06e1_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
-<td id="T_d06e1_row1_col0" class="data row1 col0">room_tier_c_sq</td>
-<td id="T_d06e1_row1_col1" class="data row1 col1">Room Type — Extreme vs. Middle (top-suite premium)</td>
-<td id="T_d06e1_row1_col2" class="data row1 col2">Polynomial</td>
-<td id="T_d06e1_row1_col3" class="data row1 col3">(room_tier−3.5)²</td>
-<td id="T_d06e1_row1_col4" class="data row1 col4">Nonlinear premium at top suites</td>
+<th id="T_8418c_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
+<td id="T_8418c_row1_col0" class="data row1 col0">room_tier_c_sq</td>
+<td id="T_8418c_row1_col1" class="data row1 col1">Room Type — Extreme vs. Middle (top-suite premium)</td>
+<td id="T_8418c_row1_col2" class="data row1 col2">Polynomial</td>
+<td id="T_8418c_row1_col3" class="data row1 col3">(room_tier−3.5)²</td>
+<td id="T_8418c_row1_col4" class="data row1 col4">Nonlinear premium at top suites</td>
 </tr>
 <tr class="odd">
-<th id="T_d06e1_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
-<td id="T_d06e1_row2_col0" class="data row2 col0">hotel_tier</td>
-<td id="T_d06e1_row2_col1" class="data row2 col1">How Exclusive Is the Hotel? (Scale 1–3)</td>
-<td id="T_d06e1_row2_col2" class="data row2 col2">Ordinal 1–3</td>
-<td id="T_d06e1_row2_col3" class="data row2 col3">Lartisien rack rate level</td>
-<td id="T_d06e1_row2_col4" class="data row2 col4">Replaces 23 brand OHE dummies (~13%)</td>
+<th id="T_8418c_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
+<td id="T_8418c_row2_col0" class="data row2 col0">hotel_tier</td>
+<td id="T_8418c_row2_col1" class="data row2 col1">How Exclusive Is the Hotel? (Scale 1–3)</td>
+<td id="T_8418c_row2_col2" class="data row2 col2">Ordinal 1–3</td>
+<td id="T_8418c_row2_col3" class="data row2 col3">Lartisien rack rate level</td>
+<td id="T_8418c_row2_col4" class="data row2 col4">Replaces 23 brand OHE dummies (~13%)</td>
 </tr>
 <tr class="even">
-<th id="T_d06e1_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
-<td id="T_d06e1_row3_col0" class="data row3 col0">month_sin</td>
-<td id="T_d06e1_row3_col1" class="data row3 col1">Which Month? (seasonal wave 1)</td>
-<td id="T_d06e1_row3_col2" class="data row3 col2">Cyclic</td>
-<td id="T_d06e1_row3_col3" class="data row3 col3">sin(2π×month/12)</td>
-<td id="T_d06e1_row3_col4" class="data row3 col4">Seasonal curve, no Dec/Jan jump</td>
+<th id="T_8418c_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
+<td id="T_8418c_row3_col0" class="data row3 col0">month_sin</td>
+<td id="T_8418c_row3_col1" class="data row3 col1">Which Month? (seasonal wave 1)</td>
+<td id="T_8418c_row3_col2" class="data row3 col2">Cyclic</td>
+<td id="T_8418c_row3_col3" class="data row3 col3">sin(2π×month/12)</td>
+<td id="T_8418c_row3_col4" class="data row3 col4">Seasonal curve, no Dec/Jan jump</td>
 </tr>
 <tr class="odd">
-<th id="T_d06e1_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
-<td id="T_d06e1_row4_col0" class="data row4 col0">month_cos</td>
-<td id="T_d06e1_row4_col1" class="data row4 col1">Which Month? (seasonal wave 2)</td>
-<td id="T_d06e1_row4_col2" class="data row4 col2">Cyclic</td>
-<td id="T_d06e1_row4_col3" class="data row4 col3">cos(2π×month/12)</td>
-<td id="T_d06e1_row4_col4" class="data row4 col4">Orthogonal seasonal component</td>
+<th id="T_8418c_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
+<td id="T_8418c_row4_col0" class="data row4 col0">month_cos</td>
+<td id="T_8418c_row4_col1" class="data row4 col1">Which Month? (seasonal wave 2)</td>
+<td id="T_8418c_row4_col2" class="data row4 col2">Cyclic</td>
+<td id="T_8418c_row4_col3" class="data row4 col3">cos(2π×month/12)</td>
+<td id="T_8418c_row4_col4" class="data row4 col4">Orthogonal seasonal component</td>
 </tr>
 <tr class="even">
-<th id="T_d06e1_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
-<td id="T_d06e1_row5_col0" class="data row5 col0">xmas_proximity</td>
-<td id="T_d06e1_row5_col1" class="data row5 col1">How Close to Christmas?</td>
-<td id="T_d06e1_row5_col2" class="data row5 col2">Continuous</td>
-<td id="T_d06e1_row5_col3" class="data row5 col3">1/(days_to_xmas+1)</td>
-<td id="T_d06e1_row5_col4" class="data row5 col4">Nonlinear Christmas surge (~11%)</td>
+<th id="T_8418c_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
+<td id="T_8418c_row5_col0" class="data row5 col0">xmas_proximity</td>
+<td id="T_8418c_row5_col1" class="data row5 col1">How Close to Christmas?</td>
+<td id="T_8418c_row5_col2" class="data row5 col2">Continuous</td>
+<td id="T_8418c_row5_col3" class="data row5 col3">1/(days_to_xmas+1)</td>
+<td id="T_8418c_row5_col4" class="data row5 col4">Nonlinear Christmas surge (~11%)</td>
 </tr>
 <tr class="odd">
-<th id="T_d06e1_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">6</th>
-<td id="T_d06e1_row6_col0" class="data row6 col0">is_school_holiday</td>
-<td id="T_d06e1_row6_col1" class="data row6 col1">Is It School Holiday Season?</td>
-<td id="T_d06e1_row6_col2" class="data row6 col2">Binary</td>
-<td id="T_d06e1_row6_col3" class="data row6 col3">French school calendar</td>
-<td id="T_d06e1_row6_col4" class="data row6 col4">Family travel demand signal</td>
+<th id="T_8418c_level0_row6" class="row_heading level0 row6" data-quarto-table-cell-role="th">6</th>
+<td id="T_8418c_row6_col0" class="data row6 col0">is_school_holiday</td>
+<td id="T_8418c_row6_col1" class="data row6 col1">Is It School Holiday Season?</td>
+<td id="T_8418c_row6_col2" class="data row6 col2">Binary</td>
+<td id="T_8418c_row6_col3" class="data row6 col3">French school calendar</td>
+<td id="T_8418c_row6_col4" class="data row6 col4">Family travel demand signal</td>
 </tr>
 <tr class="even">
-<th id="T_d06e1_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">7</th>
-<td id="T_d06e1_row7_col0" class="data row7 col0">resort_type</td>
-<td id="T_d06e1_row7_col1" class="data row7 col1">What Kind of Resort Is It?</td>
-<td id="T_d06e1_row7_col2" class="data row7 col2">OHE (4 dums)</td>
-<td id="T_d06e1_row7_col3" class="data row7 col3">beach/city/island/lake/mtn</td>
-<td id="T_d06e1_row7_col4" class="data row7 col4">Property category premium</td>
+<th id="T_8418c_level0_row7" class="row_heading level0 row7" data-quarto-table-cell-role="th">7</th>
+<td id="T_8418c_row7_col0" class="data row7 col0">resort_type</td>
+<td id="T_8418c_row7_col1" class="data row7 col1">What Kind of Resort Is It?</td>
+<td id="T_8418c_row7_col2" class="data row7 col2">OHE (4 dums)</td>
+<td id="T_8418c_row7_col3" class="data row7 col3">beach/city/island/lake/mtn</td>
+<td id="T_8418c_row7_col4" class="data row7 col4">Property category premium</td>
 </tr>
 </tbody>
 </table>
@@ -4918,106 +4919,106 @@ forceTheme('sk-container-id-1');</script>
 </details>
 <div id="clf-leaderboard-table" class="cell-output cell-output-display" data-execution_count="16">
 <style type="text/css">
-#T_ab591_row0_col2, #T_ab591_row0_col3 {
+#T_9e402_row0_col2, #T_9e402_row0_col3 {
 background-color: #ffffe5;
 color: #000000;
 }
-#T_ab591_row1_col2 {
+#T_9e402_row1_col2 {
 background-color: #056c39;
 color: #f1f1f1;
 }
-#T_ab591_row1_col3 {
+#T_9e402_row1_col3 {
 background-color: #197c40;
 color: #f1f1f1;
 }
-#T_ab591_row2_col2 {
+#T_9e402_row2_col2 {
 background-color: #006737;
 color: #f1f1f1;
 }
-#T_ab591_row2_col3 {
+#T_9e402_row2_col3 {
 background-color: #339951;
 color: #f1f1f1;
 }
-#T_ab591_row3_col2 {
+#T_9e402_row3_col2 {
 background-color: #005f34;
 color: #f1f1f1;
 }
-#T_ab591_row3_col3 {
+#T_9e402_row3_col3 {
 background-color: #0b713b;
 color: #f1f1f1;
 }
-#T_ab591_row4_col2, #T_ab591_row4_col3, #T_ab591_row5_col2, #T_ab591_row5_col3 {
+#T_9e402_row4_col2, #T_9e402_row4_col3, #T_9e402_row5_col2, #T_9e402_row5_col3 {
 background-color: #004529;
 color: #f1f1f1;
 }
 </style>
 
-<table id="T_ab591" class="caption-top table table-sm table-striped small">
+<table id="T_9e402" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th"> </th>
-<th id="T_ab591_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_ab591_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV F1</th>
-<th id="T_ab591_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Test F1</th>
-<th id="T_ab591_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">AUC</th>
-<th id="T_ab591_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Accuracy</th>
-<th id="T_ab591_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">Train-Test Gap</th>
+<th id="T_9e402_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_9e402_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV F1</th>
+<th id="T_9e402_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Test F1</th>
+<th id="T_9e402_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">AUC</th>
+<th id="T_9e402_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">Accuracy</th>
+<th id="T_9e402_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">Train-Test Gap</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th id="T_ab591_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
-<td id="T_ab591_row0_col0" class="data row0 col0">Dummy (majority)</td>
-<td id="T_ab591_row0_col1" class="data row0 col1">0.356</td>
-<td id="T_ab591_row0_col2" class="data row0 col2">0.356</td>
-<td id="T_ab591_row0_col3" class="data row0 col3">0.500</td>
-<td id="T_ab591_row0_col4" class="data row0 col4">0.552</td>
-<td id="T_ab591_row0_col5" class="data row0 col5">0.000</td>
+<th id="T_9e402_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
+<td id="T_9e402_row0_col0" class="data row0 col0">Dummy (majority)</td>
+<td id="T_9e402_row0_col1" class="data row0 col1">0.356</td>
+<td id="T_9e402_row0_col2" class="data row0 col2">0.356</td>
+<td id="T_9e402_row0_col3" class="data row0 col3">0.500</td>
+<td id="T_9e402_row0_col4" class="data row0 col4">0.552</td>
+<td id="T_9e402_row0_col5" class="data row0 col5">0.000</td>
 </tr>
 <tr class="even">
-<th id="T_ab591_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
-<td id="T_ab591_row1_col0" class="data row1 col0">Logistic (C=1)</td>
-<td id="T_ab591_row1_col1" class="data row1 col1">0.730</td>
-<td id="T_ab591_row1_col2" class="data row1 col2">0.741</td>
-<td id="T_ab591_row1_col3" class="data row1 col3">0.817</td>
-<td id="T_ab591_row1_col4" class="data row1 col4">0.743</td>
-<td id="T_ab591_row1_col5" class="data row1 col5">0.003</td>
+<th id="T_9e402_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
+<td id="T_9e402_row1_col0" class="data row1 col0">Logistic (C=1)</td>
+<td id="T_9e402_row1_col1" class="data row1 col1">0.730</td>
+<td id="T_9e402_row1_col2" class="data row1 col2">0.741</td>
+<td id="T_9e402_row1_col3" class="data row1 col3">0.817</td>
+<td id="T_9e402_row1_col4" class="data row1 col4">0.743</td>
+<td id="T_9e402_row1_col5" class="data row1 col5">0.003</td>
 </tr>
 <tr class="odd">
-<th id="T_ab591_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
-<td id="T_ab591_row2_col0" class="data row2 col0">Decision Tree (full)</td>
-<td id="T_ab591_row2_col1" class="data row2 col1">0.749</td>
-<td id="T_ab591_row2_col2" class="data row2 col2">0.749</td>
-<td id="T_ab591_row2_col3" class="data row2 col3">0.776</td>
-<td id="T_ab591_row2_col4" class="data row2 col4">0.750</td>
-<td id="T_ab591_row2_col5" class="data row2 col5">0.143</td>
+<th id="T_9e402_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
+<td id="T_9e402_row2_col0" class="data row2 col0">Decision Tree (full)</td>
+<td id="T_9e402_row2_col1" class="data row2 col1">0.749</td>
+<td id="T_9e402_row2_col2" class="data row2 col2">0.749</td>
+<td id="T_9e402_row2_col3" class="data row2 col3">0.776</td>
+<td id="T_9e402_row2_col4" class="data row2 col4">0.750</td>
+<td id="T_9e402_row2_col5" class="data row2 col5">0.143</td>
 </tr>
 <tr class="even">
-<th id="T_ab591_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
-<td id="T_ab591_row3_col0" class="data row3 col0">Random Forest</td>
-<td id="T_ab591_row3_col1" class="data row3 col1">0.775</td>
-<td id="T_ab591_row3_col2" class="data row3 col2">0.762</td>
-<td id="T_ab591_row3_col3" class="data row3 col3">0.838</td>
-<td id="T_ab591_row3_col4" class="data row3 col4">0.764</td>
-<td id="T_ab591_row3_col5" class="data row3 col5">0.130</td>
+<th id="T_9e402_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
+<td id="T_9e402_row3_col0" class="data row3 col0">Random Forest</td>
+<td id="T_9e402_row3_col1" class="data row3 col1">0.775</td>
+<td id="T_9e402_row3_col2" class="data row3 col2">0.762</td>
+<td id="T_9e402_row3_col3" class="data row3 col3">0.838</td>
+<td id="T_9e402_row3_col4" class="data row3 col4">0.764</td>
+<td id="T_9e402_row3_col5" class="data row3 col5">0.130</td>
 </tr>
 <tr class="odd">
-<th id="T_ab591_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
-<td id="T_ab591_row4_col0" class="data row4 col0">GradBoost (max_depth=3)</td>
-<td id="T_ab591_row4_col1" class="data row4 col1">0.812</td>
-<td id="T_ab591_row4_col2" class="data row4 col2">0.804</td>
-<td id="T_ab591_row4_col3" class="data row4 col3">0.905</td>
-<td id="T_ab591_row4_col4" class="data row4 col4">0.806</td>
-<td id="T_ab591_row4_col5" class="data row4 col5">0.069</td>
+<th id="T_9e402_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
+<td id="T_9e402_row4_col0" class="data row4 col0">GradBoost (max_depth=3)</td>
+<td id="T_9e402_row4_col1" class="data row4 col1">0.812</td>
+<td id="T_9e402_row4_col2" class="data row4 col2">0.804</td>
+<td id="T_9e402_row4_col3" class="data row4 col3">0.905</td>
+<td id="T_9e402_row4_col4" class="data row4 col4">0.806</td>
+<td id="T_9e402_row4_col5" class="data row4 col5">0.069</td>
 </tr>
 <tr class="even">
-<th id="T_ab591_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
-<td id="T_ab591_row5_col0" class="data row5 col0">XGBoost (tuned)</td>
-<td id="T_ab591_row5_col1" class="data row5 col1">0.814</td>
-<td id="T_ab591_row5_col2" class="data row5 col2">0.805</td>
-<td id="T_ab591_row5_col3" class="data row5 col3">0.905</td>
-<td id="T_ab591_row5_col4" class="data row5 col4">0.806</td>
-<td id="T_ab591_row5_col5" class="data row5 col5">0.064</td>
+<th id="T_9e402_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
+<td id="T_9e402_row5_col0" class="data row5 col0">XGBoost (tuned)</td>
+<td id="T_9e402_row5_col1" class="data row5 col1">0.814</td>
+<td id="T_9e402_row5_col2" class="data row5 col2">0.805</td>
+<td id="T_9e402_row5_col3" class="data row5 col3">0.905</td>
+<td id="T_9e402_row5_col4" class="data row5 col4">0.806</td>
+<td id="T_9e402_row5_col5" class="data row5 col5">0.064</td>
 </tr>
 </tbody>
 </table>
@@ -7060,98 +7061,98 @@ forceTheme('sk-container-id-2');</script>
 </details>
 <div id="reg-leaderboard-table" class="cell-output cell-output-display" data-execution_count="20">
 <style type="text/css">
-#T_2f330_row0_col2 {
+#T_42e44_row0_col2 {
 background-color: #ffffe5;
 color: #000000;
 }
-#T_2f330_row1_col2 {
+#T_42e44_row1_col2 {
 background-color: #1c7e40;
 color: #f1f1f1;
 }
-#T_2f330_row2_col2 {
+#T_42e44_row2_col2 {
 background-color: #43ac5e;
 color: #f1f1f1;
 }
-#T_2f330_row3_col2 {
+#T_42e44_row3_col2 {
 background-color: #0b713b;
 color: #f1f1f1;
 }
-#T_2f330_row4_col2 {
+#T_42e44_row4_col2 {
 background-color: #004529;
 color: #f1f1f1;
 }
-#T_2f330_row5_col2 {
+#T_42e44_row5_col2 {
 background-color: #00492b;
 color: #f1f1f1;
 }
 </style>
 
-<table id="T_2f330" class="caption-top table table-sm table-striped small">
+<table id="T_42e44" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th class="blank level0" data-quarto-table-cell-role="th"> </th>
-<th id="T_2f330_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
-<th id="T_2f330_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV R²</th>
-<th id="T_2f330_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Test R²</th>
-<th id="T_2f330_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">MAE €</th>
-<th id="T_2f330_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">RMSE €</th>
-<th id="T_2f330_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">Train-Test Gap</th>
+<th id="T_42e44_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Model</th>
+<th id="T_42e44_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">CV R²</th>
+<th id="T_42e44_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Test R²</th>
+<th id="T_42e44_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">MAE €</th>
+<th id="T_42e44_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">RMSE €</th>
+<th id="T_42e44_level0_col5" class="col_heading level0 col5" data-quarto-table-cell-role="th">Train-Test Gap</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<th id="T_2f330_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
-<td id="T_2f330_row0_col0" class="data row0 col0">Dummy (mean)</td>
-<td id="T_2f330_row0_col1" class="data row0 col1">-0.001</td>
-<td id="T_2f330_row0_col2" class="data row0 col2">-0.000</td>
-<td id="T_2f330_row0_col3" class="data row0 col3">3,321</td>
-<td id="T_2f330_row0_col4" class="data row0 col4">5,469</td>
-<td id="T_2f330_row0_col5" class="data row0 col5">0.000</td>
+<th id="T_42e44_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</th>
+<td id="T_42e44_row0_col0" class="data row0 col0">Dummy (mean)</td>
+<td id="T_42e44_row0_col1" class="data row0 col1">-0.001</td>
+<td id="T_42e44_row0_col2" class="data row0 col2">-0.000</td>
+<td id="T_42e44_row0_col3" class="data row0 col3">3,321</td>
+<td id="T_42e44_row0_col4" class="data row0 col4">5,469</td>
+<td id="T_42e44_row0_col5" class="data row0 col5">0.000</td>
 </tr>
 <tr class="even">
-<th id="T_2f330_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
-<td id="T_2f330_row1_col0" class="data row1 col0">Ridge (α=1)</td>
-<td id="T_2f330_row1_col1" class="data row1 col1">0.513</td>
-<td id="T_2f330_row1_col2" class="data row1 col2">0.570</td>
-<td id="T_2f330_row1_col3" class="data row1 col3">2,337</td>
-<td id="T_2f330_row1_col4" class="data row1 col4">3,592</td>
-<td id="T_2f330_row1_col5" class="data row1 col5">-0.046</td>
+<th id="T_42e44_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</th>
+<td id="T_42e44_row1_col0" class="data row1 col0">Ridge (α=1)</td>
+<td id="T_42e44_row1_col1" class="data row1 col1">0.513</td>
+<td id="T_42e44_row1_col2" class="data row1 col2">0.570</td>
+<td id="T_42e44_row1_col3" class="data row1 col3">2,337</td>
+<td id="T_42e44_row1_col4" class="data row1 col4">3,592</td>
+<td id="T_42e44_row1_col5" class="data row1 col5">-0.046</td>
 </tr>
 <tr class="odd">
-<th id="T_2f330_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
-<td id="T_2f330_row2_col0" class="data row2 col0">Decision Tree (full)</td>
-<td id="T_2f330_row2_col1" class="data row2 col1">0.382</td>
-<td id="T_2f330_row2_col2" class="data row2 col2">0.455</td>
-<td id="T_2f330_row2_col3" class="data row2 col3">2,163</td>
-<td id="T_2f330_row2_col4" class="data row2 col4">3,745</td>
-<td id="T_2f330_row2_col5" class="data row2 col5">0.388</td>
+<th id="T_42e44_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</th>
+<td id="T_42e44_row2_col0" class="data row2 col0">Decision Tree (full)</td>
+<td id="T_42e44_row2_col1" class="data row2 col1">0.382</td>
+<td id="T_42e44_row2_col2" class="data row2 col2">0.455</td>
+<td id="T_42e44_row2_col3" class="data row2 col3">2,163</td>
+<td id="T_42e44_row2_col4" class="data row2 col4">3,745</td>
+<td id="T_42e44_row2_col5" class="data row2 col5">0.388</td>
 </tr>
 <tr class="even">
-<th id="T_2f330_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
-<td id="T_2f330_row3_col0" class="data row3 col0">Random Forest</td>
-<td id="T_2f330_row3_col1" class="data row3 col1">0.571</td>
-<td id="T_2f330_row3_col2" class="data row3 col2">0.615</td>
-<td id="T_2f330_row3_col3" class="data row3 col3">1,943</td>
-<td id="T_2f330_row3_col4" class="data row3 col4">3,189</td>
-<td id="T_2f330_row3_col5" class="data row3 col5">0.216</td>
+<th id="T_42e44_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">3</th>
+<td id="T_42e44_row3_col0" class="data row3 col0">Random Forest</td>
+<td id="T_42e44_row3_col1" class="data row3 col1">0.571</td>
+<td id="T_42e44_row3_col2" class="data row3 col2">0.615</td>
+<td id="T_42e44_row3_col3" class="data row3 col3">1,943</td>
+<td id="T_42e44_row3_col4" class="data row3 col4">3,189</td>
+<td id="T_42e44_row3_col5" class="data row3 col5">0.216</td>
 </tr>
 <tr class="odd">
-<th id="T_2f330_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
-<td id="T_2f330_row4_col0" class="data row4 col0">GradBoost (max_depth=3)</td>
-<td id="T_2f330_row4_col1" class="data row4 col1">0.725</td>
-<td id="T_2f330_row4_col2" class="data row4 col2">0.736</td>
-<td id="T_2f330_row4_col3" class="data row4 col3">1,677</td>
-<td id="T_2f330_row4_col4" class="data row4 col4">2,741</td>
-<td id="T_2f330_row4_col5" class="data row4 col5">0.070</td>
+<th id="T_42e44_level0_row4" class="row_heading level0 row4" data-quarto-table-cell-role="th">4</th>
+<td id="T_42e44_row4_col0" class="data row4 col0">GradBoost (max_depth=3)</td>
+<td id="T_42e44_row4_col1" class="data row4 col1">0.725</td>
+<td id="T_42e44_row4_col2" class="data row4 col2">0.736</td>
+<td id="T_42e44_row4_col3" class="data row4 col3">1,677</td>
+<td id="T_42e44_row4_col4" class="data row4 col4">2,741</td>
+<td id="T_42e44_row4_col5" class="data row4 col5">0.070</td>
 </tr>
 <tr class="even">
-<th id="T_2f330_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
-<td id="T_2f330_row5_col0" class="data row5 col0">XGBoost (tuned)</td>
-<td id="T_2f330_row5_col1" class="data row5 col1">0.731</td>
-<td id="T_2f330_row5_col2" class="data row5 col2">0.724</td>
-<td id="T_2f330_row5_col3" class="data row5 col3">1,732</td>
-<td id="T_2f330_row5_col4" class="data row5 col4">2,822</td>
-<td id="T_2f330_row5_col5" class="data row5 col5">0.069</td>
+<th id="T_42e44_level0_row5" class="row_heading level0 row5" data-quarto-table-cell-role="th">5</th>
+<td id="T_42e44_row5_col0" class="data row5 col0">XGBoost (tuned)</td>
+<td id="T_42e44_row5_col1" class="data row5 col1">0.731</td>
+<td id="T_42e44_row5_col2" class="data row5 col2">0.724</td>
+<td id="T_42e44_row5_col3" class="data row5 col3">1,732</td>
+<td id="T_42e44_row5_col4" class="data row5 col4">2,822</td>
+<td id="T_42e44_row5_col5" class="data row5 col5">0.069</td>
 </tr>
 </tbody>
 </table>

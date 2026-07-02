@@ -34,6 +34,7 @@
 - Preliminary EDA removed 2 IQR outlier hotels (Cheval Blanc Randheli, The Brando) from 26 initial
 - Both tasks use the same dataset: classification (is_premium = rate > €3,000) and regression (log_rate → EUR)
 - Data file: `hotels_rates.csv` in repo root (used directly by `analysis.qmd`)
+- Missing values (only `hotel_size_rooms`, a column not used by the final model) are filled with the **per-hotel median**, not mean — median is robust to skew and outliers in a small per-hotel sample, and always returns a realistic (non-fractional) room count
 - The original Phase 1 proposal (10 hotels, 600 rows) grew to this 24-hotel, 1,440-row v2 dataset during the project, but the core research question and both targets are unchanged — approved before either build began.
 - Notably, the proposal already anticipated two issues that surfaced later and were fixed in v2: it flagged that `hotel_id` would be collinear with hotel attributes and dominate feature importance (→ became the `hotel_tier` fix in §3), and that the €3,000 threshold might be imbalanced, requiring F1/ROC-AUC over accuracy (→ exactly the metric choice made in §10.1 of the report).
 

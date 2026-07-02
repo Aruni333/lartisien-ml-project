@@ -92,6 +92,8 @@ df_full.head(3)
 
 **Missing-value handling:** the only column with missing values is `hotel_size_rooms` (room count), and it is not used as a model feature (dropped in §3.2 for redundancy with `log_hotel_size`), so no imputation strategy affects the model. Where it is referenced at all (§3), gaps are filled with the per-hotel median room count — a hotel-specific statistic, not the target, so it introduces no leakage.
 
+**Why median, not mean, for this imputation:** room-count values within a hotel group are a small sample (at most a handful of rows per hotel-room combination) and can include the occasional very large suite category that pulls a mean upward — median is robust to that kind of skew and outlier influence, whereas a mean would let one extreme value distort the fill value for every missing row in that group. Median also naturally returns a value that is realistic (room counts are effectively discrete), whereas a mean can produce a fractional room count that no real hotel would report. Since this column doesn't feed the final model anyway, the choice is a belt-and-braces good practice rather than something that changes results — but it's the correct default for a right-skewed, small-sample numeric column either way.
+
 ### 2.1 Rate distribution — log transform justified
 
 ```{python}

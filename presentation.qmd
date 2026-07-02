@@ -132,6 +132,7 @@ execute:
 <ul>
   <li><strong>1,440 rows</strong> — 24 Lartisien-verified hotels, 6 room tiers, 10 sample dates</li>
   <li>Preliminary EDA removed 2 IQR outliers (Cheval Blanc, The Brando) from 26 hotels</li>
+  <li>Missing values (hotel room count only) filled with per-hotel <strong>median</strong>, not mean — robust to skew/outliers in a small per-hotel sample, and this column isn't even used by the final model anyway</li>
   <li>Target 1: <strong>is_premium</strong> (rate > €3,000/night)</li>
   <li>Target 2: <strong>log_rate</strong> → back-transform via expm1()</li>
   <li>80/20 stratified split · StratifiedKFold(5) clf · KFold(5) reg</li>
