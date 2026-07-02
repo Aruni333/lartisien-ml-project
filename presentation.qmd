@@ -163,6 +163,15 @@ execute:
 ## Feature Collinearity Check — VIF Audit {background-color="#000000"}
 
 ```{=html}
+<div class="box" style="margin-bottom:14px; border-color:rgba(232,84,74,0.4);">
+  <div class="box-title" style="color:#E8544A;">Critical Finding That Started This Redesign: Raw Month × Raw Days-to-Christmas, r = −0.998</div>
+  <div class="box-body">
+    The original raw features were near-perfect mirror images of each other — knowing the month told you days-to-Christmas almost exactly, and vice versa. Two features that are linear functions of one another add zero new information but do add multicollinearity, and neither captures the real <em>shape</em> of holiday demand (a straight day-count, not the sharp last-minute spike real bookings show).
+    <br><br>
+    <strong>Fix:</strong> both raw columns were dropped and replaced with <em>non-linear</em> engineered versions — "How Close to Christmas?" (a steep 1/(days+1) curve) and two cyclic "Which Month?" waves — which are no longer near-duplicates of each other (see the audit below: r drops from −0.998 to a manageable 0.503, and every VIF stays under the 10 threshold).
+  </div>
+</div>
+
 <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
 
 <div>

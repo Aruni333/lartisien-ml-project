@@ -217,6 +217,10 @@ plt.show()
 print("Critical finding: month × days_to_christmas  r =", round(corr_raw.loc["month","days_to_christmas"], 3))
 ```
 
+**Why this correlation happens, and why it's a problem.** `days_to_christmas` was originally computed as a simple `abs(date − Dec 25)` day-count, which makes it almost a linear reflection of the calendar month — knowing the month tells you days-to-Christmas almost exactly (r = −0.998), and vice versa. Two features that are near-perfect linear functions of each other add no new information to a model but do add multicollinearity: a linear model's coefficients on the two would become unstable and hard to interpret (which one "really" drove a prediction becomes arbitrary), and a raw month/day count also doesn't capture the actual shape of the demand curve — the rate impact of "close to Christmas" is not linear in days, it should curve sharply in the final week.
+
+**What we did about it, and why this specific fix.** We dropped both raw columns and replaced them with two engineered features that are *not* linear functions of each other: `xmas_proximity = 1/(days_to_christmas+1)`, which rises steeply and nonlinearly only in the last ~2 weeks before 25 Dec (matching the real shape of last-minute holiday demand, unlike a straight day-count), and cyclic `month_sin`/`month_cos`, which encode the calendar's circularity (December and January are adjacent, not 11 months apart) without any hard jump. The VIF audit in §3.2 confirms this worked: `month_cos` and `xmas_proximity` end up only moderately correlated (r=0.503, VIF 1.45/1.83 — both comfortably under the VIF=10 threshold) instead of the near-total redundancy of the original pair, so both can now contribute distinct signal to the model instead of fighting over the same information.
+
 ---
 
 ## 3 · Feature Engineering
