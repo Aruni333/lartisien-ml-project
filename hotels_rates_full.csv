@@ -1,0 +1,1561 @@
+hotel_id,country,region,resort_type,room_type,hotel_size_rooms,month,is_school_holiday,is_weekend,days_to_christmas,rate_eur_per_night
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,1,0,0,345,1140.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,2,1,0,315,1260.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,3,0,0,280,1110.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,4,1,0,251,910.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,5,0,0,229,2560.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,6,0,0,180,4000.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,7,1,0,160,4020.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,8,1,1,137,3730.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,10,0,1,81,2480.0
+amanzoe,Greece,Europe,beach,Deluxe Room,38.0,12,1,0,2,1690.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,1,0,0,345,1330.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,2,1,0,315,1470.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,3,0,0,280,1170.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,4,1,0,251,1500.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,5,0,0,229,3110.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,6,0,0,180,5190.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,7,1,0,160,4800.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,8,1,1,137,5910.0
+amanzoe,Greece,Europe,beach,Superior Room,,10,0,1,81,3340.0
+amanzoe,Greece,Europe,beach,Superior Room,38.0,12,1,0,2,1770.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,1,0,0,345,1630.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,2,1,0,315,2340.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,3,0,0,280,2100.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,4,1,0,251,1730.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,5,0,0,229,3960.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,6,0,0,180,6610.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,7,1,0,160,6240.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,8,1,1,137,6550.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,10,0,1,81,4130.0
+amanzoe,Greece,Europe,beach,Junior Suite,38.0,12,1,0,2,2780.0
+amanzoe,Greece,Europe,beach,Suite,38.0,1,0,0,345,2670.0
+amanzoe,Greece,Europe,beach,Suite,38.0,2,1,0,315,2890.0
+amanzoe,Greece,Europe,beach,Suite,38.0,3,0,0,280,2750.0
+amanzoe,Greece,Europe,beach,Suite,38.0,4,1,0,251,2420.0
+amanzoe,Greece,Europe,beach,Suite,38.0,5,0,0,229,5340.0
+amanzoe,Greece,Europe,beach,Suite,38.0,6,0,0,180,9450.0
+amanzoe,Greece,Europe,beach,Suite,38.0,7,1,0,160,8460.0
+amanzoe,Greece,Europe,beach,Suite,38.0,8,1,1,137,8830.0
+amanzoe,Greece,Europe,beach,Suite,38.0,10,0,1,81,6380.0
+amanzoe,Greece,Europe,beach,Suite,38.0,12,1,0,2,4100.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,1,0,0,345,3610.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,2,1,0,315,4190.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,3,0,0,280,3210.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,4,1,0,251,3850.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,5,0,0,229,8100.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,6,0,0,180,13470.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,7,1,0,160,14000.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,8,1,1,137,14600.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,10,0,1,81,8670.0
+amanzoe,Greece,Europe,beach,Grand Suite,38.0,12,1,0,2,4460.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,1,0,0,345,4940.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,2,1,0,315,6480.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,3,0,0,280,4980.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,4,1,0,251,4680.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,5,0,0,229,11550.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,6,0,0,180,18940.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,7,1,0,160,20400.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,8,1,1,137,21680.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,10,0,1,81,13250.0
+amanzoe,Greece,Europe,beach,Presidential Suite,38.0,12,1,0,2,8060.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,1,0,0,345,560.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,2,1,0,315,700.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,3,0,0,280,660.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,4,1,0,251,590.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,5,0,0,229,1850.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,6,0,0,180,2980.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,7,1,0,160,3330.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,8,1,1,137,3340.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,10,0,1,81,1910.0
+le_sirenuse,Italy,Europe,city,Deluxe Room,58.0,12,1,0,2,840.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,1,0,0,345,760.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,2,1,0,315,1220.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,3,0,0,280,920.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,4,1,0,251,800.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,5,0,0,229,2650.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,6,0,0,180,4390.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,7,1,0,160,4340.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,8,1,1,137,4320.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,10,0,1,81,2410.0
+le_sirenuse,Italy,Europe,city,Superior Room,58.0,12,1,0,2,1160.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,1,0,0,345,1090.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,2,1,0,315,1340.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,3,0,0,280,1290.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,4,1,0,251,1260.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,5,0,0,229,3390.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,6,0,0,180,5520.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,7,1,0,160,5740.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,8,1,1,137,6120.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,10,0,1,81,3130.0
+le_sirenuse,Italy,Europe,city,Junior Suite,58.0,12,1,0,2,1440.0
+le_sirenuse,Italy,Europe,city,Suite,,1,0,0,345,1510.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,2,1,0,315,1580.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,3,0,0,280,1640.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,4,1,0,251,1430.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,5,0,0,229,4840.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,6,0,0,180,7800.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,7,1,0,160,7440.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,8,1,1,137,8070.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,10,0,1,81,5190.0
+le_sirenuse,Italy,Europe,city,Suite,58.0,12,1,0,2,2300.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,1,0,0,345,2320.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,2,1,0,315,2880.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,3,0,0,280,2380.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,4,1,0,251,2310.0
+le_sirenuse,Italy,Europe,city,Grand Suite,,5,0,0,229,6170.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,6,0,0,180,10820.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,7,1,0,160,11250.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,8,1,1,137,11410.0
+le_sirenuse,Italy,Europe,city,Grand Suite,,10,0,1,81,7570.0
+le_sirenuse,Italy,Europe,city,Grand Suite,58.0,12,1,0,2,3020.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,1,0,0,345,3030.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,2,1,0,315,4160.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,3,0,0,280,3630.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,4,1,0,251,3710.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,5,0,0,229,10180.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,6,0,0,180,15330.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,7,1,0,160,18020.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,8,1,1,137,16260.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,10,0,1,81,10290.0
+le_sirenuse,Italy,Europe,city,Presidential Suite,58.0,12,1,0,2,5890.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,1,0,0,345,7230.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,2,1,0,315,9350.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,3,0,0,280,7520.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,4,1,0,251,4370.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,5,0,0,229,2380.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,6,0,0,180,1870.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,7,1,0,160,1790.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,8,1,1,137,2250.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,10,0,1,81,5400.0
+cheval_blanc_randheli,Maldives,Asia,island,Deluxe Room,46.0,12,1,0,2,12680.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,1,0,0,345,9790.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,2,1,0,315,11420.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,3,0,0,280,10070.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,4,1,0,251,5830.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,5,0,0,229,2370.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,6,0,0,180,2930.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,7,1,0,160,2510.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,8,1,1,137,3240.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,10,0,1,81,6000.0
+cheval_blanc_randheli,Maldives,Asia,island,Superior Room,46.0,12,1,0,2,12280.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,1,0,0,345,13390.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,2,1,0,315,15930.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,3,0,0,280,12630.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,4,1,0,251,8530.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,5,0,0,229,4200.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,6,0,0,180,3660.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,7,1,0,160,3250.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,8,1,1,137,3240.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,10,0,1,81,8010.0
+cheval_blanc_randheli,Maldives,Asia,island,Junior Suite,46.0,12,1,0,2,17610.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,1,0,0,345,18700.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,2,1,0,315,20670.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,3,0,0,280,19090.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,4,1,0,251,11560.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,5,0,0,229,5390.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,6,0,0,180,4430.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,7,1,0,160,4420.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,8,1,1,137,6020.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,10,0,1,81,11270.0
+cheval_blanc_randheli,Maldives,Asia,island,Suite,46.0,12,1,0,2,29490.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,1,0,0,345,25130.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,2,1,0,315,31430.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,3,0,0,280,26540.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,4,1,0,251,16580.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,5,0,0,229,6400.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,6,0,0,180,6480.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,7,1,0,160,7130.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,8,1,1,137,8990.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,10,0,1,81,19120.0
+cheval_blanc_randheli,Maldives,Asia,island,Grand Suite,46.0,12,1,0,2,40040.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,1,0,0,345,35240.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,2,1,0,315,44020.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,3,0,0,280,41320.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,4,1,0,251,22610.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,5,0,0,229,10970.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,6,0,0,180,11230.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,7,1,0,160,12130.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,,8,1,1,137,11880.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,10,0,1,81,24720.0
+cheval_blanc_randheli,Maldives,Asia,island,Presidential Suite,46.0,12,1,0,2,62700.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,1,0,0,345,700.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,2,1,0,315,740.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,3,0,0,280,770.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,4,1,0,251,780.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,,5,0,0,229,620.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,6,0,0,180,1530.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,7,1,0,160,2850.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,8,1,1,137,2830.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,10,0,1,81,700.0
+bulgari_resort_bali,Indonesia,Asia,beach,Deluxe Room,59.0,12,1,0,2,4100.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,1,0,0,345,860.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,2,1,0,315,920.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,3,0,0,280,790.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,4,1,0,251,800.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,5,0,0,229,830.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,6,0,0,180,1990.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,7,1,0,160,3710.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,8,1,1,137,3990.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,10,0,1,81,930.0
+bulgari_resort_bali,Indonesia,Asia,beach,Superior Room,59.0,12,1,0,2,6090.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,1,0,0,345,1070.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,2,1,0,315,1270.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,3,0,0,280,1150.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,4,1,0,251,1270.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,5,0,0,229,1210.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,6,0,0,180,2670.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,7,1,0,160,4780.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,8,1,1,137,5110.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,10,0,1,81,1420.0
+bulgari_resort_bali,Indonesia,Asia,beach,Junior Suite,59.0,12,1,0,2,7070.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,1,0,0,345,1900.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,2,1,0,315,2400.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,3,0,0,280,1870.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,4,1,0,251,1860.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,5,0,0,229,1790.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,6,0,0,180,4280.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,7,1,0,160,6230.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,8,1,1,137,7220.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,10,0,1,81,2020.0
+bulgari_resort_bali,Indonesia,Asia,beach,Suite,59.0,12,1,0,2,9790.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,1,0,0,345,2310.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,2,1,0,315,2590.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,3,0,0,280,2430.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,4,1,0,251,2280.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,5,0,0,229,2390.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,6,0,0,180,5740.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,7,1,0,160,9460.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,8,1,1,137,10310.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,10,0,1,81,2560.0
+bulgari_resort_bali,Indonesia,Asia,beach,Grand Suite,59.0,12,1,0,2,15330.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,1,0,0,345,3500.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,2,1,0,315,4600.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,3,0,0,280,3880.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,4,1,0,251,4060.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,5,0,0,229,3740.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,6,0,0,180,9010.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,7,1,0,160,13940.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,8,1,1,137,15920.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,10,0,1,81,4290.0
+bulgari_resort_bali,Indonesia,Asia,beach,Presidential Suite,59.0,12,1,0,2,20020.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,1,0,0,345,1660.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,2,1,0,315,2260.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,3,0,0,280,2160.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,4,1,0,251,1680.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,5,0,0,229,2180.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,6,0,0,180,4290.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,7,1,0,160,6620.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,8,1,1,137,7460.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,10,0,1,81,2270.0
+the_brando,French Polynesia,Pacific,island,Deluxe Room,35.0,12,1,0,2,8790.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,1,0,0,345,2560.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,2,1,0,315,2620.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,3,0,0,280,2530.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,4,1,0,251,2440.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,5,0,0,229,2490.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,6,0,0,180,5540.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,7,1,0,160,8960.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,8,1,1,137,9040.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,10,0,1,81,2910.0
+the_brando,French Polynesia,Pacific,island,Superior Room,35.0,12,1,0,2,10350.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,1,0,0,345,3490.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,2,1,0,315,3940.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,3,0,0,280,3500.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,4,1,0,251,3150.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,5,0,0,229,3740.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,6,0,0,180,7460.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,7,1,0,160,10850.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,8,1,1,137,11640.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,10,0,1,81,3090.0
+the_brando,French Polynesia,Pacific,island,Junior Suite,35.0,12,1,0,2,17700.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,1,0,0,345,4390.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,2,1,0,315,5790.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,3,0,0,280,5190.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,4,1,0,251,4960.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,5,0,0,229,4530.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,6,0,0,180,9440.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,7,1,0,160,17120.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,8,1,1,137,17850.0
+the_brando,French Polynesia,Pacific,island,Suite,35.0,10,0,1,81,4370.0
+the_brando,French Polynesia,Pacific,island,Suite,,12,1,0,2,21420.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,1,0,0,345,6840.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,2,1,0,315,7760.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,3,0,0,280,6550.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,4,1,0,251,7330.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,5,0,0,229,6220.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,6,0,0,180,14010.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,7,1,0,160,22490.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,8,1,1,137,23910.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,10,0,1,81,7510.0
+the_brando,French Polynesia,Pacific,island,Grand Suite,35.0,12,1,0,2,39110.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,1,0,0,345,9210.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,2,1,0,315,12200.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,3,0,0,280,11440.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,4,1,0,251,10400.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,5,0,0,229,10350.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,6,0,0,180,19180.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,7,1,0,160,36480.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,8,1,1,137,32050.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,10,0,1,81,9510.0
+the_brando,French Polynesia,Pacific,island,Presidential Suite,35.0,12,1,0,2,49960.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,1,0,0,345,1600.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,2,1,0,315,1430.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,3,0,0,280,1300.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,4,1,0,251,1570.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,5,0,0,229,1660.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,6,0,0,180,2870.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,7,1,0,160,5140.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,8,1,1,137,4750.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,10,0,1,81,3590.0
+singita_grumeti,Tanzania,Africa,mountain,Deluxe Room,34.0,12,1,0,2,7740.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,1,0,0,345,1690.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,2,1,0,315,2000.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,3,0,0,280,1980.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,4,1,0,251,2130.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,5,0,0,229,2060.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,6,0,0,180,4240.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,7,1,0,160,5810.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,8,1,1,137,6820.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,10,0,1,81,4060.0
+singita_grumeti,Tanzania,Africa,mountain,Superior Room,34.0,12,1,0,2,10150.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,1,0,0,345,2290.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,2,1,0,315,3050.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,3,0,0,280,2980.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,4,1,0,251,2840.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,5,0,0,229,2390.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,6,0,0,180,4860.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,7,1,0,160,7870.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,8,1,1,137,9780.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,10,0,1,81,6060.0
+singita_grumeti,Tanzania,Africa,mountain,Junior Suite,34.0,12,1,0,2,11450.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,1,0,0,345,4160.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,2,1,0,315,4060.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,3,0,0,280,3880.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,4,1,0,251,3820.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,5,0,0,229,4160.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,6,0,0,180,6760.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,7,1,0,160,11540.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,8,1,1,137,12010.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,10,0,1,81,6980.0
+singita_grumeti,Tanzania,Africa,mountain,Suite,34.0,12,1,0,2,15320.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,1,0,0,345,5200.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,2,1,0,315,6580.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,3,0,0,280,5170.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,4,1,0,251,5170.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,5,0,0,229,4850.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,6,0,0,180,10840.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,7,1,0,160,16190.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,8,1,1,137,16140.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,10,0,1,81,11070.0
+singita_grumeti,Tanzania,Africa,mountain,Grand Suite,34.0,12,1,0,2,25050.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,1,0,0,345,8410.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,2,1,0,315,9910.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,3,0,0,280,7450.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,4,1,0,251,8620.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,5,0,0,229,8030.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,6,0,0,180,15580.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,7,1,0,160,25590.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,8,1,1,137,25860.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,10,0,1,81,18120.0
+singita_grumeti,Tanzania,Africa,mountain,Presidential Suite,34.0,12,1,0,2,39270.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,1,0,0,345,810.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,2,1,0,315,2230.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,3,0,0,280,3200.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,4,1,0,251,3000.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,5,0,0,229,1680.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,6,0,0,180,700.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,7,1,0,160,890.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,8,1,1,137,730.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,10,0,1,81,3020.0
+aman_tokyo,Japan,Asia,city,Deluxe Room,84.0,12,1,0,2,2680.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,1,0,0,345,890.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,2,1,0,315,3120.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,3,0,0,280,3800.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,4,1,0,251,3630.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,5,0,0,229,2430.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,6,0,0,180,920.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,7,1,0,160,1000.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,8,1,1,137,1320.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,10,0,1,81,4330.0
+aman_tokyo,Japan,Asia,city,Superior Room,84.0,12,1,0,2,3740.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,1,0,0,345,1360.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,2,1,0,315,3630.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,3,0,0,280,4940.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,4,1,0,251,5280.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,5,0,0,229,2970.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,6,0,0,180,1260.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,7,1,0,160,1560.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,8,1,1,137,1740.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,10,0,1,81,6160.0
+aman_tokyo,Japan,Asia,city,Junior Suite,84.0,12,1,0,2,4240.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,1,0,0,345,1870.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,2,1,0,315,4850.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,3,0,0,280,7100.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,4,1,0,251,7160.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,5,0,0,229,4070.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,6,0,0,180,1740.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,7,1,0,160,2190.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,8,1,1,137,1740.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,10,0,1,81,7340.0
+aman_tokyo,Japan,Asia,city,Suite,84.0,12,1,0,2,6470.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,1,0,0,345,2460.0
+aman_tokyo,Japan,Asia,city,Grand Suite,,2,1,0,315,7430.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,3,0,0,280,10790.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,4,1,0,251,10810.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,5,0,0,229,6630.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,6,0,0,180,3060.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,7,1,0,160,2430.0
+aman_tokyo,Japan,Asia,city,Grand Suite,,8,1,1,137,2890.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,10,0,1,81,11070.0
+aman_tokyo,Japan,Asia,city,Grand Suite,84.0,12,1,0,2,9760.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,1,0,0,345,4670.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,2,1,0,315,11770.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,3,0,0,280,15870.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,4,1,0,251,16690.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,5,0,0,229,9190.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,6,0,0,180,4200.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,7,1,0,160,4240.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,8,1,1,137,3890.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,10,0,1,81,18160.0
+aman_tokyo,Japan,Asia,city,Presidential Suite,84.0,12,1,0,2,12420.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,1,0,0,345,1200.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,2,1,0,315,1400.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,3,0,0,280,1310.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,4,1,0,251,1250.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,5,0,0,229,1370.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,6,0,0,180,2940.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,7,1,0,160,5260.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,8,1,1,137,6150.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,10,0,1,81,1640.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Deluxe Room,100.0,12,1,0,2,8370.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,1,0,0,345,1950.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,2,1,0,315,2300.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,3,0,0,280,1880.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,4,1,0,251,1930.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,5,0,0,229,1520.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,6,0,0,180,4470.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,7,1,0,160,7060.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,8,1,1,137,7770.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,10,0,1,81,2180.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Superior Room,100.0,12,1,0,2,10410.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,1,0,0,345,2510.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,2,1,0,315,2480.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,3,0,0,280,1990.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,4,1,0,251,2530.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,5,0,0,229,2320.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,6,0,0,180,6320.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,7,1,0,160,9560.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,8,1,1,137,11170.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,10,0,1,81,2630.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Junior Suite,100.0,12,1,0,2,14990.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,1,0,0,345,3620.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,2,1,0,315,3890.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,3,0,0,280,3060.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,4,1,0,251,2740.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,5,0,0,229,2800.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,6,0,0,180,8160.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,7,1,0,160,13760.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,,8,1,1,137,15180.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,10,0,1,81,3730.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Suite,100.0,12,1,0,2,16460.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,1,0,0,345,4830.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,2,1,0,315,5700.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,3,0,0,280,4680.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,4,1,0,251,4920.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,5,0,0,229,3960.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,6,0,0,180,11230.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,7,1,0,160,20770.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,8,1,1,137,20840.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,10,0,1,81,5450.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Grand Suite,100.0,12,1,0,2,28640.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,1,0,0,345,7110.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,2,1,0,315,7640.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,3,0,0,280,7760.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,4,1,0,251,6230.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,5,0,0,229,6010.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,6,0,0,180,16480.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,7,1,0,160,29840.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,8,1,1,137,33390.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,10,0,1,81,6850.0
+four_seasons_bora_bora,French Polynesia,Pacific,island,Presidential Suite,100.0,12,1,0,2,39050.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,1,0,0,345,1540.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,2,1,0,315,1680.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,3,0,0,280,1280.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,4,1,0,251,1500.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,5,0,0,229,2660.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,6,0,0,180,3890.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,7,1,0,160,4090.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,8,1,1,137,4010.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,10,0,1,81,1200.0
+singita_ebony_lodge,South Africa,Africa,mountain,Deluxe Room,12.0,12,1,0,2,6050.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,1,0,0,345,1690.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,2,1,0,315,2400.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,3,0,0,280,1750.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,4,1,0,251,1610.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,5,0,0,229,3750.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,6,0,0,180,5170.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,7,1,0,160,5270.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,8,1,1,137,6300.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,10,0,1,81,1990.0
+singita_ebony_lodge,South Africa,Africa,mountain,Superior Room,12.0,12,1,0,2,7820.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,1,0,0,345,2140.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,2,1,0,315,2470.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,3,0,0,280,2600.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,4,1,0,251,2170.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,5,0,0,229,4720.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,6,0,0,180,7780.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,7,1,0,160,7770.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,8,1,1,137,7720.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,10,0,1,81,2900.0
+singita_ebony_lodge,South Africa,Africa,mountain,Junior Suite,12.0,12,1,0,2,12270.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,1,0,0,345,3480.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,2,1,0,315,3400.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,3,0,0,280,2790.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,4,1,0,251,3350.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,5,0,0,229,7000.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,6,0,0,180,10110.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,7,1,0,160,9940.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,8,1,1,137,10030.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,10,0,1,81,2880.0
+singita_ebony_lodge,South Africa,Africa,mountain,Suite,12.0,12,1,0,2,12630.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,,1,0,0,345,4590.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,2,1,0,315,5370.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,3,0,0,280,3990.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,4,1,0,251,4080.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,5,0,0,229,9080.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,6,0,0,180,13410.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,7,1,0,160,15280.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,8,1,1,137,14550.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,10,0,1,81,4770.0
+singita_ebony_lodge,South Africa,Africa,mountain,Grand Suite,12.0,12,1,0,2,17650.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,1,0,0,345,7710.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,2,1,0,315,6850.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,3,0,0,280,6890.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,4,1,0,251,6550.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,5,0,0,229,13630.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,6,0,0,180,23070.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,7,1,0,160,23330.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,8,1,1,137,21890.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,10,0,1,81,6760.0
+singita_ebony_lodge,South Africa,Africa,mountain,Presidential Suite,12.0,12,1,0,2,30980.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,1,0,0,345,5020.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,2,1,0,315,6250.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,3,0,0,280,2970.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,,4,1,0,251,1110.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,5,0,0,229,930.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,6,0,0,180,900.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,7,1,0,160,930.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,8,1,1,137,1220.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,10,0,1,81,970.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Deluxe Room,37.0,12,1,0,2,7130.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,1,0,0,345,6410.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,2,1,0,315,8150.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,3,0,0,280,4180.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,4,1,0,251,1150.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,5,0,0,229,1510.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,6,0,0,180,1410.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,7,1,0,160,1210.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,8,1,1,137,1610.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,10,0,1,81,1370.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Superior Room,37.0,12,1,0,2,9920.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,1,0,0,345,9980.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,2,1,0,315,10810.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,3,0,0,280,5040.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,4,1,0,251,2000.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,5,0,0,229,1890.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,6,0,0,180,1660.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,7,1,0,160,1780.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,8,1,1,137,1780.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,10,0,1,81,1640.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Junior Suite,37.0,12,1,0,2,11100.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,1,0,0,345,13040.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,2,1,0,315,15740.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,3,0,0,280,6910.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,4,1,0,251,2820.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,5,0,0,229,2580.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,6,0,0,180,2210.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,7,1,0,160,2230.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,8,1,1,137,2770.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,10,0,1,81,2760.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Suite,37.0,12,1,0,2,14670.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,1,0,0,345,19990.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,2,1,0,315,20710.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,3,0,0,280,11350.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,4,1,0,251,4100.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,5,0,0,229,3700.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,6,0,0,180,3800.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,7,1,0,160,3400.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,8,1,1,137,3360.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,37.0,10,0,1,81,3680.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Grand Suite,,12,1,0,2,25360.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,,1,0,0,345,27560.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,2,1,0,315,31500.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,3,0,0,280,14750.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,4,1,0,251,5620.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,5,0,0,229,5530.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,6,0,0,180,5260.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,7,1,0,160,5740.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,8,1,1,137,6230.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,10,0,1,81,6460.0
+eden_rock_st_barths,St Barthélemy,Caribbean,island,Presidential Suite,37.0,12,1,0,2,38690.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,1,0,0,345,960.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,2,1,0,315,1470.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,3,0,0,280,2330.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,4,1,0,251,3490.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,5,0,0,229,4100.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,6,0,0,180,2320.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,7,1,0,160,1210.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,8,1,1,137,2410.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,10,0,1,81,3710.0
+aman_venice,Italy,Europe,city,Deluxe Room,24.0,12,1,0,2,2000.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,1,0,0,345,1350.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,2,1,0,315,1780.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,3,0,0,280,3330.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,4,1,0,251,4820.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,5,0,0,229,4960.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,6,0,0,180,3240.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,7,1,0,160,1590.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,8,1,1,137,3500.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,10,0,1,81,4970.0
+aman_venice,Italy,Europe,city,Superior Room,24.0,12,1,0,2,2540.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,1,0,0,345,1740.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,2,1,0,315,2190.0
+aman_venice,Italy,Europe,city,Junior Suite,,3,0,0,280,3740.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,4,1,0,251,7290.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,5,0,0,229,6490.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,6,0,0,180,4350.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,7,1,0,160,2240.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,8,1,1,137,4280.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,10,0,1,81,7270.0
+aman_venice,Italy,Europe,city,Junior Suite,24.0,12,1,0,2,2870.0
+aman_venice,Italy,Europe,city,Suite,24.0,1,0,0,345,3110.0
+aman_venice,Italy,Europe,city,Suite,24.0,2,1,0,315,3060.0
+aman_venice,Italy,Europe,city,Suite,24.0,3,0,0,280,5550.0
+aman_venice,Italy,Europe,city,Suite,24.0,4,1,0,251,8930.0
+aman_venice,Italy,Europe,city,Suite,24.0,5,0,0,229,8450.0
+aman_venice,Italy,Europe,city,Suite,24.0,6,0,0,180,5300.0
+aman_venice,Italy,Europe,city,Suite,24.0,7,1,0,160,2900.0
+aman_venice,Italy,Europe,city,Suite,24.0,8,1,1,137,6040.0
+aman_venice,Italy,Europe,city,Suite,24.0,10,0,1,81,8970.0
+aman_venice,Italy,Europe,city,Suite,24.0,12,1,0,2,4620.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,1,0,0,345,3710.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,2,1,0,315,4080.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,3,0,0,280,8350.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,4,1,0,251,13220.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,5,0,0,229,12660.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,6,0,0,180,7520.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,7,1,0,160,3970.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,8,1,1,137,9810.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,10,0,1,81,13790.0
+aman_venice,Italy,Europe,city,Grand Suite,24.0,12,1,0,2,5110.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,1,0,0,345,6420.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,2,1,0,315,8190.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,3,0,0,280,13610.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,4,1,0,251,21670.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,5,0,0,229,21550.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,6,0,0,180,11240.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,7,1,0,160,5250.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,8,1,1,137,12660.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,10,0,1,81,19790.0
+aman_venice,Italy,Europe,city,Presidential Suite,24.0,12,1,0,2,8990.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,1,0,0,345,590.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,2,1,0,315,690.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,3,0,0,280,740.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,4,1,0,251,1690.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,5,0,0,229,2930.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,6,0,0,180,2690.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,7,1,0,160,2730.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,8,1,1,137,2980.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,10,0,1,81,1840.0
+il_sereno_lago_di_como,Italy,Europe,lake,Deluxe Room,30.0,12,1,0,2,1010.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,1,0,0,345,970.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,2,1,0,315,860.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,3,0,0,280,960.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,4,1,0,251,2020.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,5,0,0,229,3580.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,6,0,0,180,3600.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,7,1,0,160,3450.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,8,1,1,137,4130.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,10,0,1,81,2460.0
+il_sereno_lago_di_como,Italy,Europe,lake,Superior Room,30.0,12,1,0,2,1200.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,1,0,0,345,1070.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,2,1,0,315,1290.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,3,0,0,280,1310.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,4,1,0,251,3080.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,5,0,0,229,4920.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,6,0,0,180,4890.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,7,1,0,160,4930.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,8,1,1,137,5230.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,10,0,1,81,2790.0
+il_sereno_lago_di_como,Italy,Europe,lake,Junior Suite,30.0,12,1,0,2,1920.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,1,0,0,345,1820.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,2,1,0,315,1690.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,3,0,0,280,1450.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,4,1,0,251,3780.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,5,0,0,229,6090.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,6,0,0,180,6210.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,7,1,0,160,7280.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,8,1,1,137,6950.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,10,0,1,81,4190.0
+il_sereno_lago_di_como,Italy,Europe,lake,Suite,30.0,12,1,0,2,2190.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,1,0,0,345,2690.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,2,1,0,315,3100.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,3,0,0,280,2300.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,4,1,0,251,5390.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,5,0,0,229,10620.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,6,0,0,180,9490.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,7,1,0,160,8920.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,8,1,1,137,10300.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,10,0,1,81,6460.0
+il_sereno_lago_di_como,Italy,Europe,lake,Grand Suite,30.0,12,1,0,2,3470.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,1,0,0,345,3920.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,2,1,0,315,4050.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,3,0,0,280,2910.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,4,1,0,251,9540.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,5,0,0,229,13920.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,6,0,0,180,13280.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,7,1,0,160,14440.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,8,1,1,137,14030.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,10,0,1,81,9400.0
+il_sereno_lago_di_como,Italy,Europe,lake,Presidential Suite,30.0,12,1,0,2,5470.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,1,0,0,345,920.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,2,1,0,315,1010.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,3,0,0,280,2090.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,4,1,0,251,3380.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,5,0,0,229,3710.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,6,0,0,180,1970.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,7,1,0,160,770.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,8,1,1,137,2310.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,10,0,1,81,3280.0
+cipriani_venice,Italy,Europe,city,Deluxe Room,95.0,12,1,0,2,1470.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,1,0,0,345,1280.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,2,1,0,315,1350.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,3,0,0,280,2540.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,4,1,0,251,4820.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,5,0,0,229,4300.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,6,0,0,180,2790.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,7,1,0,160,1080.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,8,1,1,137,2910.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,10,0,1,81,4840.0
+cipriani_venice,Italy,Europe,city,Superior Room,95.0,12,1,0,2,1620.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,1,0,0,345,1420.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,2,1,0,315,1690.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,3,0,0,280,3290.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,4,1,0,251,5460.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,5,0,0,229,6150.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,6,0,0,180,3690.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,7,1,0,160,1570.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,8,1,1,137,3380.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,10,0,1,81,6060.0
+cipriani_venice,Italy,Europe,city,Junior Suite,95.0,12,1,0,2,2290.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,1,0,0,345,2160.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,2,1,0,315,2070.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,3,0,0,280,4530.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,4,1,0,251,7810.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,5,0,0,229,8450.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,6,0,0,180,5330.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,7,1,0,160,1860.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,8,1,1,137,5340.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,10,0,1,81,9550.0
+cipriani_venice,Italy,Europe,city,Suite,95.0,12,1,0,2,2820.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,1,0,0,345,2820.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,2,1,0,315,3990.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,3,0,0,280,7430.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,4,1,0,251,10770.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,5,0,0,229,11660.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,6,0,0,180,7710.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,7,1,0,160,3100.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,8,1,1,137,7740.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,10,0,1,81,13410.0
+cipriani_venice,Italy,Europe,city,Grand Suite,95.0,12,1,0,2,4390.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,1,0,0,345,4630.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,2,1,0,315,4790.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,3,0,0,280,11540.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,4,1,0,251,19180.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,5,0,0,229,18890.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,6,0,0,180,11690.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,7,1,0,160,4790.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,8,1,1,137,12150.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,10,0,1,81,18700.0
+cipriani_venice,Italy,Europe,city,Presidential Suite,95.0,12,1,0,2,6100.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,1,0,0,345,620.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,2,1,0,315,730.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,3,0,0,280,1720.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,4,1,0,251,2830.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,5,0,0,229,3190.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,6,0,0,180,3220.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,7,1,0,160,1630.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,8,1,1,137,1660.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,,10,0,1,81,3460.0
+four_seasons_firenze,Italy,Europe,city,Deluxe Room,116.0,12,1,0,2,900.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,1,0,0,345,760.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,2,1,0,315,1040.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,3,0,0,280,2140.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,4,1,0,251,3630.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,,5,0,0,229,3840.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,6,0,0,180,3990.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,7,1,0,160,2490.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,8,1,1,137,2600.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,10,0,1,81,3930.0
+four_seasons_firenze,Italy,Europe,city,Superior Room,116.0,12,1,0,2,1260.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,1,0,0,345,1220.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,2,1,0,315,1250.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,3,0,0,280,2870.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,4,1,0,251,5170.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,5,0,0,229,5300.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,6,0,0,180,5250.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,7,1,0,160,3200.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,8,1,1,137,3490.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,10,0,1,81,6160.0
+four_seasons_firenze,Italy,Europe,city,Junior Suite,116.0,12,1,0,2,1540.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,1,0,0,345,1840.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,2,1,0,315,1760.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,3,0,0,280,4150.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,4,1,0,251,6550.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,5,0,0,229,7450.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,6,0,0,180,6990.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,7,1,0,160,4470.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,8,1,1,137,4910.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,10,0,1,81,7450.0
+four_seasons_firenze,Italy,Europe,city,Suite,116.0,12,1,0,2,2650.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,1,0,0,345,2320.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,2,1,0,315,2930.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,3,0,0,280,6640.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,4,1,0,251,9650.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,5,0,0,229,9770.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,6,0,0,180,10570.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,7,1,0,160,5590.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,8,1,1,137,5740.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,10,0,1,81,11240.0
+four_seasons_firenze,Italy,Europe,city,Grand Suite,116.0,12,1,0,2,2970.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,1,0,0,345,3810.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,2,1,0,315,3470.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,3,0,0,280,9830.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,4,1,0,251,16610.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,5,0,0,229,15720.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,6,0,0,180,16600.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,7,1,0,160,8360.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,8,1,1,137,9670.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,10,0,1,81,16070.0
+four_seasons_firenze,Italy,Europe,city,Presidential Suite,116.0,12,1,0,2,5280.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,1,0,0,345,470.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,2,1,0,315,520.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,3,0,0,280,430.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,4,1,0,251,510.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,5,0,0,229,1180.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,6,0,0,180,2020.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,7,1,0,160,2060.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,8,1,1,137,2240.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,10,0,1,81,510.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Deluxe Room,111.0,12,1,0,2,3050.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,1,0,0,345,610.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,2,1,0,315,730.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,3,0,0,280,710.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,4,1,0,251,690.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,5,0,0,229,1560.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,6,0,0,180,2700.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,7,1,0,160,2950.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,8,1,1,137,2960.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,10,0,1,81,670.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Superior Room,111.0,12,1,0,2,4610.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,1,0,0,345,710.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,2,1,0,315,850.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,3,0,0,280,830.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,4,1,0,251,770.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,5,0,0,229,2210.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,6,0,0,180,4050.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,7,1,0,160,4100.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,,8,1,1,137,4120.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,10,0,1,81,820.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Junior Suite,111.0,12,1,0,2,5450.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,1,0,0,345,1200.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,2,1,0,315,1080.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,3,0,0,280,1040.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,4,1,0,251,1280.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,5,0,0,229,3170.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,6,0,0,180,4930.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,7,1,0,160,5690.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,8,1,1,137,5580.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,10,0,1,81,1340.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Suite,111.0,12,1,0,2,7350.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,1,0,0,345,1500.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,2,1,0,315,1990.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,3,0,0,280,1450.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,4,1,0,251,1510.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,5,0,0,229,4420.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,6,0,0,180,7200.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,7,1,0,160,7140.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,8,1,1,137,8690.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,10,0,1,81,1640.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Grand Suite,111.0,12,1,0,2,10320.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,1,0,0,345,2560.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,2,1,0,315,2760.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,3,0,0,280,2810.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,4,1,0,251,2160.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,5,0,0,229,6120.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,6,0,0,180,10560.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,7,1,0,160,11710.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,8,1,1,137,11520.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,10,0,1,81,2900.0
+rosewood_schloss_fuschl,Austria,Europe,mountain,Presidential Suite,111.0,12,1,0,2,18390.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,1,0,0,345,2640.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,2,1,0,315,3270.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,3,0,0,280,3160.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,4,1,0,251,1700.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,5,0,0,229,650.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,6,0,0,180,1560.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,7,1,0,160,3180.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,8,1,1,137,1780.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,10,0,1,81,710.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Deluxe Room,40.0,12,1,0,2,4190.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,1,0,0,345,3490.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,2,1,0,315,4100.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,3,0,0,280,3470.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,4,1,0,251,2340.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,5,0,0,229,790.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,6,0,0,180,2110.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,7,1,0,160,3700.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,8,1,1,137,2300.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,10,0,1,81,950.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Superior Room,40.0,12,1,0,2,5160.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,1,0,0,345,5030.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,2,1,0,315,6010.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,3,0,0,280,5240.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,,4,1,0,251,2960.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,5,0,0,229,970.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,6,0,0,180,2830.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,7,1,0,160,4950.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,8,1,1,137,2790.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,10,0,1,81,1170.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Junior Suite,40.0,12,1,0,2,7030.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,1,0,0,345,7320.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,2,1,0,315,8110.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,3,0,0,280,7560.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,4,1,0,251,4100.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,5,0,0,229,1490.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,6,0,0,180,3630.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,7,1,0,160,7580.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,8,1,1,137,4290.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,10,0,1,81,1490.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Suite,40.0,12,1,0,2,9500.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,1,0,0,345,10280.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,2,1,0,315,11130.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,3,0,0,280,10860.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,4,1,0,251,5850.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,5,0,0,229,2040.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,6,0,0,180,5240.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,7,1,0,160,10730.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,8,1,1,137,6160.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,10,0,1,81,2120.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Grand Suite,40.0,12,1,0,2,13060.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,1,0,0,345,15910.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,2,1,0,315,17790.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,3,0,0,280,16480.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,4,1,0,251,9540.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,5,0,0,229,3410.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,6,0,0,180,8120.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,7,1,0,160,15360.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,8,1,1,137,9910.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,10,0,1,81,2910.0
+tennerhof_kitzbuhel,Austria,Europe,mountain,Presidential Suite,40.0,12,1,0,2,22080.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,1,0,0,345,4500.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,2,1,0,315,4870.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,3,0,0,280,2270.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,4,1,0,251,760.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,5,0,0,229,690.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,6,0,0,180,2480.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,7,1,0,160,4380.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,8,1,1,137,4120.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,10,0,1,81,900.0
+badrutts_palace,Switzerland,Europe,mountain,Deluxe Room,157.0,12,1,0,2,5920.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,1,0,0,345,5530.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,2,1,0,315,5970.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,3,0,0,280,2960.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,4,1,0,251,1050.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,5,0,0,229,870.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,6,0,0,180,3010.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,7,1,0,160,5350.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,8,1,1,137,5230.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,10,0,1,81,960.0
+badrutts_palace,Switzerland,Europe,mountain,Superior Room,157.0,12,1,0,2,7760.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,1,0,0,345,7040.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,2,1,0,315,9490.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,3,0,0,280,3730.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,4,1,0,251,1430.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,5,0,0,229,1520.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,6,0,0,180,4210.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,7,1,0,160,7070.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,8,1,1,137,7310.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,10,0,1,81,1520.0
+badrutts_palace,Switzerland,Europe,mountain,Junior Suite,157.0,12,1,0,2,10280.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,1,0,0,345,10250.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,2,1,0,315,11670.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,3,0,0,280,5070.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,4,1,0,251,2130.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,5,0,0,229,2070.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,6,0,0,180,5160.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,7,1,0,160,8970.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,8,1,1,137,10930.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,10,0,1,81,2070.0
+badrutts_palace,Switzerland,Europe,mountain,Suite,157.0,12,1,0,2,14150.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,1,0,0,345,14190.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,2,1,0,315,16310.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,3,0,0,280,7850.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,4,1,0,251,2460.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,5,0,0,229,2540.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,6,0,0,180,8980.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,7,1,0,160,13190.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,8,1,1,137,16630.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,10,0,1,81,3310.0
+badrutts_palace,Switzerland,Europe,mountain,Grand Suite,157.0,12,1,0,2,24270.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,1,0,0,345,19730.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,2,1,0,315,26690.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,3,0,0,280,12260.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,4,1,0,251,4560.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,5,0,0,229,4650.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,6,0,0,180,12680.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,7,1,0,160,21250.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,8,1,1,137,22340.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,10,0,1,81,4100.0
+badrutts_palace,Switzerland,Europe,mountain,Presidential Suite,157.0,12,1,0,2,25900.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,1,0,0,345,3800.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,2,1,0,315,4410.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,3,0,0,280,2100.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,4,1,0,251,580.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,5,0,0,229,610.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,6,0,0,180,1920.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,7,1,0,160,3940.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,8,1,1,137,3620.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,10,0,1,81,850.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Deluxe Room,56.0,12,1,0,2,4480.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,,1,0,0,345,4360.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,2,1,0,315,4820.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,3,0,0,280,2710.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,4,1,0,251,1010.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,5,0,0,229,900.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,6,0,0,180,2740.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,7,1,0,160,4400.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,8,1,1,137,5320.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,10,0,1,81,1090.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Superior Room,56.0,12,1,0,2,6020.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,1,0,0,345,5950.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,2,1,0,315,7730.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,3,0,0,280,3500.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,4,1,0,251,1300.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,5,0,0,229,1210.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,6,0,0,180,3350.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,7,1,0,160,6070.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,8,1,1,137,6990.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,10,0,1,81,1230.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Junior Suite,56.0,12,1,0,2,8890.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,1,0,0,345,9390.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,2,1,0,315,9040.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,3,0,0,280,4920.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,4,1,0,251,1650.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,5,0,0,229,1650.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,6,0,0,180,4860.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,7,1,0,160,9500.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,8,1,1,137,9160.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,10,0,1,81,1660.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Suite,56.0,12,1,0,2,12040.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,1,0,0,345,12950.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,2,1,0,315,14300.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,3,0,0,280,7140.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,4,1,0,251,2690.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,5,0,0,229,2380.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,6,0,0,180,6520.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,7,1,0,160,13410.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,8,1,1,137,14070.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,10,0,1,81,2510.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Grand Suite,56.0,12,1,0,2,20100.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,1,0,0,345,18150.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,2,1,0,315,23210.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,3,0,0,280,11710.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,4,1,0,251,3410.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,5,0,0,229,3470.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,6,0,0,180,11370.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,7,1,0,160,18740.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,8,1,1,137,20820.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,10,0,1,81,3500.0
+the_alpina_gstaad,Switzerland,Europe,mountain,Presidential Suite,56.0,12,1,0,2,23570.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,1,0,0,345,890.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,2,1,0,315,1140.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,3,0,0,280,790.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,4,1,0,251,2220.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,5,0,0,229,6630.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,6,0,0,180,3950.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,7,1,0,160,4020.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,8,1,1,137,4610.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,10,0,1,81,1000.0
+hotel_de_paris_mc,Monaco,Europe,city,Deluxe Room,210.0,12,1,0,2,1080.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,1,0,0,345,1100.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,2,1,0,315,1130.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,3,0,0,280,1040.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,4,1,0,251,2900.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,5,0,0,229,8890.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,6,0,0,180,4990.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,7,1,0,160,5440.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,8,1,1,137,6240.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,10,0,1,81,1300.0
+hotel_de_paris_mc,Monaco,Europe,city,Superior Room,210.0,12,1,0,2,1680.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,1,0,0,345,1430.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,2,1,0,315,1570.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,3,0,0,280,1450.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,4,1,0,251,4010.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,5,0,0,229,11540.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,6,0,0,180,7020.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,7,1,0,160,6810.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,8,1,1,137,7630.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,10,0,1,81,1500.0
+hotel_de_paris_mc,Monaco,Europe,city,Junior Suite,210.0,12,1,0,2,2560.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,1,0,0,345,2050.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,,2,1,0,315,2640.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,3,0,0,280,2380.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,4,1,0,251,5950.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,5,0,0,229,18170.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,6,0,0,180,10670.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,7,1,0,160,10000.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,8,1,1,137,9520.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,10,0,1,81,2170.0
+hotel_de_paris_mc,Monaco,Europe,city,Suite,210.0,12,1,0,2,2930.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,1,0,0,345,3040.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,2,1,0,315,3700.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,3,0,0,280,2730.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,4,1,0,251,9000.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,5,0,0,229,26700.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,6,0,0,180,15800.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,7,1,0,160,15850.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,8,1,1,137,14980.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,10,0,1,81,2970.0
+hotel_de_paris_mc,Monaco,Europe,city,Grand Suite,210.0,12,1,0,2,4780.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,1,0,0,345,4530.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,2,1,0,315,4680.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,3,0,0,280,4020.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,4,1,0,251,11420.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,5,0,0,229,36200.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,6,0,0,180,23300.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,7,1,0,160,22630.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,8,1,1,137,21360.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,10,0,1,81,5120.0
+hotel_de_paris_mc,Monaco,Europe,city,Presidential Suite,210.0,12,1,0,2,6750.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,1,0,0,345,3520.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,2,1,0,315,4100.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,3,0,0,280,3250.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,4,1,0,251,2140.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,5,0,0,229,620.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,6,0,0,180,650.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,7,1,0,160,650.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,8,1,1,137,660.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,10,0,1,81,760.0
+airelles_val_disere,France,Europe,mountain,Deluxe Room,32.0,12,1,0,2,4950.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,1,0,0,345,3980.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,2,1,0,315,5600.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,3,0,0,280,4010.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,4,1,0,251,2380.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,5,0,0,229,870.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,6,0,0,180,950.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,7,1,0,160,750.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,8,1,1,137,900.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,10,0,1,81,870.0
+airelles_val_disere,France,Europe,mountain,Superior Room,32.0,12,1,0,2,5910.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,1,0,0,345,5930.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,2,1,0,315,7630.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,3,0,0,280,6180.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,4,1,0,251,3750.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,5,0,0,229,1130.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,6,0,0,180,1130.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,7,1,0,160,1320.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,8,1,1,137,1160.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,10,0,1,81,1300.0
+airelles_val_disere,France,Europe,mountain,Junior Suite,32.0,12,1,0,2,8040.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,1,0,0,345,7650.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,2,1,0,315,9260.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,3,0,0,280,8640.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,4,1,0,251,5080.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,5,0,0,229,1750.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,6,0,0,180,1480.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,7,1,0,160,1480.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,8,1,1,137,1530.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,10,0,1,81,1930.0
+airelles_val_disere,France,Europe,mountain,Suite,32.0,12,1,0,2,11980.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,1,0,0,345,11660.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,2,1,0,315,12140.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,3,0,0,280,12230.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,4,1,0,251,7220.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,5,0,0,229,2120.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,6,0,0,180,2630.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,7,1,0,160,2590.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,8,1,1,137,2700.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,10,0,1,81,2180.0
+airelles_val_disere,France,Europe,mountain,Grand Suite,32.0,12,1,0,2,16990.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,1,0,0,345,18600.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,2,1,0,315,19920.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,3,0,0,280,19230.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,4,1,0,251,10610.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,5,0,0,229,3390.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,6,0,0,180,3870.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,7,1,0,160,3490.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,8,1,1,137,4050.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,10,0,1,81,3920.0
+airelles_val_disere,France,Europe,mountain,Presidential Suite,32.0,12,1,0,2,22390.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,1,0,0,345,460.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,2,1,0,315,540.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,3,0,0,280,440.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,4,1,0,251,500.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,5,0,0,229,1640.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,6,0,0,180,2560.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,7,1,0,160,2830.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,8,1,1,137,2980.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,10,0,1,81,1530.0
+chateau_messardiere,France,Europe,beach,Deluxe Room,117.0,12,1,0,2,790.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,1,0,0,345,670.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,2,1,0,315,790.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,3,0,0,280,620.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,4,1,0,251,590.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,5,0,0,229,2160.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,6,0,0,180,3220.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,7,1,0,160,3450.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,8,1,1,137,3960.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,10,0,1,81,2200.0
+chateau_messardiere,France,Europe,beach,Superior Room,117.0,12,1,0,2,1070.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,1,0,0,345,750.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,2,1,0,315,1000.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,3,0,0,280,820.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,4,1,0,251,840.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,5,0,0,229,2830.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,6,0,0,180,4280.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,7,1,0,160,4460.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,8,1,1,137,5270.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,10,0,1,81,2730.0
+chateau_messardiere,France,Europe,beach,Junior Suite,117.0,12,1,0,2,1180.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,1,0,0,345,930.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,2,1,0,315,1310.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,3,0,0,280,940.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,4,1,0,251,1180.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,5,0,0,229,3440.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,6,0,0,180,6960.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,7,1,0,160,6800.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,8,1,1,137,7290.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,10,0,1,81,3960.0
+chateau_messardiere,France,Europe,beach,Suite,117.0,12,1,0,2,1380.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,1,0,0,345,1360.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,2,1,0,315,2200.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,3,0,0,280,1660.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,4,1,0,251,1720.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,5,0,0,229,5320.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,6,0,0,180,9400.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,7,1,0,160,9350.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,8,1,1,137,10140.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,10,0,1,81,6220.0
+chateau_messardiere,France,Europe,beach,Grand Suite,117.0,12,1,0,2,2240.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,1,0,0,345,2100.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,2,1,0,315,3370.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,3,0,0,280,2690.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,4,1,0,251,2250.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,5,0,0,229,7310.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,6,0,0,180,13230.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,7,1,0,160,12890.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,8,1,1,137,13430.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,10,0,1,81,8970.0
+chateau_messardiere,France,Europe,beach,Presidential Suite,117.0,12,1,0,2,3250.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,1,0,0,345,560.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,2,1,0,315,720.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,,3,0,0,280,1580.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,4,1,0,251,2570.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,5,0,0,229,2510.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,6,0,0,180,1530.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,7,1,0,160,540.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,8,1,1,137,1500.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,10,0,1,81,2540.0
+four_seasons_istanbul,Turkey,Europe,city,Deluxe Room,65.0,12,1,0,2,690.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,1,0,0,345,660.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,2,1,0,315,910.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,3,0,0,280,1980.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,4,1,0,251,3480.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,5,0,0,229,2980.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,6,0,0,180,2010.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,7,1,0,160,670.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,8,1,1,137,1930.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,10,0,1,81,3690.0
+four_seasons_istanbul,Turkey,Europe,city,Superior Room,65.0,12,1,0,2,1020.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,1,0,0,345,980.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,2,1,0,315,1190.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,3,0,0,280,2630.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,4,1,0,251,4060.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,5,0,0,229,4540.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,6,0,0,180,2650.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,7,1,0,160,1020.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,8,1,1,137,2470.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,10,0,1,81,4450.0
+four_seasons_istanbul,Turkey,Europe,city,Junior Suite,65.0,12,1,0,2,1260.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,1,0,0,345,1420.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,2,1,0,315,1480.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,3,0,0,280,3550.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,4,1,0,251,6310.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,5,0,0,229,5970.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,6,0,0,180,3510.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,7,1,0,160,1370.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,8,1,1,137,4070.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,10,0,1,81,6470.0
+four_seasons_istanbul,Turkey,Europe,city,Suite,65.0,12,1,0,2,1880.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,1,0,0,345,1940.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,2,1,0,315,2370.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,3,0,0,280,5110.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,4,1,0,251,8690.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,5,0,0,229,9560.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,6,0,0,180,5070.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,7,1,0,160,1730.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,8,1,1,137,4990.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,10,0,1,81,8350.0
+four_seasons_istanbul,Turkey,Europe,city,Grand Suite,65.0,12,1,0,2,3180.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,1,0,0,345,2440.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,2,1,0,315,3290.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,3,0,0,280,8310.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,4,1,0,251,12140.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,5,0,0,229,13330.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,6,0,0,180,7330.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,7,1,0,160,2990.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,8,1,1,137,8090.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,10,0,1,81,13450.0
+four_seasons_istanbul,Turkey,Europe,city,Presidential Suite,65.0,12,1,0,2,4370.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,1,0,0,345,420.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,2,1,0,315,500.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,3,0,0,280,1040.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,4,1,0,251,1810.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,5,0,0,229,1810.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,6,0,0,180,1110.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,7,1,0,160,440.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,8,1,1,137,1290.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,10,0,1,81,2130.0
+four_seasons_budapest,Hungary,Europe,city,Deluxe Room,179.0,12,1,0,2,590.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,1,0,0,345,500.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,2,1,0,315,630.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,3,0,0,280,1400.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,4,1,0,251,2710.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,5,0,0,229,2710.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,6,0,0,180,1540.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,7,1,0,160,540.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,8,1,1,137,1420.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,10,0,1,81,2670.0
+four_seasons_budapest,Hungary,Europe,city,Superior Room,179.0,12,1,0,2,740.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,1,0,0,345,650.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,2,1,0,315,820.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,3,0,0,280,1840.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,4,1,0,251,3080.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,5,0,0,229,3120.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,6,0,0,180,2050.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,7,1,0,160,650.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,8,1,1,137,1950.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,10,0,1,81,3470.0
+four_seasons_budapest,Hungary,Europe,city,Junior Suite,179.0,12,1,0,2,850.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,1,0,0,345,960.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,2,1,0,315,940.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,3,0,0,280,2380.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,4,1,0,251,4630.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,5,0,0,229,4120.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,6,0,0,180,2810.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,7,1,0,160,810.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,8,1,1,137,2840.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,10,0,1,81,4670.0
+four_seasons_budapest,Hungary,Europe,city,Suite,179.0,12,1,0,2,1570.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,1,0,0,345,1120.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,2,1,0,315,1480.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,3,0,0,280,3860.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,4,1,0,251,6180.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,5,0,0,229,6250.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,6,0,0,180,3950.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,7,1,0,160,1420.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,8,1,1,137,4280.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,10,0,1,81,6980.0
+four_seasons_budapest,Hungary,Europe,city,Grand Suite,179.0,12,1,0,2,1860.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,1,0,0,345,1800.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,2,1,0,315,1950.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,3,0,0,280,5930.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,4,1,0,251,8930.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,5,0,0,229,9760.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,6,0,0,180,5850.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,7,1,0,160,2040.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,8,1,1,137,6530.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,10,0,1,81,10680.0
+four_seasons_budapest,Hungary,Europe,city,Presidential Suite,179.0,12,1,0,2,2900.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,1,0,0,345,540.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,2,1,0,315,570.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,3,0,0,280,580.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,4,1,0,251,570.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,5,0,0,229,1560.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,6,0,0,180,3090.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,7,1,0,160,3150.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,8,1,1,137,2990.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,10,0,1,81,1640.0
+bill_and_coo_mykonos,Greece,Europe,beach,Deluxe Room,34.0,12,1,0,2,880.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,1,0,0,345,830.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,2,1,0,315,1090.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,3,0,0,280,880.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,4,1,0,251,780.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,5,0,0,229,1980.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,6,0,0,180,4030.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,7,1,0,160,3860.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,8,1,1,137,4080.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,10,0,1,81,2300.0
+bill_and_coo_mykonos,Greece,Europe,beach,Superior Room,34.0,12,1,0,2,1090.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,1,0,0,345,1110.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,2,1,0,315,1340.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,3,0,0,280,1030.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,4,1,0,251,970.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,5,0,0,229,3220.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,6,0,0,180,5310.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,7,1,0,160,4940.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,8,1,1,137,4960.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,10,0,1,81,3180.0
+bill_and_coo_mykonos,Greece,Europe,beach,Junior Suite,34.0,12,1,0,2,1510.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,1,0,0,345,1570.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,2,1,0,315,1670.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,3,0,0,280,1300.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,4,1,0,251,1470.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,5,0,0,229,4370.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,6,0,0,180,6620.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,7,1,0,160,7230.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,8,1,1,137,7950.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,10,0,1,81,3950.0
+bill_and_coo_mykonos,Greece,Europe,beach,Suite,34.0,12,1,0,2,1770.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,1,0,0,345,2050.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,2,1,0,315,2540.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,3,0,0,280,1950.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,4,1,0,251,2290.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,5,0,0,229,5880.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,6,0,0,180,10850.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,7,1,0,160,10040.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,8,1,1,137,11910.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,10,0,1,81,5870.0
+bill_and_coo_mykonos,Greece,Europe,beach,Grand Suite,34.0,12,1,0,2,2760.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,1,0,0,345,2730.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,2,1,0,315,3590.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,3,0,0,280,2860.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,4,1,0,251,2710.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,5,0,0,229,8590.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,6,0,0,180,14820.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,7,1,0,160,15150.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,8,1,1,137,14880.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,10,0,1,81,9400.0
+bill_and_coo_mykonos,Greece,Europe,beach,Presidential Suite,34.0,12,1,0,2,4280.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,1,0,0,345,560.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,2,1,0,315,720.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,3,0,0,280,640.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,,4,1,0,251,730.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,5,0,0,229,1570.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,6,0,0,180,2720.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,7,1,0,160,2750.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,8,1,1,137,2600.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,10,0,1,81,1660.0
+canaves_oia_santorini,Greece,Europe,beach,Deluxe Room,15.0,12,1,0,2,890.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,1,0,0,345,990.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,2,1,0,315,870.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,3,0,0,280,940.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,4,1,0,251,810.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,5,0,0,229,2230.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,6,0,0,180,3600.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,7,1,0,160,3810.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,8,1,1,137,3970.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,10,0,1,81,2220.0
+canaves_oia_santorini,Greece,Europe,beach,Superior Room,15.0,12,1,0,2,1080.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,,1,0,0,345,1340.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,2,1,0,315,1150.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,3,0,0,280,1290.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,4,1,0,251,1100.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,5,0,0,229,2810.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,6,0,0,180,5180.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,7,1,0,160,4700.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,8,1,1,137,4520.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,10,0,1,81,3240.0
+canaves_oia_santorini,Greece,Europe,beach,Junior Suite,15.0,12,1,0,2,1550.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,1,0,0,345,1560.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,2,1,0,315,2130.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,3,0,0,280,1830.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,4,1,0,251,1470.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,5,0,0,229,3880.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,6,0,0,180,6950.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,7,1,0,160,6410.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,8,1,1,137,6750.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,10,0,1,81,4040.0
+canaves_oia_santorini,Greece,Europe,beach,Suite,15.0,12,1,0,2,2490.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,1,0,0,345,2180.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,2,1,0,315,2300.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,3,0,0,280,2110.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,4,1,0,251,2460.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,5,0,0,229,5270.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,6,0,0,180,9780.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,7,1,0,160,9000.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,8,1,1,137,9680.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,10,0,1,81,6280.0
+canaves_oia_santorini,Greece,Europe,beach,Grand Suite,15.0,12,1,0,2,3460.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,1,0,0,345,3540.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,2,1,0,315,3880.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,3,0,0,280,3290.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,4,1,0,251,2950.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,5,0,0,229,8390.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,6,0,0,180,12980.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,7,1,0,160,13310.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,8,1,1,137,15310.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,10,0,1,81,9800.0
+canaves_oia_santorini,Greece,Europe,beach,Presidential Suite,15.0,12,1,0,2,5410.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,1,0,0,345,390.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,2,1,0,315,480.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,3,0,0,280,320.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,4,1,0,251,1180.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,5,0,0,229,2110.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,6,0,0,180,1960.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,7,1,0,160,2150.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,8,1,1,137,2080.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,10,0,1,81,1160.0
+marbella_club,Spain,Europe,beach,Deluxe Room,121.0,12,1,0,2,430.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,1,0,0,345,440.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,2,1,0,315,460.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,3,0,0,280,420.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,4,1,0,251,1490.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,5,0,0,229,2670.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,6,0,0,180,2640.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,7,1,0,160,2640.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,8,1,1,137,2590.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,10,0,1,81,1550.0
+marbella_club,Spain,Europe,beach,Superior Room,121.0,12,1,0,2,860.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,1,0,0,345,630.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,2,1,0,315,730.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,3,0,0,280,690.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,4,1,0,251,2180.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,5,0,0,229,3930.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,6,0,0,180,3970.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,7,1,0,160,3630.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,8,1,1,137,4210.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,10,0,1,81,2170.0
+marbella_club,Spain,Europe,beach,Junior Suite,121.0,12,1,0,2,880.0
+marbella_club,Spain,Europe,beach,Suite,121.0,1,0,0,345,940.0
+marbella_club,Spain,Europe,beach,Suite,121.0,2,1,0,315,900.0
+marbella_club,Spain,Europe,beach,Suite,121.0,3,0,0,280,740.0
+marbella_club,Spain,Europe,beach,Suite,121.0,4,1,0,251,2990.0
+marbella_club,Spain,Europe,beach,Suite,121.0,5,0,0,229,5340.0
+marbella_club,Spain,Europe,beach,Suite,121.0,6,0,0,180,5140.0
+marbella_club,Spain,Europe,beach,Suite,121.0,7,1,0,160,5400.0
+marbella_club,Spain,Europe,beach,Suite,121.0,8,1,1,137,4860.0
+marbella_club,Spain,Europe,beach,Suite,121.0,10,0,1,81,2870.0
+marbella_club,Spain,Europe,beach,Suite,121.0,12,1,0,2,1180.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,1,0,0,345,1220.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,2,1,0,315,1520.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,3,0,0,280,1170.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,4,1,0,251,4460.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,5,0,0,229,7240.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,6,0,0,180,7100.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,7,1,0,160,7350.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,8,1,1,137,7580.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,10,0,1,81,4290.0
+marbella_club,Spain,Europe,beach,Grand Suite,121.0,12,1,0,2,1770.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,1,0,0,345,1830.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,2,1,0,315,2360.0
+marbella_club,Spain,Europe,beach,Presidential Suite,,3,0,0,280,2160.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,4,1,0,251,6490.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,5,0,0,229,11940.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,6,0,0,180,11660.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,7,1,0,160,10140.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,8,1,1,137,11440.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,10,0,1,81,7000.0
+marbella_club,Spain,Europe,beach,Presidential Suite,121.0,12,1,0,2,2740.0

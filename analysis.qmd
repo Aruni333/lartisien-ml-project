@@ -78,7 +78,11 @@ This report documents the complete, reproducible ML pipeline built on **Lartisie
 
 ```{python}
 #| label: load-data
-df_full = pd.read_csv(BASE / "hotels_rates.csv")
+# hotels_rates_full.csv is the 26-hotel candidate set assembled before any outlier
+# screening; hotels_rates.csv (loaded later, §2.2) is what's left after this section's
+# IQR decision is applied. Loading the pre-screening file here makes the outlier
+# detection below a real, reproducible computation rather than an asserted claim.
+df_full = pd.read_csv(BASE / "hotels_rates_full.csv")
 print(f"Full dataset (incl. outliers): {df_full.shape}")
 print(f"Hotels: {df_full['hotel_id'].nunique()}")
 print(f"Missing values per column:\n{df_full.isna().sum()[df_full.isna().sum() > 0]}")
@@ -110,6 +114,22 @@ plt.suptitle("Fig 1 · Target Variable Distributions", y=1.02, fontweight="bold"
 plt.show()
 ```
 
+### 2.1b Additional cleaning checks — what else did we look for?
+
+```{python}
+#| label: extra-cleaning-checks
+print(f"Exact duplicate rows: {df_full.duplicated().sum()}")
+print(f"Duplicate (hotel, month, room) combinations: {df_full.duplicated(subset=['hotel_id','month','room_type']).sum()}")
+print(f"Rows with rate <= €0: {(df_full['rate_eur_per_night'] <= 0).sum()}")
+print(f"Month values outside 1-12: {(~df_full['month'].between(1,12)).sum()}")
+print(f"Distinct room_type spellings: {sorted(df_full['room_type'].unique())}")
+print(f"Distinct resort_type spellings: {sorted(df_full['resort_type'].unique())}")
+```
+
+Beyond the hotel-level outlier screen below, we checked for the usual row-level data-quality issues and found none: no exact duplicate rows, no duplicate hotel/month/room combinations, no non-positive or missing rates, no out-of-range months, and no inconsistent spelling in the categorical columns (a common issue with scraped data — e.g. "Junior suite" vs "Junior Suite" — that would silently create phantom categories in one-hot encoding). This dataset was assembled directly from published rate cards rather than scraped, which is why it doesn't show the typical messiness of raw collected data; the cleaning effort that *was* needed — the hotel-level IQR outlier screen below — is documented with its full before/after numbers.
+
+**On class imbalance:** the classification target is imbalanced (~35% Premium / 65% Standard). We did not oversample/undersample or reweight, for two reasons: (1) this imbalance is a real, meaningful feature of the business problem — most bookings genuinely aren't Premium — not a data collection artifact to correct; and (2) F1-macro (chosen as the primary metric, see §10.1) already penalizes a model that ignores the minority class, so resampling would mostly change training dynamics, not what "good" means for this task.
+
 ### 2.2 Outlier Detection — IQR at Hotel Level
 
 ```{python}
@@ -140,15 +160,21 @@ plt.tight_layout()
 plt.show()
 ```
 
-**Decision:** Removed `cheval_blanc_randheli` (median €9,930) and `the_brando` (median €7,085) — both exceed the IQR fence of €7,081. These properties cause the model to memorise brand identity rather than learning generalizable pricing signals.
+**Decision:** the two hotels flagged above by the IQR fence are removed. These properties cause the model to memorise brand identity rather than learning generalizable pricing signals.
 
 ```{python}
 #| label: load-clean-data
-df = pd.read_csv(BASE / "hotels_rates.csv")
-# Remove outlier hotels
+# Derive the clean dataset by filtering the outliers computed above — not by loading
+# a separately pre-cleaned file — so the "26 → 24 hotels" decision is verifiably live.
 outlier_ids = list(outliers.index)
-df = df[~df["hotel_id"].isin(outlier_ids)].reset_index(drop=True)
+df = df_full[~df_full["hotel_id"].isin(outlier_ids)].reset_index(drop=True)
 print(f"Clean dataset: {df.shape}  |  Hotels: {df['hotel_id'].nunique()}")
+
+# hotels_rates.csv (the file the deployed app and classifier.pkl/regressor.pkl were
+# built from) should match this filtered result exactly:
+df_shipped = pd.read_csv(BASE / "hotels_rates.csv")
+assert set(df["hotel_id"]) == set(df_shipped["hotel_id"]), "clean dataset does not match hotels_rates.csv"
+print("✅ Verified: matches the 24-hotel hotels_rates.csv used by the app")
 ```
 
 ### 2.3 Seasonal patterns & class balance
@@ -193,6 +219,8 @@ print("Critical finding: month × days_to_christmas  r =", round(corr_raw.loc["m
 ## 3 · Feature Engineering
 
 Features were redesigned to eliminate collinearity, replace brand-specific OHE dummies with an interpretable ordinal, and add nonlinear seasonal encoding.
+
+**Why these EDA and feature-selection choices suit both tasks at once.** Classification (`is_premium`) and regression (`log_rate`) are two views of the *same* underlying quantity — one is a thresholded version of the other — so anything that improves the model's ability to explain nightly rate helps both tasks together, and the EDA was designed around that shared target rather than duplicated per task. The log-transform (§2.1) fixes right-skew that would otherwise hurt a linear regressor's residuals *and* stretch the decision boundary for the classifier's €3,000 cutoff. The hotel-level IQR outlier screen (§2.2) protects both tasks from the same failure mode: two extreme-priced hotels dominating either the regression's error terms or the classifier's brand-memorisation shortcut. Feature selection via correlation filter + VIF (§3.2) was applied to the shared feature matrix `X`, not separately per task, because a feature that's redundant for predicting rate is redundant for predicting the tier derived from that rate — there was no case in this dataset where a feature helped one task but was collinear noise for the other.
 
 ```{python}
 #| label: feature-engineering
