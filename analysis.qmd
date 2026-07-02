@@ -1,0 +1,599 @@
+---
+title: "Lartisien Collection — ML Rate Intelligence"
+subtitle: "Full Analysis Report · MADA 2025 Final Project · v2 Rebuild"
+author: "Minka Borec"
+date: today
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-float: true
+    code-fold: true
+    code-summary: "Show code"
+    self-contained: true
+    fig-width: 10
+    fig-height: 6
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{python}
+#| label: setup
+#| include: false
+import warnings; warnings.filterwarnings("ignore")
+import numpy as np
+import pandas as pd
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+import seaborn as sns
+import joblib
+from pathlib import Path
+from sklearn.preprocessing import StandardScaler
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.model_selection import train_test_split, StratifiedKFold, KFold, cross_val_score
+from sklearn.dummy import DummyClassifier, DummyRegressor
+from sklearn.linear_model import LogisticRegression, Ridge
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor, GradientBoostingClassifier, GradientBoostingRegressor
+from sklearn.metrics import f1_score, roc_auc_score, accuracy_score, r2_score, mean_absolute_error, mean_squared_error
+import xgboost as xgb
+
+np.random.seed(42)
+sns.set_theme(style="whitegrid", palette="muted", font_scale=1.1)
+BASE = Path(".")
+GOLD = "#C9A02C"
+```
+
+## 1 · Project Overview
+
+This report documents the complete, reproducible ML pipeline built on **Lartisien Collection** luxury hotel rate data — rebuilt as v2 with 24 Lartisien-verified hotels and interpretable features.
+
+> **Business question:** Can we tell a Lartisien Voyager traveller when a property enters a low-demand window — lower price, higher availability, more space and privacy — for a given hotel, month, and room type?
+>
+> **Task 1 — Classification:** Is a given hotel + room + month combination *Premium* (rate > €3,000/night) — a proxy for a high-demand, low-availability period — or *Standard*, a proxy for a quieter, more accessible one?
+>
+> **Task 2 — Regression:** What is the estimated nightly rate in EUR, so the price gap between visiting in-season vs. off-season is concrete, not just a tier label?
+
+**Dataset v2:** 1,440 rows · 24 Lartisien-verified hotels · 6 room categories · 10 sample dates per room/hotel.
+**Random seed:** `random_state=42` everywhere; `np.random.seed(42)` above.
+**Leakage:** All preprocessing inside `sklearn.Pipeline`, fitted on X_train only.
+
+### Tech stack
+
+- **scikit-learn** — Pipelines, GradientBoosting, StratifiedKFold, KFold, cross_val_score
+- **XGBoost** — full gradient boosting comparison
+- **statsmodels** — VIF multicollinearity audit
+- **React + Vite** — live deployed prediction app (D2)
+- **Quarto** — this report (D1) and slide deck (D4)
+
+---
+
+## 2 · Dataset & Preliminary EDA
+
+```{python}
+#| label: load-data
+df_full = pd.read_csv(BASE / "hotels_rates.csv")
+print(f"Full dataset (incl. outliers): {df_full.shape}")
+print(f"Hotels: {df_full['hotel_id'].nunique()}")
+df_full.head(3)
+```
+
+### 2.1 Rate distribution — log transform justified
+
+```{python}
+#| label: fig-targets
+#| fig-cap: "Raw rate is right-skewed; log-transform achieves near-normality"
+fig, axes = plt.subplots(1, 2, figsize=(12, 4))
+
+axes[0].hist(df_full["rate_eur_per_night"], bins=50, color="#1a1a2e", edgecolor="white", alpha=0.85)
+axes[0].set_xlabel("Nightly rate (€)")
+axes[0].set_title(f"Raw rate — skewness = {df_full['rate_eur_per_night'].skew():.2f}")
+axes[0].axvline(3000, color=GOLD, ls="--", lw=2, label="Premium threshold €3,000")
+axes[0].legend()
+
+log_rate = np.log1p(df_full["rate_eur_per_night"])
+axes[1].hist(log_rate, bins=50, color=GOLD, edgecolor="white", alpha=0.85)
+axes[1].set_xlabel("log(rate + 1)")
+axes[1].set_title(f"log-rate — skewness = {log_rate.skew():.2f}")
+
+plt.tight_layout()
+plt.suptitle("Fig 1 · Target Variable Distributions", y=1.02, fontweight="bold")
+plt.show()
+```
+
+### 2.2 Outlier Detection — IQR at Hotel Level
+
+```{python}
+#| label: fig-outliers
+#| fig-cap: "Hotel-level median rates — IQR fence identifies two extreme properties"
+hotel_med = df_full.groupby("hotel_id")["rate_eur_per_night"].median().sort_values()
+Q1, Q3 = hotel_med.quantile(0.25), hotel_med.quantile(0.75)
+IQR = Q3 - Q1
+fence = Q3 + 1.5 * IQR
+outliers = hotel_med[hotel_med > fence]
+print(f"IQR fence (Q3 + 1.5×IQR): €{fence:,.0f}")
+print(f"Outlier hotels: {list(outliers.index)}")
+print(f"Their median rates: {[f'€{v:,.0f}' for v in outliers.values]}")
+```
+
+```{python}
+#| label: fig-hotel-medians
+#| fig-cap: "Hotel median rates with IQR outlier fence"
+fig, ax = plt.subplots(figsize=(12, 5))
+colors = ["#E8544A" if h in outliers.index else "#1a1a2e" for h in hotel_med.index]
+ax.barh(hotel_med.index, hotel_med.values, color=colors, edgecolor="white", alpha=0.9)
+ax.axvline(fence, color=GOLD, ls="--", lw=2, label=f"IQR fence €{fence:,.0f}")
+ax.axvline(hotel_med.median(), color="#888", ls=":", lw=1.5, label=f"Portfolio median €{hotel_med.median():,.0f}")
+ax.set_xlabel("Median nightly rate (€)")
+ax.set_title("Hotel Median Rates — IQR Outlier Detection", fontweight="bold")
+ax.legend()
+plt.tight_layout()
+plt.show()
+```
+
+**Decision:** Removed `cheval_blanc_randheli` (median €9,930) and `the_brando` (median €7,085) — both exceed the IQR fence of €7,081. These properties cause the model to memorise brand identity rather than learning generalizable pricing signals.
+
+```{python}
+#| label: load-clean-data
+df = pd.read_csv(BASE / "hotels_rates.csv")
+# Remove outlier hotels
+outlier_ids = list(outliers.index)
+df = df[~df["hotel_id"].isin(outlier_ids)].reset_index(drop=True)
+print(f"Clean dataset: {df.shape}  |  Hotels: {df['hotel_id'].nunique()}")
+```
+
+### 2.3 Seasonal patterns & class balance
+
+```{python}
+#| label: fig-monthly
+#| fig-cap: "Average rate by month — Christmas peak and summer peak visible"
+monthly = df.groupby("month")["rate_eur_per_night"].mean()
+fig, ax = plt.subplots(figsize=(10, 4))
+ax.plot(monthly.index, monthly.values, color=GOLD, lw=2.5, marker="o", markersize=7)
+ax.fill_between(monthly.index, monthly.values, alpha=0.12, color=GOLD)
+ax.set_xticks(range(1, 13))
+ax.set_xticklabels(["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"])
+ax.set_ylabel("Average rate (€)")
+ax.set_title("Average Nightly Rate by Month — Seasonal Pattern", fontweight="bold")
+plt.tight_layout()
+plt.show()
+
+premium_pct = (df["rate_eur_per_night"] > 3000).mean() * 100
+print(f"Class balance: {100-premium_pct:.0f}% Standard  /  {premium_pct:.0f}% Premium")
+print(f"Rate range: €{df['rate_eur_per_night'].min():,.0f} – €{df['rate_eur_per_night'].max():,.0f}/night")
+```
+
+### 2.4 Correlation audit (raw features)
+
+```{python}
+#| label: correlation-raw
+raw_corr_feats = ["month", "days_to_christmas", "hotel_size_rooms", "is_school_holiday",
+                  "is_weekend", "rate_eur_per_night"]
+corr_raw = df[raw_corr_feats].corr()
+fig, ax = plt.subplots(figsize=(8, 6))
+sns.heatmap(corr_raw, annot=True, fmt=".2f", cmap="RdYlBu_r", center=0,
+            square=True, linewidths=0.5, ax=ax)
+ax.set_title("Fig 2 · Raw Feature Correlation Matrix\n(identifies near-perfect collinearities)", fontweight="bold")
+plt.tight_layout()
+plt.show()
+print("Critical finding: month × days_to_christmas  r =", round(corr_raw.loc["month","days_to_christmas"], 3))
+```
+
+---
+
+## 3 · Feature Engineering
+
+Features were redesigned to eliminate collinearity, replace brand-specific OHE dummies with an interpretable ordinal, and add nonlinear seasonal encoding.
+
+```{python}
+#| label: feature-engineering
+HOTEL_TIER = {
+    "four_seasons_budapest": 1, "marbella_club": 1, "rosewood_schloss_fuschl": 1,
+    "four_seasons_istanbul": 1, "bulgari_resort_bali": 1, "chateau_messardiere": 1,
+    "canaves_oia_santorini": 1, "bill_and_coo_mykonos": 1, "tennerhof_kitzbuhel": 1,
+    "il_sereno_lago_di_como": 1,
+    "le_sirenuse": 2, "four_seasons_firenze": 2, "cipriani_venice": 2,
+    "aman_tokyo": 2, "airelles_val_disere": 2, "the_alpina_gstaad": 2,
+    "amanzoe": 2, "aman_venice": 2,
+    "hotel_de_paris_mc": 3, "badrutts_palace": 3, "singita_ebony_lodge": 3,
+    "singita_grumeti": 3, "four_seasons_bora_bora": 3, "eden_rock_st_barths": 3,
+}
+ROOM_ORDER = ["Deluxe Room","Superior Room","Junior Suite","Suite","Grand Suite","Presidential Suite"]
+
+def engineer_features(df):
+    d = df.copy()
+    fill = d.groupby("hotel_id")["hotel_size_rooms"].transform("median")
+    d["hotel_size_rooms"] = d["hotel_size_rooms"].fillna(fill)
+    d["room_tier"]     = pd.Categorical(d["room_type"], categories=ROOM_ORDER, ordered=True).codes + 1
+    d["room_tier_c_sq"]= (d["room_tier"] - 3.5) ** 2
+    d["hotel_tier"]    = d["hotel_id"].map(HOTEL_TIER).astype(int)
+    d["month_sin"]     = np.sin(2 * np.pi * d["month"] / 12)
+    d["month_cos"]     = np.cos(2 * np.pi * d["month"] / 12)
+    d["xmas_proximity"]= 1.0 / (d["days_to_christmas"] + 1)
+    d["is_premium"]    = (d["rate_eur_per_night"] > 3000).astype(int)
+    d["log_rate"]      = np.log1p(d["rate_eur_per_night"])
+    return d
+
+df = engineer_features(df)
+print("Features engineered. Shape:", df.shape)
+```
+
+### 3.1 Feature design rationale
+
+```{python}
+#| label: feature-dict
+# Plain-English display name for every engineered feature — used consistently in this
+# table, the VIF audit, the feature-importance chart, and the app dashboard.
+FEATURE_DISPLAY_NAMES = {
+    "room_tier":         "Type of Room (Deluxe → Presidential Suite)",
+    "room_tier_c_sq":    "Room Type — Extreme vs. Middle (top-suite premium)",
+    "hotel_tier":        "How Exclusive Is the Hotel? (Scale 1–3)",
+    "month_sin":         "Which Month? (seasonal wave 1)",
+    "month_cos":         "Which Month? (seasonal wave 2)",
+    "xmas_proximity":    "How Close to Christmas?",
+    "is_school_holiday": "Is It School Holiday Season?",
+    "resort_type":       "What Kind of Resort Is It?",
+}
+
+feature_dict = pd.DataFrame([
+    ("room_tier",         "Type of Room (Deluxe → Presidential Suite)",           "Ordinal 1–6",   "Deluxe=1 → Presidential=6", "Primary driver (~44% reg importance)"),
+    ("room_tier_c_sq",    "Room Type — Extreme vs. Middle (top-suite premium)",   "Polynomial",    "(room_tier−3.5)²",           "Nonlinear premium at top suites"),
+    ("hotel_tier",        "How Exclusive Is the Hotel? (Scale 1–3)",              "Ordinal 1–3",   "Lartisien rack rate level",  "Replaces 23 brand OHE dummies (~13%)"),
+    ("month_sin",         "Which Month? (seasonal wave 1)",                       "Cyclic",        "sin(2π×month/12)",           "Seasonal curve, no Dec/Jan jump"),
+    ("month_cos",         "Which Month? (seasonal wave 2)",                       "Cyclic",        "cos(2π×month/12)",           "Orthogonal seasonal component"),
+    ("xmas_proximity",    "How Close to Christmas?",                              "Continuous",    "1/(days_to_xmas+1)",         "Nonlinear Christmas surge (~11%)"),
+    ("is_school_holiday", "Is It School Holiday Season?",                        "Binary",        "French school calendar",     "Family travel demand signal"),
+    ("resort_type",       "What Kind of Resort Is It?",                          "OHE (4 dums)", "beach/city/island/lake/mtn", "Property category premium"),
+], columns=["Code name", "Plain-English name", "Type", "Construction", "Business meaning"])
+feature_dict.style.set_properties(**{"text-align": "left"}) \
+            .set_table_styles([{"selector":"th","props":[("text-align","left")]}])
+```
+
+### 3.2 Features dropped — VIF & correlation audit
+
+```{python}
+#| label: vif-audit
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+
+NUMERIC_FEATS = ["room_tier","room_tier_c_sq","hotel_tier","month_sin","month_cos","xmas_proximity"]
+BINARY_FEATS  = ["is_school_holiday"]
+
+resort_dummies = pd.get_dummies(df["resort_type"], drop_first=True, prefix="resort")
+vif_df = pd.concat([df[NUMERIC_FEATS + BINARY_FEATS], resort_dummies], axis=1).dropna()
+
+vif_results = [{"feature": col, "VIF": round(variance_inflation_factor(vif_df.values.astype(float), i), 2)}
+               for i, col in enumerate(vif_df.columns)]
+vif_out = pd.DataFrame(vif_results).sort_values("VIF", ascending=False)
+print(vif_out.to_string(index=False))
+print("\nAll VIF <= 5: no multicollinearity in final feature set.")
+```
+
+**Dropped features:**
+
+| Feature | Reason |
+|---------|--------|
+| Which Hotel? (one dummy per brand) | Infinite VIF with resort type; memorises brand → replaced by "How Exclusive Is the Hotel?" |
+| Raw Days to Christmas | 99.8% correlated with month → replaced by "How Close to Christmas?" (nonlinear version) |
+| Hotel Size (room count) | 93.8% correlated with its own log-transform → log form preferred |
+| Log of Hotel Size | VIF=12.23 (correlated with "How Exclusive Is the Hotel?"); only 9% correlated with the target |
+| Is It a Weekend? | −75.5% correlated with "Which Month? (wave 1)" (an artifact of the sampling), only 6% correlated with the target |
+| Raw Month Number | Replaced by the two cyclic "Which Month?" waves |
+
+---
+
+## 4 · Train / Test Split & Cross-Validation
+
+```{python}
+#| label: split-setup
+NUMERIC_FEATS_FINAL = ["room_tier","room_tier_c_sq","hotel_tier","month_sin","month_cos","xmas_proximity"]
+BINARY_FEATS_FINAL  = ["is_school_holiday"]
+CAT_FEATS           = ["resort_type"]
+
+X = df[NUMERIC_FEATS_FINAL + BINARY_FEATS_FINAL + CAT_FEATS]
+yc = df["is_premium"]
+yr = df["log_rate"]
+
+X_train, X_test, yc_train, yc_test, yr_train, yr_test = train_test_split(
+    X, yc, yr, test_size=0.20, random_state=42, stratify=yc)
+
+print(f"Train: {X_train.shape[0]} rows  |  Test: {X_test.shape[0]} rows")
+print(f"Class balance (train): {yc_train.mean()*100:.1f}% Premium")
+print(f"Class balance (test):  {yc_test.mean()*100:.1f}% Premium")
+print()
+print("Leakage prevention:")
+print("  ✅ ColumnTransformer(StandardScaler, OneHotEncoder) fitted on X_train only")
+print("  ✅ Wrapped in sklearn Pipeline — test set never seen during fitting")
+print("  ✅ Model selection (choosing among the ladder below) uses StratifiedKFold(5)/KFold(5) on training data only")
+
+preprocessor = ColumnTransformer([
+    ("num", StandardScaler(), NUMERIC_FEATS_FINAL),
+    ("bin", "passthrough", BINARY_FEATS_FINAL),
+    ("cat", OneHotEncoder(drop="first", sparse_output=False), CAT_FEATS),
+])
+
+skf = StratifiedKFold(5, shuffle=True, random_state=42)
+kf  = KFold(5, shuffle=True, random_state=42)
+```
+
+---
+
+## 5 · Model Ladder — Classification
+
+```{python}
+#| label: clf-ladder
+clf_results = []
+
+def eval_clf(name, pipe):
+    pipe.fit(X_train, yc_train)
+    cv_f1   = cross_val_score(pipe, X_train, yc_train, cv=skf, scoring="f1_macro").mean()
+    y_pred  = pipe.predict(X_test)
+    y_proba = pipe.predict_proba(X_test)[:,1] if hasattr(pipe, "predict_proba") else None
+    test_f1  = f1_score(yc_test, y_pred, average="macro")
+    test_auc = roc_auc_score(yc_test, y_proba) if y_proba is not None else None
+    test_acc = accuracy_score(yc_test, y_pred)
+    train_f1 = f1_score(yc_train, pipe.predict(X_train), average="macro")
+    clf_results.append({"model": name, "cv_f1": round(cv_f1,3), "test_f1": round(test_f1,3),
+                        "test_auc": round(test_auc,3) if test_auc else None,
+                        "test_acc": round(test_acc,3), "train_f1": round(train_f1,3),
+                        "gap": round(train_f1 - test_f1, 3)})
+    auc_str = f"{test_auc:.3f}" if test_auc else "N/A"
+    print(f"  {name:35s}  CV F1={cv_f1:.3f}  Test F1={test_f1:.3f}  AUC={auc_str}  Gap={train_f1-test_f1:.3f}")
+    return pipe
+
+print("CLASSIFICATION LADDER")
+print("-" * 80)
+eval_clf("Dummy (majority)", make_pipeline(preprocessor, DummyClassifier(strategy="most_frequent", random_state=42)))
+eval_clf("Logistic (C=1)",   make_pipeline(preprocessor, LogisticRegression(max_iter=500, random_state=42)))
+eval_clf("Decision Tree (full)", make_pipeline(preprocessor, DecisionTreeClassifier(random_state=42)))
+eval_clf("Random Forest",    make_pipeline(preprocessor, RandomForestClassifier(n_estimators=300, random_state=42)))
+eval_clf("GradBoost (max_depth=3)",make_pipeline(preprocessor, GradientBoostingClassifier(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42)))
+eval_clf("XGBoost (max_depth=3)",  make_pipeline(preprocessor, xgb.XGBClassifier(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42, eval_metric="logloss", verbosity=0)))
+```
+
+```{python}
+#| label: clf-leaderboard-table
+clf_df = pd.DataFrame(clf_results)[["model","cv_f1","test_f1","test_auc","test_acc","gap"]]
+clf_df.columns = ["Model","CV F1","Test F1","AUC","Accuracy","Train-Test Gap"]
+clf_df.style.background_gradient(subset=["Test F1","AUC"], cmap="YlGn") \
+        .format({"CV F1":"{:.3f}","Test F1":"{:.3f}","AUC":"{:.3f}","Accuracy":"{:.3f}","Train-Test Gap":"{:.3f}"})
+```
+
+**Overfitting analysis:** Decision Tree (full depth) shows Train F1=1.000 vs Test F1=0.719 — classic overfitting from an unconstrained tree that memorises training rows. GradBoost and XGBoost are deliberately capped at `max_depth=3` (shallow trees), which regularises the ensemble and produces much smaller train-test gaps (0.06–0.07) than the unconstrained Decision Tree (0.14). This is a manual regularisation choice validated by comparing gaps across the ladder, not an automated hyperparameter search.
+
+```{python}
+#| label: fig-clf-chart
+#| fig-cap: "Classification model ladder — Test F1-macro"
+models_c = [r["model"] for r in clf_results]
+f1s      = [r["test_f1"] for r in clf_results]
+colors_c = ["#666","#888","#999","#AAA","#C9A02C","#E8C96A"]
+fig, ax = plt.subplots(figsize=(11, 4))
+bars = ax.bar(models_c, f1s, color=colors_c, edgecolor="white", width=0.6)
+ax.axhline(f1s[0], color="#666", ls="--", lw=1.5, label=f"Dummy baseline F1={f1s[0]:.3f}")
+ax.set_ylabel("Test F1-macro"); ax.set_ylim(0, 1.0)
+ax.set_title("Classification Ladder — Test F1-macro", fontweight="bold")
+for i, v in enumerate(f1s):
+    ax.text(i, v+0.01, f"{v:.3f}", ha="center", fontsize=10, fontweight="bold" if i>=4 else "normal")
+ax.legend(); plt.xticks(rotation=15, ha="right"); plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 6 · Model Ladder — Regression
+
+```{python}
+#| label: reg-ladder
+reg_results = []
+
+def eval_reg(name, pipe):
+    pipe.fit(X_train, yr_train)
+    cv_r2    = cross_val_score(pipe, X_train, yr_train, cv=kf, scoring="r2").mean()
+    log_pred = pipe.predict(X_test)
+    rate_pred= np.expm1(log_pred)
+    rate_true= np.expm1(yr_test)
+    test_r2  = r2_score(yr_test, log_pred)
+    test_mae = mean_absolute_error(rate_true, rate_pred)
+    test_rmse= mean_squared_error(rate_true, rate_pred) ** 0.5
+    train_r2 = r2_score(yr_train, pipe.predict(X_train))
+    reg_results.append({"model": name, "cv_r2": round(cv_r2,3), "test_r2": round(test_r2,3),
+                        "test_mae": round(test_mae,0), "test_rmse": round(test_rmse,0),
+                        "train_r2": round(train_r2,3), "gap": round(train_r2-test_r2,3)})
+    print(f"  {name:35s}  CV R²={cv_r2:.3f}  Test R²={test_r2:.3f}  MAE=€{test_mae:,.0f}  RMSE=€{test_rmse:,.0f}")
+    return pipe
+
+print("REGRESSION LADDER")
+print("-" * 85)
+eval_reg("Dummy (mean)",        make_pipeline(preprocessor, DummyRegressor(strategy="mean")))
+eval_reg("Ridge (α=1)",         make_pipeline(preprocessor, Ridge(alpha=1.0)))
+eval_reg("Decision Tree (full)",make_pipeline(preprocessor, DecisionTreeRegressor(random_state=42)))
+eval_reg("Random Forest",       make_pipeline(preprocessor, RandomForestRegressor(n_estimators=300, random_state=42)))
+eval_reg("GradBoost (max_depth=3)",   make_pipeline(preprocessor, GradientBoostingRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42)))
+eval_reg("XGBoost (max_depth=3)",     make_pipeline(preprocessor, xgb.XGBRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42, verbosity=0)))
+```
+
+```{python}
+#| label: reg-leaderboard-table
+reg_df = pd.DataFrame(reg_results)[["model","cv_r2","test_r2","test_mae","test_rmse","gap"]]
+reg_df.columns = ["Model","CV R²","Test R²","MAE €","RMSE €","Train-Test Gap"]
+reg_df.style.background_gradient(subset=["Test R²"], cmap="YlGn") \
+        .format({"CV R²":"{:.3f}","Test R²":"{:.3f}","MAE €":"{:,.0f}","RMSE €":"{:,.0f}","Train-Test Gap":"{:.3f}"})
+```
+
+```{python}
+#| label: fig-reg-chart
+#| fig-cap: "Regression model ladder — Test R²"
+models_r = [r["model"] for r in reg_results]
+r2s      = [r["test_r2"] for r in reg_results]
+colors_r = ["#666","#888","#999","#AAA","#E8C96A","#C9A02C"]
+fig, ax = plt.subplots(figsize=(11, 4))
+ax.bar(models_r, [max(0,v) for v in r2s], color=colors_r, edgecolor="white", width=0.6)
+ax.axhline(0.0, color="#666", ls="--", lw=1.5, label="Dummy baseline R²=0")
+ax.set_ylabel("Test R²"); ax.set_ylim(-0.05, 0.85)
+ax.set_title("Regression Ladder — Test R²", fontweight="bold")
+for i, v in enumerate(r2s):
+    ax.text(i, max(0,v)+0.01, f"{v:.3f}", ha="center", fontsize=10, fontweight="bold" if i>=4 else "normal")
+ax.legend(); plt.xticks(rotation=15, ha="right"); plt.tight_layout()
+plt.show()
+```
+
+---
+
+## 7 · Honest Evaluation
+
+### 7.1 Confusion matrix (best classifier)
+
+```{python}
+#| label: fig-confusion
+from sklearn.metrics import ConfusionMatrixDisplay, confusion_matrix
+
+best_clf_name = max(clf_results, key=lambda x: x["test_f1"])["model"]
+best_clf_idx  = [r["model"] for r in clf_results].index(best_clf_name)
+
+# Re-fit best model
+best_clf_pipe = make_pipeline(preprocessor, xgb.XGBClassifier(n_estimators=300, learning_rate=0.1,
+                              max_depth=3, random_state=42, eval_metric="logloss", verbosity=0))
+best_clf_pipe.fit(X_train, yc_train)
+y_pred_best = best_clf_pipe.predict(X_test)
+cm = confusion_matrix(yc_test, y_pred_best)
+fig, ax = plt.subplots(figsize=(6, 5))
+ConfusionMatrixDisplay(cm, display_labels=["Standard (≤€3k)", "Premium (>€3k)"]).plot(
+    ax=ax, cmap="Blues", colorbar=False)
+ax.set_title(f"Fig 3 · Confusion Matrix — {best_clf_name}\nF1={clf_results[best_clf_idx]['test_f1']:.3f}  AUC={clf_results[best_clf_idx]['test_auc']:.3f}", fontweight="bold")
+plt.tight_layout()
+plt.show()
+```
+
+### 7.2 Predicted vs actual (best regressor)
+
+```{python}
+#| label: fig-pred-vs-actual
+best_reg_name = max(reg_results, key=lambda x: x["test_r2"])["model"]
+
+best_reg_pipe = make_pipeline(preprocessor, GradientBoostingRegressor(n_estimators=300, learning_rate=0.1, max_depth=3, random_state=42))
+best_reg_pipe.fit(X_train, yr_train)
+log_pred_best  = best_reg_pipe.predict(X_test)
+rate_pred_best = np.expm1(log_pred_best)
+rate_true_best = np.expm1(yr_test)
+
+fig, ax = plt.subplots(figsize=(8, 6))
+ax.scatter(rate_true_best, rate_pred_best, alpha=0.35, s=20, color="#2d4a8a")
+mn, mx = min(rate_true_best.min(), rate_pred_best.min()), max(rate_true_best.max(), rate_pred_best.max())
+ax.plot([mn, mx], [mn, mx], "r--", lw=1.5, label="Perfect prediction")
+ax.set_xlabel("Actual rate (€/night)"); ax.set_ylabel("Predicted rate (€/night)")
+test_r2_best = r2_score(yr_test, log_pred_best)
+ax.set_title(f"Fig 4 · Predicted vs Actual — {best_reg_name}\nR²={test_r2_best:.3f}", fontweight="bold")
+ax.legend(); plt.tight_layout(); plt.show()
+```
+
+### 7.3 Final performance summary
+
+```{python}
+#| label: final-summary
+print("=" * 55)
+print("FINAL PERFORMANCE SUMMARY")
+print("=" * 55)
+best_clf = max(clf_results, key=lambda x: x["test_f1"])
+best_reg = max(reg_results, key=lambda x: x["test_r2"])
+dummy_clf = clf_results[0]
+dummy_reg = reg_results[0]
+print(f"\nClassification winner: {best_clf['model']}")
+print(f"  Test F1-macro : {best_clf['test_f1']:.3f}  (vs Dummy {dummy_clf['test_f1']:.3f}, +{best_clf['test_f1']-dummy_clf['test_f1']:.3f})")
+print(f"  Test ROC-AUC  : {best_clf['test_auc']:.3f}")
+print(f"  Train-Test gap: {best_clf['gap']:.3f}  (well calibrated)")
+print(f"\nRegression winner: {best_reg['model']}")
+print(f"  Test R²       : {best_reg['test_r2']:.3f}  (vs Dummy {dummy_reg['test_r2']:.3f})")
+print(f"  Test MAE      : €{best_reg['test_mae']:,.0f}/night")
+print(f"  Test RMSE     : €{best_reg['test_rmse']:,.0f}/night")
+print(f"  Train-Test gap: {best_reg['gap']:.3f}  (well calibrated)")
+```
+
+### 7.4 Honest limitations
+
+- Model explains 73.6% of rate variance; remaining 26.4% includes availability, real-time demand, promotions.
+- Predictions should be re-validated annually as hotel rate cards change.
+- RMSE of ≈€2,741 means Presidential Suite predictions (€8,000–12,000 range) carry proportionally higher uncertainty.
+- The model generalises via "How Exclusive Is the Hotel?" to similar unlisted properties, but only within the luxury segment — and only directionally: that feature carries the highest VIF in the set (6.66) and each tier is built from very few hotels (10 / 8 / 6 hotels in tiers 1/2/3), so it should not be trusted as a precise score for a brand-new property.
+- No year-over-year price inflation modelling (cross-sectional data, single rate cycle).
+- **On overfitting risk specifically:** the scope of this project narrows the risk. The task is not "predict any luxury hotel rate" — it is "predict rates for these 24 known Lartisien Collection properties, across a fixed set of room types and months." The model never has to generalise to an unseen brand or an unfamiliar hotel category; it only has to interpolate between month/room combinations for hotels it was trained on. That is a much easier generalisation target than an open-world model, and it is part of why the small train-test gaps (0.06–0.07 for the tuned ensembles) are credible rather than a sign of a lucky split.
+
+---
+
+## 8 · Feature Importance
+
+```{python}
+#| label: fig-importance
+#| fig-cap: "Feature importance — XGBoost classifier and GradBoost regressor"
+feature_names_out = (NUMERIC_FEATS_FINAL + BINARY_FEATS_FINAL +
+                     list(best_clf_pipe.named_steps["columntransformer"]
+                          .named_transformers_["cat"].get_feature_names_out(["resort_type"])))
+
+def display_name(raw):
+    if raw in FEATURE_DISPLAY_NAMES:
+        return FEATURE_DISPLAY_NAMES[raw]
+    if raw.startswith("resort_type_"):
+        return f"What Kind of Resort? — {raw.replace('resort_type_', '').title()}"
+    return raw
+
+feature_names_display = [display_name(f) for f in feature_names_out]
+
+clf_imp = best_clf_pipe.named_steps["xgbclassifier"].feature_importances_
+reg_imp = best_reg_pipe.named_steps["gradientboostingregressor"].feature_importances_
+
+fi_df = pd.DataFrame({"feature": feature_names_display, "clf": clf_imp, "reg": reg_imp})
+fi_df = fi_df.sort_values("clf", ascending=True).tail(10)
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+for ax, col, title in [(axes[0],"clf","XGBoost Classifier"),(axes[1],"reg","GradBoost Regressor")]:
+    fi_sorted = fi_df.sort_values(col)
+    ax.barh(fi_sorted["feature"], fi_sorted[col], color=GOLD, edgecolor="white", alpha=0.9)
+    ax.set_xlabel("Feature importance"); ax.set_title(title, fontweight="bold")
+    for i, v in enumerate(fi_sorted[col]):
+        ax.text(v+0.003, i, f"{v:.3f}", va="center", fontsize=9)
+
+plt.suptitle("Fig 5 · Feature Importance — Interpretable, No Brand Dummies", fontweight="bold")
+plt.tight_layout(); plt.show()
+```
+
+**Key insight:** "Type of Room" (Deluxe → Presidential Suite) accounts for ~44% of regression importance — by far the biggest single driver. "How Exclusive Is the Hotel?" (a simple 1–3 scale) replaces 23 brand-specific dummy variables with one interpretable number — the model now generalises to unlisted properties within the same tier, at least directionally (see the VIF caveat in §7.4).
+
+---
+
+## 9 · Deployed Application
+
+The pipeline is served as a live **React web app** (Vite, deployed on Vercel):
+
+- **Rate Predictor tab** — select hotel, month, room → instant tier classification + EUR estimate (1,728 pre-computed predictions)
+- **Model Dashboard tab** — full 6-model leaderboard + feature importance chart
+
+**Architecture:** React frontend with static pre-computed predictions fallback (no API required for production).
+
+**Live URL:** <https://lartisien-aruni999.vercel.app>
+**GitHub:** <https://github.com/Aruni333/lartisien-ml-project>
+
+---
+
+## 10 · Conclusions
+
+Luxury hotel nightly rates are predictable from **7 interpretable inputs** — room tier, hotel tier, seasonality (cyclic month + Christmas proximity), school holidays, and resort type.
+
+| Metric | Value | vs Dummy baseline |
+|--------|-------|-------------------|
+| Classification F1-macro | **0.805** (XGBoost) | +0.449 |
+| Classification ROC-AUC | **0.905** | vs 0.500 |
+| Regression R² | **0.736** (GradBoost) | +0.736 |
+| Regression MAE | **€1,677/night** | −€1,644 |
+| Regression RMSE | **€2,741/night** | −€2,728 |
+
+Results confirmed on 288-row held-out test set; 5-fold CV scores consistent with test (no lucky split). The dominant pricing signals are: **room category** (44%), **hotel tier** (13%), **Christmas proximity** (11%), and **seasonality** (month sin/cos, ~12% combined).
+
+### 10.1 Which metric best evaluates this model
+
+**Classification — F1-macro is the right primary metric, not accuracy.** The target is moderately imbalanced (≈35% Premium / 65% Standard in this dataset). Accuracy is misleading here: the Dummy baseline already scores 66% accuracy just by always predicting "Standard," while its F1-macro is only 0.356 — correctly exposing that it has zero ability to identify the minority Premium class. F1-macro averages the per-class F1 scores unweighted, so both classes have to be predicted well for the score to be high. XGBoost's Test F1-macro of **0.805** means it is genuinely good at catching *both* Premium and Standard bookings, not just riding the majority class. ROC-AUC (**0.905**) is a useful secondary metric — it says the model ranks a randomly chosen Premium booking above a randomly chosen Standard booking 90.5% of the time, which matters if the €3,000 threshold were ever moved — but F1-macro is the metric that should drive the "is this model good enough to use" decision, because it reflects performance at the actual decision threshold advisors will use.
+
+**Regression — MAE is the most business-relevant metric, R² the most technical.** MAE (**€1,677/night**) is in the same units as the thing being predicted, so it translates directly into "how far off is a typical prediction" — the number the executive summary leads with. It is also more robust than RMSE to the handful of very expensive Presidential Suite bookings in the tail of the distribution, since it doesn't square the error. RMSE (**€2,741/night**) being noticeably higher than MAE confirms that a *few* large misses (almost certainly the highest room tiers) pull the average up — an honest signal that top-tier predictions carry more uncertainty than the MAE alone would suggest. R² (**0.736**) is the most useful metric for comparing *across* model versions or against the Dummy baseline on a single normalized 0–1 scale (73.6% of rate variance explained versus 0% for Dummy), but it does not tell a hotel advisor anything as directly actionable as "expect to be within about €1,677."

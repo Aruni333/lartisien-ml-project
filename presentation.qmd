@@ -1,0 +1,374 @@
+---
+title: "The Lartisien Collection"
+subtitle: "Rate Intelligence — Machine Learning End-to-End"
+author: "Minka Borec · MADA 2025"
+date: "July 2026"
+format:
+  revealjs:
+    theme: default
+    slide-number: false
+    progress: false
+    transition: fade
+    transition-speed: slow
+    background-transition: fade
+    center: true
+    width: 1400
+    height: 900
+    margin: 0.06
+    highlight-style: monokai
+execute:
+  echo: false
+  warning: false
+---
+
+```{=html}
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+.reveal-viewport, .reveal, .reveal .slides, .reveal .slides section {
+  background: #000 !important;
+}
+.reveal { font-family: 'Montserrat', sans-serif !important; color: #CCCCCC !important; }
+.reveal .slides section { background: #000 !important; border: none !important; }
+
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Cormorant Garamond', serif !important;
+  color: #C9A02C !important; font-weight: 300 !important;
+  letter-spacing: 0.08em !important; text-transform: uppercase !important; text-shadow: none !important;
+}
+.reveal h1 { font-size: 3.4em !important; }
+.reveal h2 { font-size: 2.0em !important; border-bottom: 1px solid rgba(201,160,44,0.35) !important;
+             padding-bottom: 0.25em !important; margin-bottom: 0.6em !important; }
+.reveal h3 { font-size: 1.25em !important; color: #E8C96A !important; font-style: italic !important; }
+.reveal p, .reveal li, .reveal td, .reveal th {
+  font-family: 'Montserrat', sans-serif !important;
+  color: #AAAAAA !important; font-size: 0.82em !important;
+  line-height: 1.85 !important; font-weight: 300 !important;
+}
+.reveal strong { color: #E8C96A !important; font-weight: 600 !important; }
+.reveal em { color: #F5E9C4 !important; font-style: italic !important; }
+.reveal a { color: #C9A02C !important; }
+
+.reveal table { width: 100% !important; border-collapse: collapse !important; margin: 0.5em 0 !important; }
+.reveal th {
+  background: rgba(201,160,44,0.1) !important; color: #C9A02C !important;
+  font-size: 0.68em !important; font-weight: 600 !important; letter-spacing: 0.12em !important;
+  text-transform: uppercase !important; padding: 0.65em 0.9em !important;
+  border-bottom: 1px solid rgba(201,160,44,0.35) !important; font-family: 'Montserrat',sans-serif !important;
+}
+.reveal td {
+  color: #AAAAAA !important; font-size: 0.78em !important;
+  padding: 0.55em 0.9em !important; border-bottom: 1px solid rgba(201,160,44,0.1) !important;
+}
+.reveal td:first-child { color: #E8C96A !important; }
+.reveal blockquote {
+  border-left: 3px solid #C9A02C !important; padding: 0.6em 1.2em !important;
+  background: rgba(201,160,44,0.06) !important; border-radius: 0 6px 6px 0 !important;
+  color: #F5E9C4 !important; font-style: italic !important; margin: 1em 0 !important;
+}
+
+.gold { color: #C9A02C !important; }
+.gold-l { color: #E8C96A !important; }
+.muted { color: #666 !important; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5em; text-align: left; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.8em; }
+.box { background: rgba(201,160,44,0.05); border: 1px solid rgba(201,160,44,0.22); border-radius: 8px; padding: 1.1em 1.4em; margin: 0.5em 0; }
+.box .box-title { color: #C9A02C; font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.4em; }
+.box .box-body  { color: #999; font-size: 0.78em; line-height: 1.7; }
+.stat-card { display: inline-block; background: rgba(201,160,44,0.06); border: 1px solid rgba(201,160,44,0.28); border-radius: 8px; padding: 1em 1.8em; margin: 0.4em; text-align: center; min-width: 160px; }
+.stat-card .val { font-family: 'Cormorant Garamond',serif; font-size: 2.8em; color: #C9A02C; font-weight: 300; line-height: 1; display: block; }
+.stat-card .lbl { font-size: 0.6em; color: #666; text-transform: uppercase; letter-spacing: 0.14em; display: block; margin-top: 0.4em; }
+.bar-wrap { background: rgba(255,255,255,0.05); border-radius: 2px; height: 8px; margin: 4px 0; }
+.bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg,#C9A02C,#E8C96A); }
+.pill-good { background: rgba(100,200,100,0.15); color: #90D490; padding: 0.12em 0.55em; border-radius: 3px; font-size: 0.78em; }
+.pill-warn { background: rgba(201,160,44,0.15); color: #C9A02C; padding: 0.12em 0.55em; border-radius: 3px; font-size: 0.78em; }
+.tag { display: inline-block; background: rgba(201,160,44,0.12); color: #C9A02C; font-size: 0.68em; padding: 0.2em 0.65em; border-radius: 3px; margin: 0.15em; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+</style>
+```
+
+## {background-color="#000000"}
+
+```{=html}
+<div style="text-align:center; padding:2.5em 2em; font-family:'Montserrat',sans-serif;">
+  <div style="font-size:0.72em; color:#C9A02C; letter-spacing:0.35em; text-transform:uppercase; margin-bottom:1em;">The Lartisien Collection</div>
+  <div style="font-family:'Cormorant Garamond',serif; font-size:4.2em; color:#F5E9C4; font-weight:300; line-height:1.05; margin-bottom:0.4em;">Rate Intelligence</div>
+  <div style="width:100px; height:1px; background:#C9A02C; margin:0.9em auto;"></div>
+  <div style="font-size:0.75em; color:#555; letter-spacing:0.22em; text-transform:uppercase; margin-bottom:2.5em;">Machine Learning · End-to-End Project</div>
+  <div style="font-size:0.68em; color:#C9A02C;">◆</div>
+  <div style="margin-top:2em; font-size:0.65em; color:#444; letter-spacing:0.12em;">MADA 2025 &nbsp;·&nbsp; Minka Borec &nbsp;·&nbsp; June 2026</div>
+</div>
+```
+
+---
+
+## The Business Question {background-color="#000000"}
+
+```{=html}
+<div style="text-align:center; margin:0.6em 0 1.4em; font-family:'Cormorant Garamond',serif; font-size:1.85em; color:#F5E9C4; font-style:italic; font-weight:300; line-height:1.35;">
+"Can we tell a Lartisien Voyager traveller<br>when a property is low-demand, lower-priced,<br>and more available — from just hotel, month, and room type?"
+</div>
+<div class="three-col" style="margin-top:1.2em;">
+  <div class="box"><div class="box-title">Hotel Property</div><div class="box-body">Which of the 24 Lartisien Collection ultra-luxury properties — Europe &amp; worldwide?</div></div>
+  <div class="box"><div class="box-title">Arrival Month</div><div class="box-body">January through December — Christmas peaks, August school holidays</div></div>
+  <div class="box"><div class="box-title">Room Category</div><div class="box-body">Deluxe → Junior Suite → Suite → Grand Suite → Villa → Presidential</div></div>
+</div>
+<div style="margin-top:1.2em; background:rgba(201,160,44,0.07); border-left:3px solid #C9A02C; border-radius:6px; padding:0.7em 1.1em; font-size:0.72em; color:#B8A060; line-height:1.6; text-align:left;">
+  <div style="font-size:0.85em; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#C9A02C; margin-bottom:0.4em;">Why Does It Matter?</div>
+  <span style="font-style:italic;">I travel frequently with the Lartisien luxury travel agency and always want to visit magical places during their off-season — saving money and avoiding overcrowded resorts. Off-season brings lower demand, lower prices, and a richer experience: staff can attend to guests more attentively due to lower occupancy, and the property can be enjoyed with less crowds, more exclusivity, and greater discretion.</span>
+</div>
+<div style="margin-top:0.9em; text-align:center; font-size:0.7em; color:#555; letter-spacing:0.1em;">
+  Two ML tasks &nbsp;·&nbsp; Classification (Premium vs Standard) &nbsp;+&nbsp; Regression (EUR/night)
+</div>
+```
+
+---
+
+## Data & Feature Engineering {background-color="#000000"}
+
+```{=html}
+<div class="two-col">
+<div>
+<h3>Dataset v2</h3>
+<ul>
+  <li><strong>1,440 rows</strong> — 24 Lartisien-verified hotels, 6 room tiers, 10 sample dates</li>
+  <li>Preliminary EDA removed 2 IQR outliers (Cheval Blanc, The Brando) from 26 hotels</li>
+  <li>Target 1: <strong>is_premium</strong> (rate > €3,000/night)</li>
+  <li>Target 2: <strong>log_rate</strong> → back-transform via expm1()</li>
+  <li>80/20 stratified split · StratifiedKFold(5) clf · KFold(5) reg</li>
+</ul>
+<div class="box" style="margin-top:1em;">
+  <div class="box-title">Leakage Prevention</div>
+  <div class="box-body">All preprocessing inside scikit-learn Pipeline — StandardScaler + OHE fitted on X_train only. Cross-validation uses inner folds on train only. Test set untouched until final evaluation.</div>
+</div>
+</div>
+<div>
+<h3>7 Engineered Features (v2 — interpretable)</h3>
+<table>
+  <tr><th>Feature</th><th>Rationale</th></tr>
+  <tr><td>Type of Room (Deluxe → Presidential)</td><td>Primary driver — 44% reg importance</td></tr>
+  <tr><td>Room Type — Extreme vs. Middle</td><td>Nonlinear Presidential premium</td></tr>
+  <tr><td>How Exclusive Is the Hotel? (1–3)</td><td>Replaces 23 brand OHE dummies</td></tr>
+  <tr><td>Which Month? (two seasonal waves)</td><td>Cyclic — Dec/Jan are neighbours</td></tr>
+  <tr><td>How Close to Christmas?</td><td>Smooth spike near 25 Dec</td></tr>
+  <tr><td>Is It School Holiday Season?</td><td>French school calendar demand</td></tr>
+  <tr><td>What Kind of Resort Is It?</td><td>beach/city/island/lake/mountain</td></tr>
+</table>
+</div>
+</div>
+```
+
+---
+
+## Feature Collinearity Check — VIF Audit {background-color="#000000"}
+
+```{=html}
+<div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+
+<div>
+  <div style="font-size:0.65em; letter-spacing:0.18em; text-transform:uppercase; color:#C9A02C; margin-bottom:12px; font-weight:600;">Pairwise Correlations — Time Features</div>
+  <table>
+    <tr><th>Feature pair</th><th>r</th><th>Verdict</th></tr>
+    <tr><td>Month wave 1 ↔ Month wave 2</td><td>0.116</td><td><span class="pill-good">✓ independent</span></td></tr>
+    <tr><td>Month wave 2 ↔ Christmas closeness</td><td style="color:#E8C96A;">0.503</td><td><span class="pill-warn">moderate</span></td></tr>
+    <tr><td>Christmas closeness ↔ school holiday</td><td>0.331</td><td><span class="pill-good">✓ acceptable</span></td></tr>
+    <tr><td>Month wave 1 ↔ Christmas closeness</td><td>−0.097</td><td><span class="pill-good">✓ independent</span></td></tr>
+  </table>
+
+  <div style="margin-top:12px; font-size:0.65em; letter-spacing:0.18em; text-transform:uppercase; color:#C9A02C; margin-bottom:8px; font-weight:600;">VIF Scores (threshold: 10)</div>
+  <table>
+    <tr><th>Feature</th><th>VIF</th><th>Status</th></tr>
+    <tr><td>Which Month? (wave 1)</td><td>1.10</td><td><span class="pill-good">✓ clean</span></td></tr>
+    <tr><td>Which Month? (wave 2)</td><td>1.45</td><td><span class="pill-good">✓ clean</span></td></tr>
+    <tr><td>How Close to Christmas?</td><td>1.83</td><td><span class="pill-good">✓ clean</span></td></tr>
+    <tr><td>Is It School Holiday Season?</td><td>2.31</td><td><span class="pill-good">✓ clean</span></td></tr>
+    <tr><td>Type of Room</td><td>4.96</td><td><span class="pill-warn">moderate</span></td></tr>
+    <tr><td>How Exclusive Is the Hotel?</td><td style="color:#E8C96A;">6.66</td><td><span class="pill-warn">elevated — acknowledged</span></td></tr>
+  </table>
+</div>
+
+<div>
+  <div style="font-size:0.65em; letter-spacing:0.18em; text-transform:uppercase; color:#C9A02C; margin-bottom:10px; font-weight:600;">Why Do These Correlate? Real-Life Explanation</div>
+
+  <div class="box" style="margin-bottom:10px;">
+    <div class="box-title">Which Month? ↔ How Close to Christmas? (r = 0.503)</div>
+    <div class="box-body">
+      Both peak in <strong>December</strong>. The "which month" wave naturally hits its maximum on 1 December; Christmas closeness also maxes out in December. They partially overlap in what they "see." <br><br>
+      <em>Why kept:</em> Christmas closeness captures the <strong>sharp, nonlinear spike</strong> in the final days before 25 Dec — it rises steeply. The month wave captures the <strong>broader winter season</strong> curve (also high in November, early Jan). VIF = 1.45 and 1.83 — model can still separate their contributions cleanly.
+    </div>
+  </div>
+
+  <div class="box" style="margin-bottom:10px;">
+    <div class="box-title">How Close to Christmas? ↔ School Holiday (r = 0.331)</div>
+    <div class="box-body">
+      December is both close to Christmas <em>and</em> a school holiday month. <br><br>
+      <em>Why kept:</em> school holidays also cover <strong>July and August</strong> (summer peak), which are far from Christmas. The two features measure entirely different demand drivers — Christmas surge vs. family travel season.
+    </div>
+  </div>
+
+  <div class="box">
+    <div class="box-title">How Exclusive Is the Hotel? — VIF = 6.66, most elevated</div>
+    <div class="box-body">
+      This feature partially overlaps with resort type (e.g. island resorts tend to be the most exclusive tier). <strong>Acknowledged limitation.</strong> Still far better than 23 hotel OHE dummies (VIF >> 10). VIF &lt; 10 = acceptable for tree-based models which are robust to moderate collinearity.
+    </div>
+  </div>
+</div>
+
+</div>
+```
+
+---
+
+## Model Ladder — Classification {background-color="#000000"}
+
+> **Task:** Predict *is_premium* (> €3,000/night) · **Metric:** F1-macro on held-out test set
+
+```{=html}
+<table>
+  <tr><th>Model</th><th>CV F1</th><th>Test F1</th><th>ROC-AUC</th><th>Beat Dummy?</th><th>Overfit gap</th></tr>
+  <tr><td>Dummy (majority class)</td><td>0.356</td><td>0.356</td><td>0.500</td><td><span class="muted">baseline</span></td><td><span class="pill-good">0.000</span></td></tr>
+  <tr><td>Logistic Regression (C=1)</td><td>0.730</td><td>0.734</td><td>0.816</td><td><span class="pill-good">+0.378</span></td><td><span class="pill-good">0.007</span></td></tr>
+  <tr><td>Decision Tree (full depth)</td><td>0.721</td><td>0.719</td><td>0.719</td><td><span class="pill-good">+0.363</span></td><td><span class="pill-warn">0.143 ⚠ OVERFITS</span></td></tr>
+  <tr><td>Random Forest (n=300)</td><td>0.775</td><td>0.762</td><td>0.838</td><td><span class="pill-good">+0.406</span></td><td><span class="pill-warn">0.129</span></td></tr>
+  <tr><td>GradBoost (max_depth=3)</td><td>0.812</td><td>0.804</td><td>0.905</td><td><span class="pill-good">+0.448</span></td><td><span class="pill-good">0.069</span></td></tr>
+  <tr style="background:rgba(201,160,44,0.07);">
+    <td><strong class="gold">XGBoost (max_depth=3) ★ WINNER</strong></td>
+    <td><strong class="gold">0.814</strong></td><td><strong class="gold">0.805</strong></td><td><strong class="gold">0.905</strong></td>
+    <td><span class="pill-good">+0.449</span></td><td><span class="pill-good">0.064</span></td>
+  </tr>
+</table>
+<div style="margin-top:0.8em; font-size:0.68em; color:#555; text-align:center;">
+  Decision Tree overfits (Train F1=1.000 vs Test F1=0.719). Capping GradBoost/XGBoost at max_depth=3 corrects this. XGBoost: CV F1=0.814 ≈ Test F1=0.805 — genuine generalisation confirmed.
+</div>
+```
+
+---
+
+## Model Ladder — Regression {background-color="#000000"}
+
+> **Task:** Predict nightly rate (EUR) via log transform · **Metric:** R² and MAE on held-out test set
+
+```{=html}
+<table>
+  <tr><th>Model</th><th>CV R²</th><th>Test R²</th><th>MAE €</th><th>RMSE €</th><th>vs Dummy</th></tr>
+  <tr><td>Dummy (mean rate)</td><td>-0.001</td><td>-0.000</td><td>€3,321</td><td>€5,469</td><td>baseline</td></tr>
+  <tr><td>Ridge Regression (α=1)</td><td>0.513</td><td>0.570</td><td>€2,337</td><td>€3,592</td><td><span class="pill-good">+0.570</span></td></tr>
+  <tr><td>Decision Tree (full)</td><td>0.382</td><td>0.455</td><td>€2,163</td><td>€3,745</td><td><span class="pill-warn">+0.455 ⚠ OVERFITS</span></td></tr>
+  <tr><td>Random Forest (n=300)</td><td>0.571</td><td>0.615</td><td>€1,943</td><td>€3,189</td><td><span class="pill-good">+0.615</span></td></tr>
+  <tr><td>XGBoost (max_depth=3)</td><td>0.731</td><td>0.724</td><td>€1,732</td><td>€2,822</td><td><span class="pill-good">+0.724</span></td></tr>
+  <tr style="background:rgba(201,160,44,0.07);">
+    <td><strong class="gold">GradBoost (max_depth=3) ★ WINNER</strong></td>
+    <td><strong class="gold">0.725</strong></td><td><strong class="gold">0.736</strong></td><td><strong class="gold">€1,677</strong></td><td><strong class="gold">€2,741</strong></td>
+    <td><span class="pill-good">+0.736</span></td>
+  </tr>
+</table>
+<div style="text-align:center; margin-top:1.2em;">
+  <div class="stat-card"><span class="val">0.736</span><span class="lbl">R² · GradBoost</span></div>
+  <div class="stat-card"><span class="val">€1,677</span><span class="lbl">MAE/night</span></div>
+  <div class="stat-card"><span class="val">€2,741</span><span class="lbl">RMSE/night</span></div>
+  <div class="stat-card"><span class="val">€1,644</span><span class="lbl">MAE vs Dummy</span></div>
+</div>
+```
+
+---
+
+## Methodology Recap — Leakage, Independence, Overfitting, Metrics {background-color="#000000"}
+
+```{=html}
+<div class="two-col">
+<div>
+<div class="box" style="margin-bottom:10px;">
+  <div class="box-title">1 · No Data Leakage</div>
+  <div class="box-body">Train/test split happens first (80/20, stratified). StandardScaler + OneHotEncoder live inside a scikit-learn Pipeline and are fitted on X_train only — the test set is mathematically invisible until the final scoring step, for every model in both ladders.</div>
+</div>
+<div class="box" style="margin-bottom:10px;">
+  <div class="box-title">2 · Independent Features (VIF + Correlation)</div>
+  <div class="box-body">All 7 engineered features were run through a correlation matrix and VIF audit. Every feature scored VIF &lt; 10 (the standard threshold); the one elevated score (6.66) was investigated, explained, and kept deliberately — see the audit slide.</div>
+</div>
+</div>
+<div>
+<div class="box" style="margin-bottom:10px;">
+  <div class="box-title">3 · How We Solved Overfitting</div>
+  <div class="box-body">
+    <strong>First</strong>, we tried to eliminate it directly: capped GradBoost/XGBoost at a shallow max_depth=3 (regularisation) and measured the train-test gap for every model in the ladder — Decision Tree's unconstrained gap (0.143) dropped to 0.06–0.07 for the capped ensembles.<br><br>
+    <strong>Then</strong>, we recognised why the remaining risk matters less than it looks: this model only has to predict rates for the 24 known Lartisien Collection hotels, never an unseen brand — a narrower target than a general-purpose luxury-hotel model, which is part of why the small gap is credible.
+  </div>
+</div>
+<div class="box">
+  <div class="box-title">4 · Choosing the Right Metric</div>
+  <div class="box-body">Classification target is imbalanced (~35/65) — accuracy would flatter Dummy (66%), so <strong>F1-macro</strong> is primary. Regression: <strong>MAE</strong> (€1,677) is the most business-readable, same-unit-as-target metric and is robust to the few very expensive Presidential Suite outliers; R² is kept as the technical cross-model comparison figure.</div>
+</div>
+</div>
+</div>
+```
+
+---
+
+## Key Findings {background-color="#000000"}
+
+```{=html}
+<div class="two-col">
+<div>
+<h3>What drives luxury pricing?</h3>
+<div style="margin:0.6em 0;"><div style="display:flex;justify-content:space-between;font-size:0.72em;margin-bottom:3px;"><span class="gold">Type of Room (Deluxe → Presidential)</span><span class="muted">44%</span></div><div class="bar-wrap"><div class="bar-fill" style="width:100%;"></div></div></div>
+<div style="margin:0.6em 0;"><div style="display:flex;justify-content:space-between;font-size:0.72em;margin-bottom:3px;"><span class="gold">How Exclusive Is the Hotel? (1–3)</span><span class="muted">13%</span></div><div class="bar-wrap"><div class="bar-fill" style="width:30%;"></div></div></div>
+<div style="margin:0.6em 0;"><div style="display:flex;justify-content:space-between;font-size:0.72em;margin-bottom:3px;"><span class="gold">How Close to Christmas?</span><span class="muted">11%</span></div><div class="bar-wrap"><div class="bar-fill" style="width:25%;"></div></div></div>
+<div style="margin:0.6em 0;"><div style="display:flex;justify-content:space-between;font-size:0.72em;margin-bottom:3px;"><span class="gold">Which Month? (seasonality)</span><span class="muted">12%</span></div><div class="bar-wrap"><div class="bar-fill" style="width:27%;"></div></div></div>
+<div style="margin:0.6em 0;"><div style="display:flex;justify-content:space-between;font-size:0.72em;margin-bottom:3px;"><span class="gold">What Kind of Resort? (mountain/beach…)</span><span class="muted">7%</span></div><div class="bar-wrap"><div class="bar-fill" style="width:16%;"></div></div></div>
+</div>
+<div>
+<h3>Honest Limitations</h3>
+<div class="box"><div class="box-title">Tier Generalisation Is Limited — Use Within This 24-Hotel Set</div><div class="box-body">"How exclusive is the hotel?" has the highest VIF in the feature set (6.66) and each tier is built from very few hotels (10 / 8 / 6 hotels in tiers 1/2/3) — too small a sample to trust the tier score on a brand-new, unseen property. The train-test gap (0.06–0.07) was only ever measured on these 24 known hotels, never on a held-out new hotel. Because of this, the app should be read as valid for these 24 existing Lartisien Collection properties specifically, not as a general luxury-hotel pricing tool.</div></div>
+<div class="box" style="margin-top:0.7em;"><div class="box-title">No Real-Time Rates</div><div class="box-body">Flash sales, last-minute deals, and year-over-year price inflation are not captured. Cross-sectional historical data.</div></div>
+<div class="box" style="margin-top:0.7em;"><div class="box-title">Decision Tree Overfits</div><div class="box-body">Full Decision Tree: Train F1=1.000 vs Test F1=0.719 (gap=0.143). Capping GradBoost/XGBoost at max_depth=3 (gap=0.064) resolves this.</div></div>
+</div>
+</div>
+```
+
+---
+
+## Live Application {background-color="#000000"}
+
+```{=html}
+<div class="two-col" style="align-items:start;">
+<div>
+<h3>Rate Predictor Tab</h3>
+<div class="box"><div class="box-title">How it works</div><div class="box-body">1. Select hotel property<br>2. Select arrival month<br>3. Select room category<br>→ Tier + EUR estimate + probability bar</div></div>
+<div class="box" style="margin-top:0.8em;"><div class="box-title">Tech Stack</div><div class="box-body"><span class="tag">React 19</span> <span class="tag">Vite</span> <span class="tag">FastAPI</span> <span class="tag">Vercel</span> <span class="tag">XGBoost</span> <span class="tag">scikit-learn</span></div></div>
+<div class="box" style="margin-top:0.8em;"><div class="box-title">Resilience</div><div class="box-body">1,728 pre-computed predictions (24 hotels × 12 months × 6 rooms) bundled as static JSON — works instantly, zero backend dependency.</div></div>
+</div>
+<div>
+<h3>Model Dashboard Tab</h3>
+<div class="box"><div class="box-title">Transparency First</div><div class="box-body">Full 5-model leaderboard for both tasks. Feature importance chart shows <em>why</em> the model predicts what it does.</div></div>
+<div style="margin-top:2em; text-align:center;">
+  <div style="font-size:0.65em; color:#555; margin-bottom:0.5em; text-transform:uppercase; letter-spacing:0.15em;">Live at</div>
+  <div style="font-family:'Cormorant Garamond',serif; font-size:1.05em; color:#C9A02C; font-style:italic;">lartisien-aruni999.vercel.app</div>
+  <div style="margin-top:1em; font-size:0.6em; color:#444;">github.com/Aruni333/lartisien-ml-project</div>
+</div>
+</div>
+</div>
+```
+
+---
+
+## Summary {background-color="#000000"}
+
+```{=html}
+<div style="text-align:center; padding:0.3em 0 1.2em; font-family:'Cormorant Garamond',serif;">
+  <span style="font-size:1.4em; color:#666; letter-spacing:0.2em; text-transform:uppercase;">Results at a Glance</span>
+  <div style="width:50px; height:1px; background:#C9A02C; margin:0.7em auto;"></div>
+</div>
+<div style="display:flex;justify-content:center;flex-wrap:wrap;gap:0.5em;margin-bottom:1.5em;">
+  <div class="stat-card"><span class="val">0.805</span><span class="lbl">F1-macro · XGBoost</span></div>
+  <div class="stat-card"><span class="val">0.905</span><span class="lbl">ROC-AUC</span></div>
+  <div class="stat-card"><span class="val">0.736</span><span class="lbl">R² · GradBoost</span></div>
+  <div class="stat-card"><span class="val">€1,677</span><span class="lbl">MAE/night</span></div>
+</div>
+<div class="three-col" style="margin-top:0.5em;">
+  <div class="box" style="text-align:center;"><div class="box-title">Room Category</div><div class="box-body" style="text-align:center;">Strongest driver<br><span class="gold">+€8,000</span> Deluxe→Presidential</div></div>
+  <div class="box" style="text-align:center;"><div class="box-title">Hotel Tier (1–3)</div><div class="box-body" style="text-align:center;">Replaces 23 brand OHE dummies<br>generalises to new properties</div></div>
+  <div class="box" style="text-align:center;"><div class="box-title">Christmas Proximity</div><div class="box-body" style="text-align:center;">1/(days+1) nonlinear surge<br>strongest seasonal signal (11%)</div></div>
+</div>
+<div style="margin-top:1.2em; text-align:center; font-size:0.6em; color:#444; letter-spacing:0.08em;">
+  Python · scikit-learn · XGBoost · React 19 · FastAPI · Vercel &nbsp;◆&nbsp; github.com/Aruni333/lartisien-ml-project
+</div>
+```

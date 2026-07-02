@@ -1,0 +1,28 @@
+{
+  "classification": [
+    {"model": "Dummy (majority)",      "cv_f1": 0.356, "test_f1": 0.356, "test_auc": 0.500, "test_acc": 0.552, "color": "#666666"},
+    {"model": "Logistic (C=1)",        "cv_f1": 0.730, "test_f1": 0.734, "test_auc": 0.816, "test_acc": 0.736, "color": "#888888"},
+    {"model": "Decision Tree (full)",  "cv_f1": 0.721, "test_f1": 0.719, "test_auc": 0.719, "test_acc": 0.726, "color": "#999999"},
+    {"model": "Random Forest",         "cv_f1": 0.775, "test_f1": 0.762, "test_auc": 0.838, "test_acc": 0.764, "color": "#AAAAAA"},
+    {"model": "GradBoost (tuned)",     "cv_f1": 0.812, "test_f1": 0.804, "test_auc": 0.905, "test_acc": 0.806, "color": "#C9A02C"},
+    {"model": "XGBoost ★ Winner",      "cv_f1": 0.814, "test_f1": 0.805, "test_auc": 0.905, "test_acc": 0.807, "color": "#E8C96A"}
+  ],
+  "regression": [
+    {"model": "Dummy (mean)",          "cv_r2": -0.001, "test_r2": -0.000, "test_mae_eur": 3321, "color": "#666666"},
+    {"model": "Ridge (α=1)",           "cv_r2":  0.513, "test_r2":  0.570, "test_mae_eur": 2337, "color": "#888888"},
+    {"model": "Decision Tree (full)",  "cv_r2":  0.382, "test_r2":  0.455, "test_mae_eur": 2163, "color": "#999999"},
+    {"model": "Random Forest",         "cv_r2":  0.571, "test_r2":  0.615, "test_mae_eur": 1943, "color": "#AAAAAA"},
+    {"model": "XGBoost (tuned)",       "cv_r2":  0.731, "test_r2":  0.724, "test_mae_eur": 1732, "color": "#C9A02C"},
+    {"model": "GradBoost ★ Winner",    "cv_r2":  0.725, "test_r2":  0.736, "test_mae_eur": 1677, "color": "#E8C96A"}
+  ],
+  "feature_importance": [
+    {"feature": "Type of Room (Deluxe up to Presidential Suite)",  "clf": 0.239, "reg": 0.442},
+    {"feature": "Is it School Holiday Season?",                    "clf": 0.120, "reg": 0.044},
+    {"feature": "How Exclusive is the Hotel? (Scale 1–3)",         "clf": 0.101, "reg": 0.133},
+    {"feature": "Time of Year — Which Month? (seasonal wave 1)",   "clf": 0.094, "reg": 0.027},
+    {"feature": "Is it a Mountain / Ski Resort?",                  "clf": 0.089, "reg": 0.068},
+    {"feature": "Time of Year — Which Month? (seasonal wave 2)",   "clf": 0.089, "reg": 0.090},
+    {"feature": "Is it a City Centre Hotel?",                      "clf": 0.080, "reg": 0.044},
+    {"feature": "How Close to Christmas? (prices surge in Dec)",   "clf": 0.072, "reg": 0.108}
+  ]
+}

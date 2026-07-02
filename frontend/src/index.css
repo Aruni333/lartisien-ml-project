@@ -1,0 +1,20 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --gold:    #c9a84c;
+  --gold-lt: #f5e6bb;
+  --dark:    #1a1a2e;
+  --mid:     #16213e;
+  --card:    #0f3460;
+  --text:    #e8e8e8;
+  --muted:   #a0a8b8;
+  --green:   #27ae60;
+  --red:     #e74c3c;
+  --border:  rgba(201,168,76,0.25);
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+body { background: var(--dark); color: var(--text); min-height: 100vh; }
+
+button { cursor: pointer; font-family: inherit; }
+select { font-family: inherit; }
