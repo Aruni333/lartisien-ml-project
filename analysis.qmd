@@ -63,7 +63,7 @@ This report documents the complete, reproducible ML pipeline built on **Lartisie
 **Dataset v2:** 1,440 rows · 24 Lartisien-verified hotels · 6 room categories · 10 sample dates per room/hotel.
 **Random seed:** `random_state=42` everywhere; `np.random.seed(42)` above.
 **Leakage:** All preprocessing inside `sklearn.Pipeline`, fitted on X_train only.
-**From proposal to v2:** the approved Phase 1 proposal (10 hotels, 600 rows) already flagged the two biggest methodological issues this project ended up solving — that `hotel_id` would be collinear with hotel attributes and dominate feature importance (solved here via `hotel_tier`, §3), and that the €3,000 threshold might be imbalanced enough to need F1/ROC-AUC over accuracy (exactly the metric choice justified in §10.1).
+**From proposal to v2:** the approved Phase 1 proposal (10 hotels, 600 rows) already flagged the two biggest methodological issues this project ended up solving — that `hotel_id` would be collinear with hotel attributes and dominate feature importance (solved here via `hotel_tier`, §3), and that the €3,000 threshold might be imbalanced enough to need F1/ROC-AUC over accuracy (exactly the metric choice justified in §5).
 
 ### Tech stack
 
@@ -131,7 +131,7 @@ print(f"Distinct resort_type spellings: {sorted(df_full['resort_type'].unique())
 
 Beyond the hotel-level outlier screen below, we checked for the usual row-level data-quality issues and found none: no exact duplicate rows, no duplicate hotel/month/room combinations, no non-positive or missing rates, no out-of-range months, and no inconsistent spelling in the categorical columns (a common issue with scraped data — e.g. "Junior suite" vs "Junior Suite" — that would silently create phantom categories in one-hot encoding). This dataset was assembled directly from published rate cards rather than scraped, which is why it doesn't show the typical messiness of raw collected data; the cleaning effort that *was* needed — the hotel-level IQR outlier screen below — is documented with its full before/after numbers.
 
-**On class imbalance:** the classification target is imbalanced (~35% Premium / 65% Standard). We did not oversample/undersample or reweight, for two reasons: (1) this imbalance is a real, meaningful feature of the business problem — most bookings genuinely aren't Premium — not a data collection artifact to correct; and (2) F1-macro (chosen as the primary metric, see §10.1) already penalizes a model that ignores the minority class, so resampling would mostly change training dynamics, not what "good" means for this task.
+**On class imbalance:** the classification target is imbalanced (~35% Premium / 65% Standard). We did not oversample/undersample or reweight, for two reasons: (1) this imbalance is a real, meaningful feature of the business problem — most bookings genuinely aren't Premium — not a data collection artifact to correct; and (2) F1-macro (chosen as the primary metric, see §5) already penalizes a model that ignores the minority class, so resampling would mostly change training dynamics, not what "good" means for this task.
 
 ### 2.2 Outlier Detection — IQR at Hotel Level
 
@@ -429,7 +429,9 @@ clf_df.style.background_gradient(subset=["Test F1","AUC"], cmap="YlGn") \
         .format({"CV F1":"{:.3f}","Test F1":"{:.3f}","AUC":"{:.3f}","Accuracy":"{:.3f}","Train-Test Gap":"{:.3f}"})
 ```
 
-**Overfitting analysis:** Decision Tree (full depth) shows Train F1=1.000 vs Test F1=0.719 — classic overfitting from an unconstrained tree that memorises training rows. GradBoost is deliberately capped at `max_depth=3` (manual regularisation); XGBoost's depth/estimators/learning-rate were chosen by the `GridSearchCV` search above. Both land in the same 0.06–0.07 gap range, far below the unconstrained Decision Tree's 0.14 — confirming the depth cap (whether hand-set or searched) is what controls the overfitting, not which boosting library is used.
+**Why F1-macro, not accuracy, is the metric that matters here.** The target is moderately imbalanced (≈35% Premium / 65% Standard). Accuracy is misleading on its own: the Dummy baseline above already scores 66% accuracy just by always predicting "Standard," while its F1-macro is only 0.356 — correctly exposing that it has zero ability to identify the minority Premium class. F1-macro averages the per-class F1 scores unweighted, so both classes have to be predicted well for the score to be high; XGBoost's Test F1-macro of 0.805 means it's genuinely good at catching *both* classes, not just riding the majority. ROC-AUC (0.905) is a useful secondary check — it says the model ranks a random Premium booking above a random Standard one 90.5% of the time — but F1-macro is what should drive the "is this good enough" decision, since it reflects performance at the actual decision threshold the app uses.
+
+**Overfitting — where it first shows up, and how we addressed it.** Decision Tree (full depth) shows Train F1=1.000 vs Test F1=0.719 — a 0.143 gap, classic overfitting from an unconstrained tree that memorises training rows. GradBoost is deliberately capped at `max_depth=3` (manual regularisation); XGBoost's depth/estimators/learning-rate were chosen by the `GridSearchCV` search above. Both land in the same 0.06–0.07 gap range, roughly a fifth of the Decision Tree's — confirming the depth cap (whether hand-set or searched) is what controls the overfitting, not which boosting library is used. That remaining 0.06–0.07 gap is also credible rather than a lucky split for a structural reason: this model only ever has to predict rates for these 24 known Lartisien Collection hotels, never an unseen brand — it only interpolates between month/room combinations for hotels already seen in training, a narrower and easier target than a general-purpose luxury-hotel model. (The regression ladder in §6 shows the same pattern; see there for the regression-specific numbers.)
 
 ```{python}
 #| label: fig-clf-chart
@@ -508,6 +510,10 @@ reg_df.columns = ["Model","CV R²","Test R²","MAE €","RMSE €","Train-Test G
 reg_df.style.background_gradient(subset=["Test R²"], cmap="YlGn") \
         .format({"CV R²":"{:.3f}","Test R²":"{:.3f}","MAE €":"{:,.0f}","RMSE €":"{:,.0f}","Train-Test Gap":"{:.3f}"})
 ```
+
+**Why MAE is the lead metric here, and what R²/RMSE add.** MAE (€1,677 for the winner) is in the same units as the thing being predicted, so it translates directly into "how far off is a typical prediction" — robust to the handful of very expensive Presidential Suite bookings in the tail, since it doesn't square the error the way RMSE does. RMSE (€2,741) being noticeably higher than MAE is itself informative: it confirms a few large misses (almost certainly the highest room tiers) pull the average up, an honest signal that top-tier predictions carry more uncertainty than MAE alone suggests. R² (0.736) is the most useful figure for comparing *across* model versions or against Dummy on one normalized 0–1 scale, but doesn't tell a traveller anything as directly actionable as "expect to be within about €1,677."
+
+**Overfitting in the regression ladder.** The same pattern as classification (§5): Decision Tree (full depth) shows Train R²≈1.0 vs Test R²=0.455 — a 0.390 gap, even larger than the classification tree's, because regression targets have more room to overfit to noise than a binary label does. GradBoost/XGBoost bring this down to 0.06–0.07 via the same `max_depth` regularisation (manual for GradBoost, `GridSearchCV`-found for XGBoost) — see §5 for why that gap is credible given the 24-hotel scope of the task.
 
 ```{python}
 #| label: fig-reg-chart
@@ -607,7 +613,7 @@ print(f"  Train-Test gap: {best_reg['gap']:.3f}  (well calibrated)")
 - RMSE of ≈€2,741 means Presidential Suite predictions (€8,000–12,000 range) carry proportionally higher uncertainty.
 - The model generalises via "How Exclusive Is the Hotel?" to similar unlisted properties, but only within the luxury segment — and only directionally: that feature carries the highest VIF in the set (6.66) and each tier is built from very few hotels (10 / 8 / 6 hotels in tiers 1/2/3), so it should not be trusted as a precise score for a brand-new property.
 - No year-over-year price inflation modelling (cross-sectional data, single rate cycle).
-- **On overfitting risk specifically:** the scope of this project narrows the risk. The task is not "predict any luxury hotel rate" — it is "predict rates for these 24 known Lartisien Collection properties, across a fixed set of room types and months." The model never has to generalise to an unseen brand or an unfamiliar hotel category; it only has to interpolate between month/room combinations for hotels it was trained on. That is a much easier generalisation target than an open-world model, and it is part of why the small train-test gaps (0.06–0.07 for the tuned ensembles) are credible rather than a sign of a lucky split.
+- Overfitting is discussed where it first shows up in the results — see §5 (classification) and §6 (regression) for the train-test gap numbers and how the 24-hotel task scope makes the remaining gap credible.
 
 ---
 
@@ -677,10 +683,4 @@ Luxury hotel nightly rates are predictable from **7 interpretable inputs** — r
 | Regression MAE | **€1,677/night** | −€1,644 |
 | Regression RMSE | **€2,741/night** | −€2,728 |
 
-Results confirmed on 288-row held-out test set; 5-fold CV scores consistent with test (no lucky split). The dominant pricing signals are: **room category** (44%), **hotel tier** (13%), **Christmas proximity** (11%), and **seasonality** (month sin/cos, ~12% combined).
-
-### 10.1 Which metric best evaluates this model
-
-**Classification — F1-macro is the right primary metric, not accuracy.** The target is moderately imbalanced (≈35% Premium / 65% Standard in this dataset). Accuracy is misleading here: the Dummy baseline already scores 66% accuracy just by always predicting "Standard," while its F1-macro is only 0.356 — correctly exposing that it has zero ability to identify the minority Premium class. F1-macro averages the per-class F1 scores unweighted, so both classes have to be predicted well for the score to be high. XGBoost's Test F1-macro of **0.805** means it is genuinely good at catching *both* Premium and Standard bookings, not just riding the majority class. ROC-AUC (**0.905**) is a useful secondary metric — it says the model ranks a randomly chosen Premium booking above a randomly chosen Standard booking 90.5% of the time, which matters if the €3,000 threshold were ever moved — but F1-macro is the metric that should drive the "is this model good enough to use" decision, because it reflects performance at the actual decision threshold advisors will use.
-
-**Regression — MAE is the most business-relevant metric, R² the most technical.** MAE (**€1,677/night**) is in the same units as the thing being predicted, so it translates directly into "how far off is a typical prediction" — the number the executive summary leads with. It is also more robust than RMSE to the handful of very expensive Presidential Suite bookings in the tail of the distribution, since it doesn't square the error. RMSE (**€2,741/night**) being noticeably higher than MAE confirms that a *few* large misses (almost certainly the highest room tiers) pull the average up — an honest signal that top-tier predictions carry more uncertainty than the MAE alone would suggest. R² (**0.736**) is the most useful metric for comparing *across* model versions or against the Dummy baseline on a single normalized 0–1 scale (73.6% of rate variance explained versus 0% for Dummy), but it does not tell a hotel advisor anything as directly actionable as "expect to be within about €1,677."
+Results confirmed on 288-row held-out test set; 5-fold CV scores consistent with test (no lucky split). The dominant pricing signals are: **room category** (44%), **hotel tier** (13%), **Christmas proximity** (11%), and **seasonality** (month sin/cos, ~12% combined). Why F1-macro and MAE were chosen as the lead metrics for each task, and how overfitting was found and addressed, are covered in §5 and §6 where those numbers first appear.
